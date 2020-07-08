@@ -1,0 +1,233 @@
+﻿@model UserViewModel
+
+<!-- HEADER ACTIONS -->
+<div class="header-actions search-bar">
+    <!-- INTERACTIVE INPUT -->
+    <div class="interactive-input dark">
+        <input type="text" id="search-main" name="search_main" placeholder="Search here for people or groups">
+        <!-- INTERACTIVE INPUT ICON WRAP -->
+        <div class="interactive-input-icon-wrap">
+            <!-- INTERACTIVE INPUT ICON -->
+            <svg class="interactive-input-icon icon-magnifying-glass">
+                <use xlink:href="#svg-magnifying-glass"></use>
+            </svg>
+            <!-- /INTERACTIVE INPUT ICON -->
+        </div>
+        <!-- /INTERACTIVE INPUT ICON WRAP -->
+        <!-- INTERACTIVE INPUT ACTION -->
+        <div class="interactive-input-action">
+            <!-- INTERACTIVE INPUT ACTION ICON -->
+            <svg class="interactive-input-action-icon icon-cross-thin">
+                <use xlink:href="#svg-cross-thin"></use>
+            </svg>
+            <!-- /INTERACTIVE INPUT ACTION ICON -->
+        </div>
+        <!-- /INTERACTIVE INPUT ACTION -->
+    </div>
+    <!-- /INTERACTIVE INPUT -->
+    <!-- DROPDOWN BOX -->
+    <div class="dropdown-box padding-bottom-small header-search-dropdown">
+        <!-- DROPDOWN BOX CATEGORY -->
+        <div class="dropdown-box-category">
+            <!-- DROPDOWN BOX CATEGORY TITLE -->
+            <p class="dropdown-box-category-title">Members</p>
+            <!-- /DROPDOWN BOX CATEGORY TITLE -->
+        </div>
+        <!-- /DROPDOWN BOX CATEGORY -->
+        <!-- DROPDOWN BOX LIST -->
+        <div class="dropdown-box-list small no-scroll">
+            <!-- DROPDOWN BOX LIST ITEM -->
+            @if (Model != null)
+            {
+                <a asp-controller="profile" asp-action="index" asp-route-id="@Model.Username">@Model.Username</a>
+
+            }
+            <!-- USER STATUS -->
+            <div class="user-status notification">
+
+                <!-- USER STATUS TITLE -->
+                <p class="user-status-title"><span class="bold">Neko Bebop</span></p>
+                <!-- /USER STATUS TITLE -->
+                <!-- USER STATUS ICON -->
+                <div class="user-status-icon">
+                    <!-- ICON FRIEND -->
+                    <svg class="icon-friend">
+                        <use xlink:href="#svg-friend"></use>
+                    </svg>
+                    <!-- /ICON FRIEND -->
+                </div>
+                <!-- /USER STATUS ICON -->
+            </div>
+            <!-- /USER STATUS -->
+            </a>
+            <!-- /DROPDOWN BOX LIST ITEM -->
+            <!-- DROPDOWN BOX LIST ITEM -->
+            @if (Model != null)
+            {
+                <a asp-controller="profile" asp-action="index" asp-route-id="@Model.Username">@Model.Username</a>
+
+            }
+            <!-- USER STATUS -->
+            <div class="user-status notification">
+
+                <!-- USER STATUS TITLE -->
+                <p class="user-status-title"><span class="bold">Tim Rogers</span></p>
+                <!-- /USER STATUS TITLE -->
+                <!-- USER STATUS ICON -->
+                <div class="user-status-icon">
+                    <!-- ICON FRIEND -->
+                    <svg class="icon-friend">
+                        <use xlink:href="#svg-friend"></use>
+                    </svg>
+                    <!-- /ICON FRIEND -->
+                </div>
+                <!-- /USER STATUS ICON -->
+            </div>
+            <!-- /USER STATUS -->
+            </a>
+            <!-- /DROPDOWN BOX LIST ITEM -->
+        </div>
+        <!-- /DROPDOWN BOX LIST -->
+        <!-- DROPDOWN BOX CATEGORY -->
+        <div class="dropdown-box-category">
+            <!-- DROPDOWN BOX CATEGORY TITLE -->
+            <p class="dropdown-box-category-title">Groups</p>
+            <!-- /DROPDOWN BOX CATEGORY TITLE -->
+        </div>
+        <!-- /DROPDOWN BOX CATEGORY -->
+        <!-- DROPDOWN BOX LIST -->
+        <div class="dropdown-box-list small no-scroll">
+            <!-- DROPDOWN BOX LIST ITEM -->
+            <a class="dropdown-box-list-item" href="group-timeline.html">
+                <!-- USER STATUS -->
+                <div class="user-status notification">
+                    <!-- USER STATUS TITLE -->
+                    <p class="user-status-title"><span class="bold">Cosplayers of the World</span></p>
+                    <!-- /USER STATUS TITLE -->
+                    <!-- USER STATUS TEXT -->
+                    <p class="user-status-text">139 üzv</p>
+                    <!-- /USER STATUS TEXT -->
+                    <!-- USER STATUS ICON -->
+                    <div class="user-status-icon">
+                        <!-- ICON GROUP -->
+                        <svg class="icon-group">
+                            <use xlink:href="#svg-group"></use>
+                        </svg>
+                        <!-- /ICON GROUP -->
+                    </div>
+                    <!-- /USER STATUS ICON -->
+                </div>
+                <!-- /USER STATUS -->
+            </a>
+            <!-- /DROPDOWN BOX LIST ITEM -->
+        </div>
+        <!-- /DROPDOWN BOX LIST -->
+    </div>
+    <!-- /DROPDOWN BOX -->
+</div>
+<!-- /HEADER ACTIONS -->
+<!-- HEADER ACTIONS -->
+<div class="header-actions">
+    @if (Model == null)
+    {
+        <a href="#">Daxil ol/Üzv ol</a>
+    }
+
+
+    @if (Model != null)
+    {
+        <!-- ACTION ITEM WRAP -->
+        <div class="action-item-wrap">
+            <!-- ACTION ITEM -->
+            <div class="action-item dark header-settings-dropdown-trigger">
+                <!-- ACTION ITEM ICON -->
+                <svg class="action-item-icon icon-settings">
+                    <use xlink:href="#svg-settings"></use>
+                </svg>
+                <!-- /ACTION ITEM ICON -->
+            </div>
+            <!-- /ACTION ITEM -->
+            <!-- DROPDOWN NAVIGATION -->
+            <div class="dropdown-navigation header-settings-dropdown">
+                <!-- DROPDOWN NAVIGATION HEADER -->
+                <div class="dropdown-navigation-header">
+                    <!-- USER STATUS -->
+                    <div class="user-status">
+                        <!-- USER STATUS AVATAR -->
+                        <!-- /USER STATUS AVATAR -->
+                        <!-- USER STATUS TITLE -->
+                        <p class="user-status-title"><span class="bold">Hi Marina!</span></p>
+                        <!-- /USER STATUS TITLE -->
+                        <!-- USER STATUS TEXT -->
+                        <a asp-controller="profile" asp-action="index" asp-route-username="@Model.Username">d/@Model.Username</a>
+                        <!-- /USER STATUS TEXT -->
+                    </div>
+                    <!-- /USER STATUS -->
+                </div>
+                <!-- /DROPDOWN NAVIGATION HEADER -->
+                <!-- DROPDOWN NAVIGATION CATEGORY -->
+                <p class="dropdown-navigation-category">My Profile</p>
+                <!-- /DROPDOWN NAVIGATION CATEGORY -->
+                <!-- DROPDOWN NAVIGATION LINK -->
+                <a class="dropdown-navigation-link" href="hub-profile-info.html">Profile Info</a>
+                <!-- /DROPDOWN NAVIGATION LINK -->
+                <!-- DROPDOWN NAVIGATION LINK -->
+                <a class="dropdown-navigation-link" href="hub-profile-social.html">Social &amp; Stream</a>
+                <!-- /DROPDOWN NAVIGATION LINK -->
+                <!-- DROPDOWN NAVIGATION LINK -->
+                <a class="dropdown-navigation-link" href="hub-profile-notifications.html">Notifications</a>
+                <!-- /DROPDOWN NAVIGATION LINK -->
+                <!-- DROPDOWN NAVIGATION LINK -->
+                <a class="dropdown-navigation-link" href="hub-profile-messages.html">Messages</a>
+                <!-- /DROPDOWN NAVIGATION LINK -->
+                <!-- DROPDOWN NAVIGATION LINK -->
+                <a class="dropdown-navigation-link" href="hub-profile-requests.html">Friend Requests</a>
+                <!-- /DROPDOWN NAVIGATION LINK -->
+                <!-- DROPDOWN NAVIGATION CATEGORY -->
+                <p class="dropdown-navigation-category">Account</p>
+                <!-- /DROPDOWN NAVIGATION CATEGORY -->
+                <!-- DROPDOWN NAVIGATION LINK -->
+                <a class="dropdown-navigation-link" href="hub-account-info.html">Account Info</a>
+                <!-- /DROPDOWN NAVIGATION LINK -->
+                <!-- DROPDOWN NAVIGATION LINK -->
+                <a class="dropdown-navigation-link" href="hub-account-password.html">Change Password</a>
+                <!-- /DROPDOWN NAVIGATION LINK -->
+                <!-- DROPDOWN NAVIGATION LINK -->
+                <a class="dropdown-navigation-link" href="hub-account-settings.html">General Settings</a>
+                <!-- /DROPDOWN NAVIGATION LINK -->
+                <!-- DROPDOWN NAVIGATION CATEGORY -->
+                <p class="dropdown-navigation-category">Groups</p>
+                <!-- /DROPDOWN NAVIGATION CATEGORY -->
+                <!-- DROPDOWN NAVIGATION LINK -->
+                <a class="dropdown-navigation-link" href="hub-group-management.html">Manage Groups</a>
+                <!-- /DROPDOWN NAVIGATION LINK -->
+                <!-- DROPDOWN NAVIGATION LINK -->
+                <a class="dropdown-navigation-link" href="hub-group-invitations.html">Invitations</a>
+                <!-- /DROPDOWN NAVIGATION LINK -->
+                <!-- DROPDOWN NAVIGATION CATEGORY -->
+                <p class="dropdown-navigation-category">My Store</p>
+                <!-- /DROPDOWN NAVIGATION CATEGORY -->
+                <!-- DROPDOWN NAVIGATION LINK -->
+                <a class="dropdown-navigation-link" href="hub-store-account.html">My Account <span class="highlighted">$250,32</span></a>
+                <!-- /DROPDOWN NAVIGATION LINK -->
+                <!-- DROPDOWN NAVIGATION LINK -->
+                <a class="dropdown-navigation-link" href="hub-store-statement.html">Sales Statement</a>
+                <!-- /DROPDOWN NAVIGATION LINK -->
+                <!-- DROPDOWN NAVIGATION LINK -->
+                <a class="dropdown-navigation-link" href="hub-store-items.html">Manage Items</a>
+                <!-- /DROPDOWN NAVIGATION LINK -->
+                <!-- DROPDOWN NAVIGATION LINK -->
+                <a class="dropdown-navigation-link" href="hub-store-downloads.html">Downloads</a>
+                <!-- /DROPDOWN NAVIGATION LINK -->
+                <!-- DROPDOWN NAVIGATION BUTTON -->
+                <p class="dropdown-navigation-button button small secondary">Logout</p>
+                <!-- /DROPDOWN NAVIGATION BUTTON -->
+            </div>
+            <!-- /DROPDOWN NAVIGATION -->
+        </div>
+        <!-- /ACTION ITEM WRAP -->
+
+    }
+</div>
+
+<!-- /HEADER ACTIONS -->

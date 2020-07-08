@@ -1,0 +1,638 @@
+﻿@model ProfileViewModel
+
+<!-- CONTENT GRID -->
+<div class="content-grid">
+    <!-- PROFILE HEADER -->
+    <div class="profile-header">
+        <!-- /PROFILE HEADER COVER -->
+        <!-- PROFILE HEADER INFO -->
+        <div class="profile-header-info">
+            <!-- USER SHORT DESCRIPTION -->
+            <div class="user-short-description big">
+                <!-- USER SHORT DESCRIPTION TITLE -->
+                <p class="user-short-description-title"><a href="profile-timeline.html">@Model.User.FullName</a></p>
+                <!-- /USER SHORT DESCRIPTION TITLE -->
+                <!-- USER SHORT DESCRIPTION TEXT -->
+                <p class="user-short-description-text"><a href="#">d/@Model.User.Username</a></p>
+                <!-- /USER SHORT DESCRIPTION TEXT -->
+            </div>
+            <!-- /USER SHORT DESCRIPTION -->
+            <!-- PROFILE HEADER SOCIAL LINKS WRAP -->
+            <div class="profile-header-social-links-wrap">
+                <!-- PROFILE HEADER SOCIAL LINKS -->
+                <div id="profile-header-social-links-slider" class="profile-header-social-links">
+                    <div class="profile-header-social-link">
+                        <!-- SOCIAL LINK -->
+                        <a class="social-link facebook" href="#">
+                            <!-- ICON FACEBOOK -->
+                            <svg class="icon-facebook">
+                                <use xlink:href="#svg-facebook"></use>
+                            </svg>
+                            <!-- /ICON FACEBOOK -->
+                        </a>
+                        <!-- /SOCIAL LINK -->
+                    </div>
+
+                    <div class="profile-header-social-link">
+                        <!-- SOCIAL LINK -->
+                        <a class="social-link twitter" href="#">
+                            <!-- ICON TWITTER -->
+                            <svg class="icon-twitter">
+                                <use xlink:href="#svg-twitter"></use>
+                            </svg>
+                            <!-- /ICON TWITTER -->
+                        </a>
+                        <!-- /SOCIAL LINK -->
+                    </div>
+
+                    <div class="profile-header-social-link">
+                        <!-- SOCIAL LINK -->
+                        <a class="social-link instagram" href="#">
+                            <!-- ICON INSTAGRAM -->
+                            <svg class="icon-instagram">
+                                <use xlink:href="#svg-instagram"></use>
+                            </svg>
+                            <!-- /ICON INSTAGRAM -->
+                        </a>
+                        <!-- /SOCIAL LINK -->
+                    </div>
+
+                    <div class="profile-header-social-link">
+                        <!-- SOCIAL LINK -->
+                        <a class="social-link twitch" href="#">
+                            <!-- ICON TWITCH -->
+                            <svg class="icon-twitch">
+                                <use xlink:href="#svg-twitch"></use>
+                            </svg>
+                            <!-- /ICON TWITCH -->
+                        </a>
+                        <!-- /SOCIAL LINK -->
+                    </div>
+
+                    <div class="profile-header-social-link">
+                        <!-- SOCIAL LINK -->
+                        <a class="social-link youtube" href="#">
+                            <!-- ICON YOUTUBE -->
+                            <svg class="icon-youtube">
+                                <use xlink:href="#svg-youtube"></use>
+                            </svg>
+                            <!-- /ICON YOUTUBE -->
+                        </a>
+                        <!-- /SOCIAL LINK -->
+                    </div>
+
+                    <div class="profile-header-social-link">
+                        <!-- SOCIAL LINK -->
+                        <a class="social-link patreon" href="#">
+                            <!-- ICON PATREON -->
+                            <svg class="icon-patreon">
+                                <use xlink:href="#svg-patreon"></use>
+                            </svg>
+                            <!-- /ICON PATREON -->
+                        </a>
+                        <!-- /SOCIAL LINK -->
+                    </div>
+
+                    <div class="profile-header-social-link">
+                        <!-- SOCIAL LINK -->
+                        <a class="social-link discord" href="#">
+                            <!-- ICON DISCORD -->
+                            <svg class="icon-discord">
+                                <use xlink:href="#svg-discord"></use>
+                            </svg>
+                            <!-- /ICON DISCORD -->
+                        </a>
+                        <!-- /SOCIAL LINK -->
+                    </div>
+                </div>
+                <!-- /PROFILE HEADER SOCIAL LINKS -->
+                <!-- SLIDER CONTROLS -->
+                <div id="profile-header-social-links-slider-controls" class="slider-controls">
+                    <!-- SLIDER CONTROL -->
+                    <div class="slider-control left">
+                        <!-- SLIDER CONTROL ICON -->
+                        <svg class="slider-control-icon icon-small-arrow">
+                            <use xlink:href="#svg-small-arrow"></use>
+                        </svg>
+                        <!-- /SLIDER CONTROL ICON -->
+                    </div>
+                    <!-- /SLIDER CONTROL -->
+                    <!-- SLIDER CONTROL -->
+                    <div class="slider-control right">
+                        <!-- SLIDER CONTROL ICON -->
+                        <svg class="slider-control-icon icon-small-arrow">
+                            <use xlink:href="#svg-small-arrow"></use>
+                        </svg>
+                        <!-- /SLIDER CONTROL ICON -->
+                    </div>
+                    <!-- /SLIDER CONTROL -->
+                </div>
+                <!-- /SLIDER CONTROLS -->
+            </div>
+            <!-- /PROFILE HEADER SOCIAL LINKS WRAP -->
+            <!-- USER STATS -->
+            <div class="user-stats">
+                <!-- USER STAT -->
+                <div class="user-stat big">
+                    <!-- USER STAT TITLE -->
+                    <p class="user-stat-title">930</p>
+                    <!-- /USER STAT TITLE -->
+                    <!-- USER STAT TEXT -->
+                    <p class="user-stat-text">Yazılar</p>
+                    <!-- /USER STAT TEXT -->
+                </div>
+                <!-- /USER STAT -->
+                <!-- USER STAT -->
+                <div class="user-stat big">
+                    <!-- USER STAT TITLE -->
+                    <p class="user-stat-title">82</p>
+                    <!-- /USER STAT TITLE -->
+                    <!-- USER STAT TEXT -->
+                    <p class="user-stat-text">Şərh</p>
+                    <!-- /USER STAT TEXT -->
+                </div>
+                <!-- /USER STAT -->
+                <!-- USER STAT -->
+                <div class="user-stat big">
+                    <!-- USER STAT TITLE -->
+                    <p class="user-stat-title">5.7k</p>
+                    <!-- /USER STAT TITLE -->
+                    <!-- USER STAT TEXT -->
+                    <p class="user-stat-text">Dada skoru</p>
+                    <!-- /USER STAT TEXT -->
+                </div>
+                <!-- /USER STAT -->
+                
+            </div>
+            <!-- /USER STATS -->
+           
+            <!-- /PROFILE HEADER INFO ACTIONS -->
+        </div>
+        <!-- /PROFILE HEADER INFO -->
+    </div>
+    <!-- /PROFILE HEADER -->
+    <!-- SECTION NAVIGATION -->
+    <nav class="section-navigation">
+        <!-- SECTION MENU -->
+        <div id="section-navigation-slider" class="section-menu">
+            <!-- SECTION MENU ITEM -->
+            <a class="section-menu-item" href="profile-about.html">
+                <!-- SECTION MENU ITEM ICON -->
+                <svg class="section-menu-item-icon icon-profile">
+                    <use xlink:href="#svg-profile"></use>
+                </svg>
+                <!-- /SECTION MENU ITEM ICON -->
+                <!-- SECTION MENU ITEM TEXT -->
+                <p class="section-menu-item-text">About</p>
+                <!-- /SECTION MENU ITEM TEXT -->
+            </a>
+            <!-- /SECTION MENU ITEM -->
+            <!-- SECTION MENU ITEM -->
+            <a class="section-menu-item active" href="profile-timeline.html">
+                <!-- SECTION MENU ITEM ICON -->
+                <svg class="section-menu-item-icon icon-timeline">
+                    <use xlink:href="#svg-timeline"></use>
+                </svg>
+                <!-- /SECTION MENU ITEM ICON -->
+                <!-- SECTION MENU ITEM TEXT -->
+                <p class="section-menu-item-text">Timeline</p>
+                <!-- /SECTION MENU ITEM TEXT -->
+            </a>
+            <!-- /SECTION MENU ITEM -->
+            <!-- SECTION MENU ITEM -->
+            <a class="section-menu-item" href="profile-friends.html">
+                <!-- SECTION MENU ITEM ICON -->
+                <svg class="section-menu-item-icon icon-friend">
+                    <use xlink:href="#svg-friend"></use>
+                </svg>
+                <!-- /SECTION MENU ITEM ICON -->
+                <!-- SECTION MENU ITEM TEXT -->
+                <p class="section-menu-item-text">Friends</p>
+                <!-- /SECTION MENU ITEM TEXT -->
+            </a>
+            <!-- /SECTION MENU ITEM -->
+            <!-- SECTION MENU ITEM -->
+            <a class="section-menu-item" href="profile-groups.html">
+                <!-- SECTION MENU ITEM ICON -->
+                <svg class="section-menu-item-icon icon-group">
+                    <use xlink:href="#svg-group"></use>
+                </svg>
+                <!-- /SECTION MENU ITEM ICON -->
+                <!-- SECTION MENU ITEM TEXT -->
+                <p class="section-menu-item-text">Groups</p>
+                <!-- /SECTION MENU ITEM TEXT -->
+            </a>
+            <!-- /SECTION MENU ITEM -->
+            <!-- SECTION MENU ITEM -->
+            <a class="section-menu-item" href="profile-photos.html">
+                <!-- SECTION MENU ITEM ICON -->
+                <svg class="section-menu-item-icon icon-photos">
+                    <use xlink:href="#svg-photos"></use>
+                </svg>
+                <!-- /SECTION MENU ITEM ICON -->
+                <!-- SECTION MENU ITEM TEXT -->
+                <p class="section-menu-item-text">Photos</p>
+                <!-- /SECTION MENU ITEM TEXT -->
+            </a>
+            <!-- /SECTION MENU ITEM -->
+            <!-- SECTION MENU ITEM -->
+            <a class="section-menu-item" href="profile-videos.html">
+                <!-- SECTION MENU ITEM ICON -->
+                <svg class="section-menu-item-icon icon-videos">
+                    <use xlink:href="#svg-videos"></use>
+                </svg>
+                <!-- /SECTION MENU ITEM ICON -->
+                <!-- SECTION MENU ITEM TEXT -->
+                <p class="section-menu-item-text">Videos</p>
+                <!-- /SECTION MENU ITEM TEXT -->
+            </a>
+            <!-- /SECTION MENU ITEM -->
+            <!-- SECTION MENU ITEM -->
+            <a class="section-menu-item" href="profile-badges.html">
+                <!-- SECTION MENU ITEM ICON -->
+                <svg class="section-menu-item-icon icon-badges">
+                    <use xlink:href="#svg-badges"></use>
+                </svg>
+                <!-- /SECTION MENU ITEM ICON -->
+                <!-- SECTION MENU ITEM TEXT -->
+                <p class="section-menu-item-text">Badges</p>
+                <!-- /SECTION MENU ITEM TEXT -->
+            </a>
+            <!-- /SECTION MENU ITEM -->
+            <!-- SECTION MENU ITEM -->
+            <a class="section-menu-item" href="profile-stream.html">
+                <!-- SECTION MENU ITEM ICON -->
+                <svg class="section-menu-item-icon icon-streams">
+                    <use xlink:href="#svg-streams"></use>
+                </svg>
+                <!-- /SECTION MENU ITEM ICON -->
+                <!-- SECTION MENU ITEM TEXT -->
+                <p class="section-menu-item-text">Streams</p>
+                <!-- /SECTION MENU ITEM TEXT -->
+            </a>
+            <!-- /SECTION MENU ITEM -->
+            <!-- SECTION MENU ITEM -->
+            <a class="section-menu-item" href="profile-blog.html">
+                <!-- SECTION MENU ITEM ICON -->
+                <svg class="section-menu-item-icon icon-blog-posts">
+                    <use xlink:href="#svg-blog-posts"></use>
+                </svg>
+                <!-- /SECTION MENU ITEM ICON -->
+                <!-- SECTION MENU ITEM TEXT -->
+                <p class="section-menu-item-text">Blog</p>
+                <!-- /SECTION MENU ITEM TEXT -->
+            </a>
+            <!-- /SECTION MENU ITEM -->
+            <!-- SECTION MENU ITEM -->
+            <a class="section-menu-item" href="profile-forum.html">
+                <!-- SECTION MENU ITEM ICON -->
+                <svg class="section-menu-item-icon icon-forum">
+                    <use xlink:href="#svg-forum"></use>
+                </svg>
+                <!-- /SECTION MENU ITEM ICON -->
+                <!-- SECTION MENU ITEM TEXT -->
+                <p class="section-menu-item-text">Forum</p>
+                <!-- /SECTION MENU ITEM TEXT -->
+            </a>
+            <!-- /SECTION MENU ITEM -->
+            <!-- SECTION MENU ITEM -->
+            <a class="section-menu-item" href="profile-store.html">
+                <!-- SECTION MENU ITEM ICON -->
+                <svg class="section-menu-item-icon icon-store">
+                    <use xlink:href="#svg-store"></use>
+                </svg>
+                <!-- /SECTION MENU ITEM ICON -->
+                <!-- SECTION MENU ITEM TEXT -->
+                <p class="section-menu-item-text">Store</p>
+                <!-- /SECTION MENU ITEM TEXT -->
+            </a>
+            <!-- /SECTION MENU ITEM -->
+        </div>
+        <!-- /SECTION MENU -->
+        <!-- SLIDER CONTROLS -->
+        <div id="section-navigation-slider-controls" class="slider-controls">
+            <!-- SLIDER CONTROL -->
+            <div class="slider-control left">
+                <!-- SLIDER CONTROL ICON -->
+                <svg class="slider-control-icon icon-small-arrow">
+                    <use xlink:href="#svg-small-arrow"></use>
+                </svg>
+                <!-- /SLIDER CONTROL ICON -->
+            </div>
+            <!-- /SLIDER CONTROL -->
+            <!-- SLIDER CONTROL -->
+            <div class="slider-control right">
+                <!-- SLIDER CONTROL ICON -->
+                <svg class="slider-control-icon icon-small-arrow">
+                    <use xlink:href="#svg-small-arrow"></use>
+                </svg>
+                <!-- /SLIDER CONTROL ICON -->
+            </div>
+            <!-- /SLIDER CONTROL -->
+        </div>
+        <!-- /SLIDER CONTROLS -->
+    </nav>
+    <!-- /SECTION NAVIGATION -->
+    <!-- GRID -->
+    <div class="grid grid-3-6-3 mobile-prefer-content">
+        <!-- GRID COLUMN -->
+        <div class="grid-column">
+            <!-- WIDGET BOX -->
+            <div class="widget-box">
+                <!-- WIDGET BOX SETTINGS -->
+                <div class="widget-box-settings">
+                    <!-- POST SETTINGS WRAP -->
+                    <div class="post-settings-wrap">
+                        <!-- POST SETTINGS -->
+                        <div class="post-settings widget-box-post-settings-dropdown-trigger">
+                            <!-- POST SETTINGS ICON -->
+                            <svg class="post-settings-icon icon-more-dots">
+                                <use xlink:href="#svg-more-dots"></use>
+                            </svg>
+                            <!-- /POST SETTINGS ICON -->
+                        </div>
+                        <!-- /POST SETTINGS -->
+                        <!-- SIMPLE DROPDOWN -->
+                        <div class="simple-dropdown widget-box-post-settings-dropdown">
+                            <!-- SIMPLE DROPDOWN LINK -->
+                            <p class="simple-dropdown-link">Widget Settings</p>
+                            <!-- /SIMPLE DROPDOWN LINK -->
+                        </div>
+                        <!-- /SIMPLE DROPDOWN -->
+                    </div>
+                    <!-- /POST SETTINGS WRAP -->
+                </div>
+                <!-- /WIDGET BOX SETTINGS -->
+                <!-- WIDGET BOX TITLE -->
+                <p class="widget-box-title">Haqqımda</p>
+                <!-- /WIDGET BOX TITLE -->
+                <!-- WIDGET BOX CONTENT -->
+                <div class="widget-box-content">
+                    <!-- PARAGRAPH -->
+                    <p class="paragraph">@Model.User.AboutMe</p>
+                    <!-- /PARAGRAPH -->
+                </div>
+                <!-- /WIDGET BOX CONTENT -->
+            </div>
+            <!-- /WIDGET BOX -->
+            
+           
+        </div>
+        <!-- /GRID COLUMN -->
+        <!-- GRID COLUMN -->
+        <div class="grid-column">
+
+            @if (Model.User.Token == ViewBag.token)
+            {
+                <!-- QUICK POST -->
+                <div class="quick-post">
+
+                    <!-- QUICK POST BODY -->
+                    <div class="quick-post-body">
+                        <!-- FORM -->
+                        <form class="form" method="post">
+                            <!-- FORM ROW -->
+                            <div class="form-row">
+                                <!-- FORM ITEM -->
+                                <div class="form-item">
+                                    <!-- QUICK POST HEADER -->
+                                    <input asp-for="@Model.Post.Title" type="text" placeholder="başlığı bura.." />
+                                    <!-- /QUICK POST HEADER -->
+                                    <!-- FORM TEXTAREA -->
+                                    <div class="form-textarea">
+                                        <textarea asp-for="@Model.Post.Text" placeholder="şərhini bura yaz.."></textarea>
+                                        <!-- FORM TEXTAREA LIMIT TEXT -->
+                                        <p class="form-textarea-limit-text">998/1000</p>
+                                        <!-- /FORM TEXTAREA LIMIT TEXT -->
+                                    </div>
+                                    <!-- /FORM TEXTAREA -->
+                                </div>
+                                <!-- /FORM ITEM -->
+                            </div>
+                            <!-- /FORM ROW -->
+                            <button type="submit" asp-action="compose" class="button small secondary">Paylaş</button>
+
+                        </form>
+                        <!-- /FORM -->
+                    </div>
+                    <!-- /QUICK POST BODY -->
+                </div>
+                <!-- /QUICK POST -->
+            }
+
+            @foreach (var item in Model.User.Posts)
+            {
+                <!-- WIDGET BOX -->
+                <div class="widget-box no-padding">
+                    <!-- WIDGET BOX SETTINGS -->
+                    <div class="widget-box-settings">
+                        <!-- POST SETTINGS WRAP -->
+                        <div class="post-settings-wrap">
+                            <!-- POST SETTINGS -->
+                            <div class="post-settings widget-box-post-settings-dropdown-trigger">
+                                <!-- POST SETTINGS ICON -->
+                                <svg class="post-settings-icon icon-more-dots">
+                                    <use xlink:href="#svg-more-dots"></use>
+                                </svg>
+                                <!-- /POST SETTINGS ICON -->
+                            </div>
+                            <!-- /POST SETTINGS -->
+                            <!-- SIMPLE DROPDOWN -->
+                            <div class="simple-dropdown widget-box-post-settings-dropdown">
+                                @if (Model.User.Token == ViewBag.token)
+                                {
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <a asp-action="deletepost" class="simple-dropdown-link highlighted text-danger"><i class="fas fa-trash-alt mr-2"></i>Sil</a>
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <a class="simple-dropdown-link"><i class="fas fa-thumbtack mr-2"></i>Profilinə sabitlə</a>
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+                                }
+                                else
+                                {
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <p class="simple-dropdown-link"><i class="fas fa-bug mr-2"></i>Şikayət et</p>
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <p class="simple-dropdown-link highlighted text-danger"><i class="fas fa-ban mr-2"></i>Blokla</p>
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+                                }
+                            </div>
+                            <!-- /SIMPLE DROPDOWN -->
+                        </div>
+                        <!-- /POST SETTINGS WRAP -->
+                    </div>
+                    <!-- /WIDGET BOX SETTINGS -->
+                    <!-- WIDGET BOX STATUS -->
+                    <div class="widget-box-status">
+                        <!-- WIDGET BOX STATUS CONTENT -->
+                        <div class="widget-box-status-content">
+                            <!-- USER STATUS -->
+                            <div class="user-status">
+                                <!-- USER STATUS TITLE -->
+                                <p class="user-status-title medium">
+                                    <a class="bold" href="profile-timeline.html">
+                                        @item.Title
+                                    </a>
+                                </p>
+                                <!-- /USER STATUS TITLE -->
+                            </div>
+                            <!-- /USER STATUS -->
+                            <!-- WIDGET BOX STATUS TEXT -->
+                            <p class="widget-box-status-text">
+                                @item.Text
+                            </p>
+                            <!-- /WIDGET BOX STATUS TEXT -->
+                            <!-- CONTENT ACTIONS -->
+                            <div class="content-actions">
+                                <!-- CONTENT ACTION -->
+                                <div class="content-action">
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE LINK -->
+                                        <i class="fab fa-fly"></i>
+                                        <!-- /META LINE LINK -->
+                                    </div>
+                                    <!-- /META LINE -->
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE TEXT -->
+                                        <i class="fas fa-chevron-down"></i>
+                                        <!-- /META LINE TEXT -->
+                                    </div>
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE TEXT -->
+                                        <i class="fas fa-share"></i>
+                                        <!-- /META LINE TEXT -->
+                                    </div>
+                                    <!-- /META LINE -->
+                                </div>
+                                <!-- /CONTENT ACTION -->
+                                <!-- CONTENT ACTION -->
+                                <div class="content-action">
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE LINK -->
+                                        <p class="meta-line-link">d/@item.User.Username</p>
+                                        <!-- /META LINE LINK -->
+                                    </div>
+                                    <div class="meta-line">
+                                        <!-- META LINE LINK -->
+                                        <p class="meta-line-link">@item.AddedDate.ToString("dd.MM.yyy")</p>
+                                        <!-- /META LINE LINK -->
+                                    </div>
+                                    <!-- /META LINE -->
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE TEXT -->
+                                        <p class="meta-line-text">45 şərh</p>
+                                        <!-- /META LINE TEXT -->
+                                    </div>
+                                    <!-- /META LINE -->
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE TEXT -->
+                                        <p class="meta-line-text">Başlığa get</p>
+                                        <!-- /META LINE TEXT -->
+                                    </div>
+                                    <!-- /META LINE -->
+                                </div>
+                                <!-- /CONTENT ACTION -->
+                            </div>
+                            <!-- /CONTENT ACTIONS -->
+                        </div>
+                        <!-- /WIDGET BOX STATUS CONTENT -->
+                    </div>
+                    <!-- /WIDGET BOX STATUS -->
+                </div>
+                <!-- /WIDGET BOX -->
+            }
+            <!-- LOADER BARS -->
+            <div class="loader-bars">
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+            </div>
+            <!-- /LOADER BARS -->
+        </div>
+        <!-- /GRID COLUMN -->
+        <!-- GRID COLUMN -->
+        <div class="grid-column">
+            <!-- WIDGET BOX -->
+            <div class="widget-box">
+                <!-- WIDGET BOX SETTINGS -->
+                <div class="widget-box-settings">
+                    <!-- POST SETTINGS WRAP -->
+                    <div class="post-settings-wrap">
+                        <!-- POST SETTINGS -->
+                        <div class="post-settings widget-box-post-settings-dropdown-trigger">
+                            <!-- POST SETTINGS ICON -->
+                            <svg class="post-settings-icon icon-more-dots">
+                                <use xlink:href="#svg-more-dots"></use>
+                            </svg>
+                            <!-- /POST SETTINGS ICON -->
+                        </div>
+                        <!-- /POST SETTINGS -->
+                        <!-- SIMPLE DROPDOWN -->
+                        <div class="simple-dropdown widget-box-post-settings-dropdown">
+                            <!-- SIMPLE DROPDOWN LINK -->
+                            <p class="simple-dropdown-link">Widget Settings</p>
+                            <!-- /SIMPLE DROPDOWN LINK -->
+                        </div>
+                        <!-- /SIMPLE DROPDOWN -->
+                    </div>
+                    <!-- /POST SETTINGS WRAP -->
+                </div>
+                <!-- /WIDGET BOX SETTINGS -->
+                <!-- WIDGET BOX TITLE -->
+                <p class="widget-box-title">Klublarım</p>
+                <!-- /WIDGET BOX TITLE -->
+                <!-- WIDGET BOX CONTENT -->
+                <div class="widget-box-content">
+                    <!-- USER STATUS LIST -->
+                    <div class="user-status-list">
+                        @foreach (var item in Model.User.GroupUsers)
+                        {
+                            <!-- USER STATUS -->
+                            <div class="user-status request-small">
+
+                                <!-- USER STATUS TITLE -->
+                                <p class="user-status-title"><a class="bold" href="group-timeline.html">@item.Group.Name</a></p>
+                                <!-- /USER STATUS TITLE -->
+                                <!-- USER STATUS TEXT -->
+                                <p class="user-status-text small">139 members</p>
+                                <!-- /USER STATUS TEXT -->
+                                <!-- ACTION REQUEST LIST -->
+                                <div class="action-request-list">
+                                    <!-- ACTION REQUEST -->
+                                    <div class="action-request accept">
+                                        <!-- ACTION REQUEST ICON -->
+                                        <svg class="action-request-icon icon-join-group">
+                                            <use xlink:href="#svg-join-group"></use>
+                                        </svg>
+                                        <!-- /ACTION REQUEST ICON -->
+                                    </div>
+                                    <!-- /ACTION REQUEST -->
+                                </div>
+                                <!-- ACTION REQUEST LIST -->
+                            </div>
+                            <!-- /USER STATUS -->
+                        }
+                    </div>
+                    <!-- /USER STATUS LIST -->
+                </div>
+                <!-- WIDGET BOX CONTENT -->
+            </div>
+            <!-- /WIDGET BOX -->
+        </div>
+        <!-- /GRID COLUMN -->
+    </div>
+    <!-- /GRID -->
+</div>
+<!-- /CONTENT GRID -->

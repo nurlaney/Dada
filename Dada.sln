@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dada", "Dada\Dada.csproj", "{BF126D29-66AF-4B7F-8784-533F273C4CC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{15DC2C6A-3168-47D2-A45C-02E387DB2B4C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF126D29-66AF-4B7F-8784-533F273C4CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF126D29-66AF-4B7F-8784-533F273C4CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF126D29-66AF-4B7F-8784-533F273C4CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF126D29-66AF-4B7F-8784-533F273C4CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15DC2C6A-3168-47D2-A45C-02E387DB2B4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15DC2C6A-3168-47D2-A45C-02E387DB2B4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15DC2C6A-3168-47D2-A45C-02E387DB2B4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15DC2C6A-3168-47D2-A45C-02E387DB2B4C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0AEE108E-41E8-4F59-A136-B29251AB69EB}
+	EndGlobalSection
+EndGlobal
