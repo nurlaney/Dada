@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository.Data;
 
 namespace Repository.Data.Migrations
 {
     [DbContext(typeof(DadaDbContext))]
-    partial class DadaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200708090910_Extras")]
+    partial class Extras
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -176,7 +178,7 @@ namespace Repository.Data.Migrations
                     b.HasOne("Repository.Models.Post", "Post")
                         .WithMany("Comments")
                         .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Repository.Models.User", "User")
@@ -191,7 +193,7 @@ namespace Repository.Data.Migrations
                     b.HasOne("Repository.Models.Group", "Group")
                         .WithMany("GroupUsers")
                         .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Repository.Models.Role", "Role")
@@ -208,7 +210,7 @@ namespace Repository.Data.Migrations
             modelBuilder.Entity("Repository.Models.Post", b =>
                 {
                     b.HasOne("Repository.Models.Group", "Group")
-                        .WithMany("Posts")
+                        .WithMany()
                         .HasForeignKey("GroupId");
 
                     b.HasOne("Repository.Models.User", "User")

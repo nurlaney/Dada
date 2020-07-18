@@ -12,6 +12,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Repository.Data;
 using Repository.Repositories.AccountRepositories;
+using Repository.Repositories.GroupRepositories;
+using Repository.Repositories.MainRepositories;
+using Repository.Repositories.PostRepositories;
 using Repository.Repositories.ProfileRepositories;
 
 namespace Dada
@@ -33,6 +36,9 @@ namespace Dada
 
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IProfileRepository, ProfileRepository>();
+            services.AddTransient<IPostRepository, PostRepository>();
+            services.AddTransient<IGroupRepository, GroupRepository>();
+            services.AddTransient<IMainRepositories, MainRepositories>();
 
             services.AddDbContext<DadaDbContext>(options =>
                   options.UseSqlServer(Configuration.GetConnectionString("Default"),

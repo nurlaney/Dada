@@ -14,6 +14,7 @@ namespace Repository.Models
         public int? GroupId { get; set; }
         public User User { get; set; }
         public Group Group { get; set; }
+        public ICollection<Comment> Comments { get; set; }
 
     }
 }

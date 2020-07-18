@@ -28,7 +28,7 @@ namespace Dada.Controllers
 
             ViewBag.token = token;
 
-            var myprofile = _profileRepository.GetUserByToken(token);
+            var myprofile = _profileRepository.GetUserByToken(token); 
 
             var profile = _profileRepository.GetUserByUserName(username);
 
@@ -66,7 +66,7 @@ namespace Dada.Controllers
                     Title = model.Post.Title,
                     Text = model.Post.Text,
                     AddedDate = DateTime.Now,
-                    UserId = myprofile.Id
+                    UserId = myprofile.Id,
                 };
 
                 _profileRepository.CreatePost(post);

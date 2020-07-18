@@ -20,6 +20,8 @@ namespace Dada.Mapping
 
 
             CreateMap<Post, PostViewModel>();
+
+            CreateMap<Comment, CommentViewModel>();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿<!-- CONTENT GRID -->
+﻿@model MainViewModel
+<!-- CONTENT GRID -->
 <div class="content-grid">
     <!-- SECTION BANNER -->
     <div class="section-banner">
@@ -50,97 +51,27 @@
                 <div class="widget-box-content">
                     <!-- POST PEEK LIST -->
                     <div class="post-peek-list">
-                        <!-- POST PEEK -->
-                        <div class="post-peek">
-                            <!-- POST PEEK TITLE -->
-                            <p class="post-peek-title">
-                                <a href="profile-post.html">
-                                    Here's the how and why did I became a full time
-                                    Gaming Streamer
-                                </a><span class="badge badge-secondary ml-2">54</span>
-                            </p>
-                            <!-- /POST PEEK TITLE -->
-                            <!-- POST PEEK TEXT -->
-                            <p class="post-peek-text">10 may 2020</p>
-                            <!-- /POST PEEK TEXT -->
-                            <!-- POST PEEK TEXT -->
-                            <a href="#" class="post-peek-text">d/yusiflinurlan</a>
-                            <!-- /POST PEEK TEXT -->
-                        </div>
-                        <!-- /POST PEEK -->
-                        <!-- POST PEEK -->
-                        <div class="post-peek">
-                            <!-- POST PEEK TITLE -->
-                            <p class="post-peek-title">
-                                <a href="profile-post.html">
-                                    Here's the how and why did I became a full time
-                                    Gaming Streamer
-                                </a><span class="badge badge-secondary ml-2">54</span>
-                            </p>
-                            <!-- /POST PEEK TITLE -->
-                            <!-- POST PEEK TEXT -->
-                            <p class="post-peek-text">10 may 2020</p>
-                            <!-- /POST PEEK TEXT -->
-                        </div>
-                        <!-- /POST PEEK -->
-                        <!-- POST PEEK -->
-                        <div class="post-peek">
-                            <!-- POST PEEK TITLE -->
-                            <p class="post-peek-title">
-                                <a href="profile-post.html">
-                                    Here's the how and why did I became a full time
-                                    Gaming Streamer
-                                </a><span class="badge badge-secondary ml-2">54</span>
-                            </p>
-                            <!-- /POST PEEK TITLE -->
-                            <!-- POST PEEK TEXT -->
-                            <p class="post-peek-text">10 may 2020</p>
-                            <!-- /POST PEEK TEXT -->
-                        </div>
-                        <!-- POST PEEK -->
-                        <div class="post-peek">
-                            <!-- POST PEEK TITLE -->
-                            <p class="post-peek-title">
-                                <a href="profile-post.html">
-                                    Here's the how and why did I became a full time
-                                    Gaming Streamer
-                                </a><span class="badge badge-secondary ml-2">54</span>
-                            </p>
-                            <!-- /POST PEEK TITLE -->
-                            <!-- POST PEEK TEXT -->
-                            <p class="post-peek-text">10 may 2020</p>
-                            <!-- /POST PEEK TEXT -->
-                        </div>
-                        <!-- POST PEEK -->
-                        <div class="post-peek">
-                            <!-- POST PEEK TITLE -->
-                            <p class="post-peek-title">
-                                <a href="profile-post.html">
-                                    Here's the how and why did I became a full time
-                                    Gaming Streamer
-                                </a><span class="badge badge-secondary ml-2">54</span>
-                            </p>
-                            <!-- /POST PEEK TITLE -->
-                            <!-- POST PEEK TEXT -->
-                            <p class="post-peek-text">10 may 2020</p>
-                            <!-- /POST PEEK TEXT -->
-                        </div>
-                        <!-- /POST PEEK -->
-                        <!-- POST PEEK -->
-                        <div class="post-peek">
-                            <!-- POST PEEK TITLE -->
-                            <p class="post-peek-title">
-                                <a href="profile-post.html">
-                                    Here's the how and why did I became a full time
-                                    Gaming Streamer
-                                </a><span class="badge badge-secondary ml-2">54</span>
-                            </p>
-                            <!-- /POST PEEK TITLE -->
-                            <!-- POST PEEK TEXT -->
-                            <p class="post-peek-text">10 may 2020</p>
-                            <!-- /POST PEEK TEXT -->
-                        </div>
-                        <!-- /POST PEEK -->
+
+                        @foreach (var item in Model.Posts)
+                        {
+                            <!-- POST PEEK -->
+                            <div class="post-peek">
+                                <!-- POST PEEK TITLE -->
+                                <p class="post-peek-title">
+                                    <a asp-controller="post" asp-action="index" asp-route-id="@item.Id">
+                                        @item.Title
+                                    </a><span class="badge badge-secondary ml-2">45</span>
+                                </p>
+                                <!-- /POST PEEK TITLE -->
+                                <!-- POST PEEK TEXT -->
+                                <p class="post-peek-text">@item.AddedDate.ToString("dd.MM.yyyy")</p>
+                                <!-- /POST PEEK TEXT -->
+                                <!-- POST PEEK TEXT -->
+                                <a href="#" class="post-peek-text">d/@item.User.Username</a>
+                                <!-- /POST PEEK TEXT -->
+                            </div>
+                            <!-- /POST PEEK -->
+                        }
                     </div>
                     <!-- /POST PEEK LIST -->
                 </div>
@@ -267,966 +198,126 @@
             </div>
             <!-- /SIMPLE TAB ITEMS -->
             <!-- merkez content hissesi -->
-            <!-- WIDGET BOX -->
-            <div class="widget-box no-padding">
-                <!-- WIDGET BOX SETTINGS -->
-                <div class="widget-box-settings">
-                    <!-- POST SETTINGS WRAP -->
-                    <div class="post-settings-wrap">
-                        <!-- POST SETTINGS -->
-                        <div class="post-settings widget-box-post-settings-dropdown-trigger">
-                            <!-- POST SETTINGS ICON -->
-                            <svg class="post-settings-icon icon-more-dots">
-                                <use xlink:href="#svg-more-dots"></use>
-                            </svg>
-                            <!-- /POST SETTINGS ICON -->
+            @foreach (var item in Model.Posts)
+            {
+                <!-- WIDGET BOX -->
+                <div class="widget-box no-padding">
+                    <!-- WIDGET BOX SETTINGS -->
+                    <div class="widget-box-settings">
+                        <!-- POST SETTINGS WRAP -->
+                        <div class="post-settings-wrap">
+                            <!-- POST SETTINGS -->
+                            <div class="post-settings widget-box-post-settings-dropdown-trigger">
+                                <!-- POST SETTINGS ICON -->
+                                <svg class="post-settings-icon icon-more-dots">
+                                    <use xlink:href="#svg-more-dots"></use>
+                                </svg>
+                                <!-- /POST SETTINGS ICON -->
+                            </div>
+                            <!-- /POST SETTINGS -->
+                            <!-- SIMPLE DROPDOWN -->
+                            <div class="simple-dropdown widget-box-post-settings-dropdown">
+                                <!-- SIMPLE DROPDOWN LINK -->
+                                <p class="simple-dropdown-link">Edit Post</p>
+                                <!-- /SIMPLE DROPDOWN LINK -->
+                                <!-- SIMPLE DROPDOWN LINK -->
+                                <p class="simple-dropdown-link">Delete Post</p>
+                                <!-- /SIMPLE DROPDOWN LINK -->
+                                <!-- SIMPLE DROPDOWN LINK -->
+                                <p class="simple-dropdown-link">Make it Featured</p>
+                                <!-- /SIMPLE DROPDOWN LINK -->
+                                <!-- SIMPLE DROPDOWN LINK -->
+                                <p class="simple-dropdown-link">Report Post</p>
+                                <!-- /SIMPLE DROPDOWN LINK -->
+                                <!-- SIMPLE DROPDOWN LINK -->
+                                <p class="simple-dropdown-link">Report Author</p>
+                                <!-- /SIMPLE DROPDOWN LINK -->
+                            </div>
+                            <!-- /SIMPLE DROPDOWN -->
                         </div>
-                        <!-- /POST SETTINGS -->
-                        <!-- SIMPLE DROPDOWN -->
-                        <div class="simple-dropdown widget-box-post-settings-dropdown">
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Edit Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Delete Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Make it Featured</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Report Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Report Author</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                        </div>
-                        <!-- /SIMPLE DROPDOWN -->
+                        <!-- /POST SETTINGS WRAP -->
                     </div>
-                    <!-- /POST SETTINGS WRAP -->
-                </div>
-                <!-- /WIDGET BOX SETTINGS -->
-                <!-- WIDGET BOX STATUS -->
-                <div class="widget-box-status">
-                    <!-- WIDGET BOX STATUS CONTENT -->
-                    <div class="widget-box-status-content">
-                        <!-- USER STATUS -->
-                        <div class="user-status">
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title medium">
-                                <a class="bold" href="profile-timeline.html">
-                                    Başlıq başlıq başlıq
-                                    başlıq başlıq
-                                </a>
+                    <!-- /WIDGET BOX SETTINGS -->
+                    <!-- WIDGET BOX STATUS -->
+                    <div class="widget-box-status">
+                        <!-- WIDGET BOX STATUS CONTENT -->
+                        <div class="widget-box-status-content">
+                            <!-- USER STATUS -->
+                            <div class="user-status">
+                                <!-- USER STATUS TITLE -->
+                                <p class="user-status-title medium">
+                                    <a class="bold" href="profile-timeline.html">
+                                        @item.Title
+                                    </a>
+                                </p>
+                                <!-- /USER STATUS TITLE -->
+                            </div>
+                            <!-- /USER STATUS -->
+                            <!-- WIDGET BOX STATUS TEXT -->
+                            <p class="widget-box-status-text">
+                               @item.Text
                             </p>
-                            <!-- /USER STATUS TITLE -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- WIDGET BOX STATUS TEXT -->
-                        <p class="widget-box-status-text">
-                            Sorry everyone, but from now on, I will only be able to edit and upload
-                            one design tutorial per month. This happens because I'm having a lot on my plate right now and recording
-                            and editing the tutorials requiere a lot of attention.
-                        </p>
-                        <!-- /WIDGET BOX STATUS TEXT -->
-                        <!-- CONTENT ACTIONS -->
-                        <div class="content-actions">
-                            <!-- CONTENT ACTION -->
-                            <div class="content-action">
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE LINK -->
-                                    <i class="fab fa-fly"></i>
-                                    <!-- /META LINE LINK -->
+                            <!-- /WIDGET BOX STATUS TEXT -->
+                            <!-- CONTENT ACTIONS -->
+                            <div class="content-actions">
+                                <!-- CONTENT ACTION -->
+                                <div class="content-action">
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE LINK -->
+                                        <i class="fab fa-fly"></i>
+                                        <!-- /META LINE LINK -->
+                                    </div>
+                                    <!-- /META LINE -->
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE TEXT -->
+                                        <i class="fas fa-chevron-down"></i>
+                                        <!-- /META LINE TEXT -->
+                                    </div>
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE TEXT -->
+                                        <i class="fas fa-share"></i>
+                                        <!-- /META LINE TEXT -->
+                                    </div>
+                                    <!-- /META LINE -->
                                 </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <i class="fas fa-chevron-down"></i>
-                                    <!-- /META LINE TEXT -->
+                                <!-- /CONTENT ACTION -->
+                                <!-- CONTENT ACTION -->
+                                <div class="content-action">
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE LINK -->
+                                        <p class="meta-line-link">d/@item.User.Username</p>
+                                        <!-- /META LINE LINK -->
+                                    </div>
+                                    <!-- /META LINE -->
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE TEXT -->
+                                        <p class="meta-line-text">45 şərh</p>
+                                        <!-- /META LINE TEXT -->
+                                    </div>
+                                    <!-- /META LINE -->
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE TEXT -->
+                                        <p class="meta-line-text">Başlığa get</p>
+                                        <!-- /META LINE TEXT -->
+                                    </div>
+                                    <!-- /META LINE -->
                                 </div>
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <i class="fas fa-share"></i>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
+                                <!-- /CONTENT ACTION -->
                             </div>
-                            <!-- /CONTENT ACTION -->
-                            <!-- CONTENT ACTION -->
-                            <div class="content-action">
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE LINK -->
-                                    <p class="meta-line-link">d/yusiflinurlan</p>
-                                    <!-- /META LINE LINK -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <p class="meta-line-text">45 şərh</p>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <p class="meta-line-text">Başlığa get</p>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                            </div>
-                            <!-- /CONTENT ACTION -->
+                            <!-- /CONTENT ACTIONS -->
                         </div>
-                        <!-- /CONTENT ACTIONS -->
+                        <!-- /WIDGET BOX STATUS CONTENT -->
                     </div>
-                    <!-- /WIDGET BOX STATUS CONTENT -->
+                    <!-- /WIDGET BOX STATUS -->
                 </div>
-                <!-- /WIDGET BOX STATUS -->
-            </div>
-            <!-- /WIDGET BOX -->
-            <!-- WIDGET BOX -->
-            <div class="widget-box no-padding">
-                <!-- WIDGET BOX SETTINGS -->
-                <div class="widget-box-settings">
-                    <!-- POST SETTINGS WRAP -->
-                    <div class="post-settings-wrap">
-                        <!-- POST SETTINGS -->
-                        <div class="post-settings widget-box-post-settings-dropdown-trigger">
-                            <!-- POST SETTINGS ICON -->
-                            <svg class="post-settings-icon icon-more-dots">
-                                <use xlink:href="#svg-more-dots"></use>
-                            </svg>
-                            <!-- /POST SETTINGS ICON -->
-                        </div>
-                        <!-- /POST SETTINGS -->
-                        <!-- SIMPLE DROPDOWN -->
-                        <div class="simple-dropdown widget-box-post-settings-dropdown">
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Edit Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Delete Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Make it Featured</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Report Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Report Author</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                        </div>
-                        <!-- /SIMPLE DROPDOWN -->
-                    </div>
-                    <!-- /POST SETTINGS WRAP -->
-                </div>
-                <!-- /WIDGET BOX SETTINGS -->
-                <!-- WIDGET BOX STATUS -->
-                <div class="widget-box-status">
-                    <!-- WIDGET BOX STATUS CONTENT -->
-                    <div class="widget-box-status-content">
-                        <!-- USER STATUS -->
-                        <div class="user-status">
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title medium">
-                                <a class="bold" href="profile-timeline.html">
-                                    Başlıq başlıq başlıq
-                                    başlıq başlıq
-                                </a>
-                            </p>
-                            <!-- /USER STATUS TITLE -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- WIDGET BOX STATUS TEXT -->
-                        <p class="widget-box-status-text">
-                            Sorry everyone, but from now on, I will only be able to edit and upload
-                            one design tutorial per month. This happens because I'm having a lot on my plate right now and recording
-                            and editing the tutorials requiere a lot of attention.
-                        </p>
-                        <!-- /WIDGET BOX STATUS TEXT -->
-                        <!-- CONTENT ACTIONS -->
-                        <div class="content-actions">
-                            <!-- CONTENT ACTION -->
-                            <div class="content-action">
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE LINK -->
-                                    <i class="fab fa-fly"></i>
-                                    <!-- /META LINE LINK -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <i class="fas fa-chevron-down"></i>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <i class="fas fa-share"></i>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                            </div>
-                            <!-- /CONTENT ACTION -->
-                            <!-- CONTENT ACTION -->
-                            <div class="content-action">
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE LINK -->
-                                    <p class="meta-line-link">d/yusiflinurlan</p>
-                                    <!-- /META LINE LINK -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <p class="meta-line-text">45 şərh</p>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <p class="meta-line-text">Başlığa get</p>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                            </div>
-                            <!-- /CONTENT ACTION -->
-                        </div>
-                        <!-- /CONTENT ACTIONS -->
-                    </div>
-                    <!-- /WIDGET BOX STATUS CONTENT -->
-                </div>
-                <!-- /WIDGET BOX STATUS -->
-            </div>
-            <!-- /WIDGET BOX -->
-            <!-- WIDGET BOX -->
-            <div class="widget-box no-padding">
-                <!-- WIDGET BOX SETTINGS -->
-                <div class="widget-box-settings">
-                    <!-- POST SETTINGS WRAP -->
-                    <div class="post-settings-wrap">
-                        <!-- POST SETTINGS -->
-                        <div class="post-settings widget-box-post-settings-dropdown-trigger">
-                            <!-- POST SETTINGS ICON -->
-                            <svg class="post-settings-icon icon-more-dots">
-                                <use xlink:href="#svg-more-dots"></use>
-                            </svg>
-                            <!-- /POST SETTINGS ICON -->
-                        </div>
-                        <!-- /POST SETTINGS -->
-                        <!-- SIMPLE DROPDOWN -->
-                        <div class="simple-dropdown widget-box-post-settings-dropdown">
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Edit Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Delete Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Make it Featured</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Report Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Report Author</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                        </div>
-                        <!-- /SIMPLE DROPDOWN -->
-                    </div>
-                    <!-- /POST SETTINGS WRAP -->
-                </div>
-                <!-- /WIDGET BOX SETTINGS -->
-                <!-- WIDGET BOX STATUS -->
-                <div class="widget-box-status">
-                    <!-- WIDGET BOX STATUS CONTENT -->
-                    <div class="widget-box-status-content">
-                        <!-- USER STATUS -->
-                        <div class="user-status">
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title medium">
-                                <a class="bold" href="profile-timeline.html">
-                                    Başlıq başlıq başlıq
-                                    başlıq başlıq
-                                </a>
-                            </p>
-                            <!-- /USER STATUS TITLE -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- WIDGET BOX STATUS TEXT -->
-                        <p class="widget-box-status-text">
-                            Sorry everyone, but from now on, I will only be able to edit and upload
-                            one design tutorial per month. This happens because I'm having a lot on my plate right now and recording
-                            and editing the tutorials requiere a lot of attention.
-                        </p>
-                        <!-- /WIDGET BOX STATUS TEXT -->
-                        <!-- CONTENT ACTIONS -->
-                        <div class="content-actions">
-                            <!-- CONTENT ACTION -->
-                            <div class="content-action">
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE LINK -->
-                                    <i class="fab fa-fly"></i>
-                                    <!-- /META LINE LINK -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <i class="fas fa-chevron-down"></i>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <i class="fas fa-share"></i>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                            </div>
-                            <!-- /CONTENT ACTION -->
-                            <!-- CONTENT ACTION -->
-                            <div class="content-action">
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE LINK -->
-                                    <p class="meta-line-link">d/yusiflinurlan</p>
-                                    <!-- /META LINE LINK -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <p class="meta-line-text">45 şərh</p>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <p class="meta-line-text">Başlığa get</p>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                            </div>
-                            <!-- /CONTENT ACTION -->
-                        </div>
-                        <!-- /CONTENT ACTIONS -->
-                    </div>
-                    <!-- /WIDGET BOX STATUS CONTENT -->
-                </div>
-                <!-- /WIDGET BOX STATUS -->
-            </div>
-            <!-- /WIDGET BOX -->
-            <!-- WIDGET BOX -->
-            <div class="widget-box no-padding">
-                <!-- WIDGET BOX SETTINGS -->
-                <div class="widget-box-settings">
-                    <!-- POST SETTINGS WRAP -->
-                    <div class="post-settings-wrap">
-                        <!-- POST SETTINGS -->
-                        <div class="post-settings widget-box-post-settings-dropdown-trigger">
-                            <!-- POST SETTINGS ICON -->
-                            <svg class="post-settings-icon icon-more-dots">
-                                <use xlink:href="#svg-more-dots"></use>
-                            </svg>
-                            <!-- /POST SETTINGS ICON -->
-                        </div>
-                        <!-- /POST SETTINGS -->
-                        <!-- SIMPLE DROPDOWN -->
-                        <div class="simple-dropdown widget-box-post-settings-dropdown">
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Edit Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Delete Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Make it Featured</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Report Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Report Author</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                        </div>
-                        <!-- /SIMPLE DROPDOWN -->
-                    </div>
-                    <!-- /POST SETTINGS WRAP -->
-                </div>
-                <!-- /WIDGET BOX SETTINGS -->
-                <!-- WIDGET BOX STATUS -->
-                <div class="widget-box-status">
-                    <!-- WIDGET BOX STATUS CONTENT -->
-                    <div class="widget-box-status-content">
-                        <!-- USER STATUS -->
-                        <div class="user-status">
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title medium">
-                                <a class="bold" href="profile-timeline.html">
-                                    Başlıq başlıq başlıq
-                                    başlıq başlıq
-                                </a>
-                            </p>
-                            <!-- /USER STATUS TITLE -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- WIDGET BOX STATUS TEXT -->
-                        <p class="widget-box-status-text">
-                            Sorry everyone, but from now on, I will only be able to edit and upload
-                            one design tutorial per month. This happens because I'm having a lot on my plate right now and recording
-                            and editing the tutorials requiere a lot of attention.
-                        </p>
-                        <!-- /WIDGET BOX STATUS TEXT -->
-                        <!-- CONTENT ACTIONS -->
-                        <div class="content-actions">
-                            <!-- CONTENT ACTION -->
-                            <div class="content-action">
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE LINK -->
-                                    <i class="fab fa-fly"></i>
-                                    <!-- /META LINE LINK -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <i class="fas fa-chevron-down"></i>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <i class="fas fa-share"></i>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                            </div>
-                            <!-- /CONTENT ACTION -->
-                            <!-- CONTENT ACTION -->
-                            <div class="content-action">
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE LINK -->
-                                    <p class="meta-line-link">d/yusiflinurlan</p>
-                                    <!-- /META LINE LINK -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <p class="meta-line-text">45 şərh</p>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <p class="meta-line-text">Başlığa get</p>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                            </div>
-                            <!-- /CONTENT ACTION -->
-                        </div>
-                        <!-- /CONTENT ACTIONS -->
-                    </div>
-                    <!-- /WIDGET BOX STATUS CONTENT -->
-                </div>
-                <!-- /WIDGET BOX STATUS -->
-            </div>
-            <!-- /WIDGET BOX -->
-            <!-- WIDGET BOX -->
-            <div class="widget-box no-padding">
-                <!-- WIDGET BOX SETTINGS -->
-                <div class="widget-box-settings">
-                    <!-- POST SETTINGS WRAP -->
-                    <div class="post-settings-wrap">
-                        <!-- POST SETTINGS -->
-                        <div class="post-settings widget-box-post-settings-dropdown-trigger">
-                            <!-- POST SETTINGS ICON -->
-                            <svg class="post-settings-icon icon-more-dots">
-                                <use xlink:href="#svg-more-dots"></use>
-                            </svg>
-                            <!-- /POST SETTINGS ICON -->
-                        </div>
-                        <!-- /POST SETTINGS -->
-                        <!-- SIMPLE DROPDOWN -->
-                        <div class="simple-dropdown widget-box-post-settings-dropdown">
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Edit Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Delete Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Make it Featured</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Report Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Report Author</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                        </div>
-                        <!-- /SIMPLE DROPDOWN -->
-                    </div>
-                    <!-- /POST SETTINGS WRAP -->
-                </div>
-                <!-- /WIDGET BOX SETTINGS -->
-                <!-- WIDGET BOX STATUS -->
-                <div class="widget-box-status">
-                    <!-- WIDGET BOX STATUS CONTENT -->
-                    <div class="widget-box-status-content">
-                        <!-- USER STATUS -->
-                        <div class="user-status">
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title medium">
-                                <a class="bold" href="profile-timeline.html">
-                                    Başlıq başlıq başlıq
-                                    başlıq başlıq
-                                </a>
-                            </p>
-                            <!-- /USER STATUS TITLE -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- WIDGET BOX STATUS TEXT -->
-                        <p class="widget-box-status-text">
-                            Sorry everyone, but from now on, I will only be able to edit and upload
-                            one design tutorial per month. This happens because I'm having a lot on my plate right now and recording
-                            and editing the tutorials requiere a lot of attention.
-                        </p>
-                        <!-- /WIDGET BOX STATUS TEXT -->
-                        <!-- CONTENT ACTIONS -->
-                        <div class="content-actions">
-                            <!-- CONTENT ACTION -->
-                            <div class="content-action">
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE LINK -->
-                                    <i class="fab fa-fly"></i>
-                                    <!-- /META LINE LINK -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <i class="fas fa-chevron-down"></i>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <i class="fas fa-share"></i>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                            </div>
-                            <!-- /CONTENT ACTION -->
-                            <!-- CONTENT ACTION -->
-                            <div class="content-action">
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE LINK -->
-                                    <p class="meta-line-link">d/yusiflinurlan</p>
-                                    <!-- /META LINE LINK -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <p class="meta-line-text">45 şərh</p>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <p class="meta-line-text">Başlığa get</p>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                            </div>
-                            <!-- /CONTENT ACTION -->
-                        </div>
-                        <!-- /CONTENT ACTIONS -->
-                    </div>
-                    <!-- /WIDGET BOX STATUS CONTENT -->
-                </div>
-                <!-- /WIDGET BOX STATUS -->
-            </div>
-            <!-- /WIDGET BOX -->
-            <!-- WIDGET BOX -->
-            <div class="widget-box no-padding">
-                <!-- WIDGET BOX SETTINGS -->
-                <div class="widget-box-settings">
-                    <!-- POST SETTINGS WRAP -->
-                    <div class="post-settings-wrap">
-                        <!-- POST SETTINGS -->
-                        <div class="post-settings widget-box-post-settings-dropdown-trigger">
-                            <!-- POST SETTINGS ICON -->
-                            <svg class="post-settings-icon icon-more-dots">
-                                <use xlink:href="#svg-more-dots"></use>
-                            </svg>
-                            <!-- /POST SETTINGS ICON -->
-                        </div>
-                        <!-- /POST SETTINGS -->
-                        <!-- SIMPLE DROPDOWN -->
-                        <div class="simple-dropdown widget-box-post-settings-dropdown">
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Edit Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Delete Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Make it Featured</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Report Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Report Author</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                        </div>
-                        <!-- /SIMPLE DROPDOWN -->
-                    </div>
-                    <!-- /POST SETTINGS WRAP -->
-                </div>
-                <!-- /WIDGET BOX SETTINGS -->
-                <!-- WIDGET BOX STATUS -->
-                <div class="widget-box-status">
-                    <!-- WIDGET BOX STATUS CONTENT -->
-                    <div class="widget-box-status-content">
-                        <!-- USER STATUS -->
-                        <div class="user-status">
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title medium">
-                                <a class="bold" href="profile-timeline.html">
-                                    Başlıq başlıq başlıq
-                                    başlıq başlıq
-                                </a>
-                            </p>
-                            <!-- /USER STATUS TITLE -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- WIDGET BOX STATUS TEXT -->
-                        <p class="widget-box-status-text">
-                            Sorry everyone, but from now on, I will only be able to edit and upload
-                            one design tutorial per month. This happens because I'm having a lot on my plate right now and recording
-                            and editing the tutorials requiere a lot of attention.
-                        </p>
-                        <!-- /WIDGET BOX STATUS TEXT -->
-                        <!-- CONTENT ACTIONS -->
-                        <div class="content-actions">
-                            <!-- CONTENT ACTION -->
-                            <div class="content-action">
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE LINK -->
-                                    <i class="fab fa-fly"></i>
-                                    <!-- /META LINE LINK -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <i class="fas fa-chevron-down"></i>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <i class="fas fa-share"></i>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                            </div>
-                            <!-- /CONTENT ACTION -->
-                            <!-- CONTENT ACTION -->
-                            <div class="content-action">
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE LINK -->
-                                    <p class="meta-line-link">d/yusiflinurlan</p>
-                                    <!-- /META LINE LINK -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <p class="meta-line-text">45 şərh</p>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <p class="meta-line-text">Başlığa get</p>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                            </div>
-                            <!-- /CONTENT ACTION -->
-                        </div>
-                        <!-- /CONTENT ACTIONS -->
-                    </div>
-                    <!-- /WIDGET BOX STATUS CONTENT -->
-                </div>
-                <!-- /WIDGET BOX STATUS -->
-            </div>
-            <!-- /WIDGET BOX -->
-            <!-- WIDGET BOX -->
-            <div class="widget-box no-padding">
-                <!-- WIDGET BOX SETTINGS -->
-                <div class="widget-box-settings">
-                    <!-- POST SETTINGS WRAP -->
-                    <div class="post-settings-wrap">
-                        <!-- POST SETTINGS -->
-                        <div class="post-settings widget-box-post-settings-dropdown-trigger">
-                            <!-- POST SETTINGS ICON -->
-                            <svg class="post-settings-icon icon-more-dots">
-                                <use xlink:href="#svg-more-dots"></use>
-                            </svg>
-                            <!-- /POST SETTINGS ICON -->
-                        </div>
-                        <!-- /POST SETTINGS -->
-                        <!-- SIMPLE DROPDOWN -->
-                        <div class="simple-dropdown widget-box-post-settings-dropdown">
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Edit Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Delete Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Make it Featured</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Report Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Report Author</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                        </div>
-                        <!-- /SIMPLE DROPDOWN -->
-                    </div>
-                    <!-- /POST SETTINGS WRAP -->
-                </div>
-                <!-- /WIDGET BOX SETTINGS -->
-                <!-- WIDGET BOX STATUS -->
-                <div class="widget-box-status">
-                    <!-- WIDGET BOX STATUS CONTENT -->
-                    <div class="widget-box-status-content">
-                        <!-- USER STATUS -->
-                        <div class="user-status">
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title medium">
-                                <a class="bold" href="profile-timeline.html">
-                                    Başlıq başlıq başlıq
-                                    başlıq başlıq
-                                </a>
-                            </p>
-                            <!-- /USER STATUS TITLE -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- WIDGET BOX STATUS TEXT -->
-                        <p class="widget-box-status-text">
-                            Sorry everyone, but from now on, I will only be able to edit and upload
-                            one design tutorial per month. This happens because I'm having a lot on my plate right now and recording
-                            and editing the tutorials requiere a lot of attention.
-                        </p>
-                        <!-- /WIDGET BOX STATUS TEXT -->
-                        <!-- CONTENT ACTIONS -->
-                        <div class="content-actions">
-                            <!-- CONTENT ACTION -->
-                            <div class="content-action">
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE LINK -->
-                                    <i class="fab fa-fly"></i>
-                                    <!-- /META LINE LINK -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <i class="fas fa-chevron-down"></i>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <i class="fas fa-share"></i>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                            </div>
-                            <!-- /CONTENT ACTION -->
-                            <!-- CONTENT ACTION -->
-                            <div class="content-action">
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE LINK -->
-                                    <p class="meta-line-link">d/yusiflinurlan</p>
-                                    <!-- /META LINE LINK -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <p class="meta-line-text">45 şərh</p>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <p class="meta-line-text">Başlığa get</p>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                            </div>
-                            <!-- /CONTENT ACTION -->
-                        </div>
-                        <!-- /CONTENT ACTIONS -->
-                    </div>
-                    <!-- /WIDGET BOX STATUS CONTENT -->
-                </div>
-                <!-- /WIDGET BOX STATUS -->
-            </div>
-            <!-- /WIDGET BOX -->
-            <!-- WIDGET BOX -->
-            <div class="widget-box no-padding">
-                <!-- WIDGET BOX SETTINGS -->
-                <div class="widget-box-settings">
-                    <!-- POST SETTINGS WRAP -->
-                    <div class="post-settings-wrap">
-                        <!-- POST SETTINGS -->
-                        <div class="post-settings widget-box-post-settings-dropdown-trigger">
-                            <!-- POST SETTINGS ICON -->
-                            <svg class="post-settings-icon icon-more-dots">
-                                <use xlink:href="#svg-more-dots"></use>
-                            </svg>
-                            <!-- /POST SETTINGS ICON -->
-                        </div>
-                        <!-- /POST SETTINGS -->
-                        <!-- SIMPLE DROPDOWN -->
-                        <div class="simple-dropdown widget-box-post-settings-dropdown">
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Edit Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Delete Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Make it Featured</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Report Post</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                            <!-- SIMPLE DROPDOWN LINK -->
-                            <p class="simple-dropdown-link">Report Author</p>
-                            <!-- /SIMPLE DROPDOWN LINK -->
-                        </div>
-                        <!-- /SIMPLE DROPDOWN -->
-                    </div>
-                    <!-- /POST SETTINGS WRAP -->
-                </div>
-                <!-- /WIDGET BOX SETTINGS -->
-                <!-- WIDGET BOX STATUS -->
-                <div class="widget-box-status">
-                    <!-- WIDGET BOX STATUS CONTENT -->
-                    <div class="widget-box-status-content">
-                        <!-- USER STATUS -->
-                        <div class="user-status">
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title medium">
-                                <a class="bold" href="profile-timeline.html">
-                                    Başlıq başlıq başlıq
-                                    başlıq başlıq
-                                </a>
-                            </p>
-                            <!-- /USER STATUS TITLE -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- WIDGET BOX STATUS TEXT -->
-                        <p class="widget-box-status-text">
-                            Sorry everyone, but from now on, I will only be able to edit and upload
-                            one design tutorial per month. This happens because I'm having a lot on my plate right now and recording
-                            and editing the tutorials requiere a lot of attention.
-                        </p>
-                        <!-- /WIDGET BOX STATUS TEXT -->
-                        <!-- CONTENT ACTIONS -->
-                        <div class="content-actions">
-                            <!-- CONTENT ACTION -->
-                            <div class="content-action">
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE LINK -->
-                                    <i class="fab fa-fly"></i>
-                                    <!-- /META LINE LINK -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <i class="fas fa-chevron-down"></i>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <i class="fas fa-share"></i>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                            </div>
-                            <!-- /CONTENT ACTION -->
-                            <!-- CONTENT ACTION -->
-                            <div class="content-action">
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE LINK -->
-                                    <p class="meta-line-link">d/yusiflinurlan</p>
-                                    <!-- /META LINE LINK -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <p class="meta-line-text">45 şərh</p>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                                <!-- META LINE -->
-                                <div class="meta-line">
-                                    <!-- META LINE TEXT -->
-                                    <p class="meta-line-text">Başlığa get</p>
-                                    <!-- /META LINE TEXT -->
-                                </div>
-                                <!-- /META LINE -->
-                            </div>
-                            <!-- /CONTENT ACTION -->
-                        </div>
-                        <!-- /CONTENT ACTIONS -->
-                    </div>
-                    <!-- /WIDGET BOX STATUS CONTENT -->
-                </div>
-                <!-- /WIDGET BOX STATUS -->
-            </div>
-            <!-- /WIDGET BOX -->
+                <!-- /WIDGET BOX -->
+            }
             <!-- LOADER BARS -->
             <div class="loader-bars">
                 <div class="loader-bar"></div>
@@ -1283,126 +374,33 @@
                     <!-- /FILTERS -->
                     <!-- USER STATUS LIST -->
                     <div class="user-status-list">
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
+                        @foreach (var item in Model.Groups)
+                        {
+                            <!-- USER STATUS -->
+                            <div class="user-status request-small">
 
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="group-timeline.html">Twitch Streamers</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">265 üzv</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-join-group">
-                                        <use xlink:href="#svg-join-group"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
+                                <!-- USER STATUS TITLE -->
+                                <p class="user-status-title"><a class="bold" asp-controller="group" asp-action="index" asp-route-id="@item.Id">k/@item.Name</a></p>
+                                <!-- /USER STATUS TITLE -->
+                                <!-- USER STATUS TEXT -->
+                                <p class="user-status-text small">265 üzv</p>
+                                <!-- /USER STATUS TEXT -->
+                                <!-- ACTION REQUEST LIST -->
+                                <div class="action-request-list">
+                                    <!-- ACTION REQUEST -->
+                                    <div class="action-request accept">
+                                        <!-- ACTION REQUEST ICON -->
+                                        <svg class="action-request-icon icon-join-group">
+                                            <use xlink:href="#svg-join-group"></use>
+                                        </svg>
+                                        <!-- /ACTION REQUEST ICON -->
+                                    </div>
+                                    <!-- /ACTION REQUEST -->
                                 </div>
-                                <!-- /ACTION REQUEST -->
+                                <!-- ACTION REQUEST LIST -->
                             </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS AVATAR -->
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="group-timeline.html">Cosplayers of the World</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">139 üzv</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-join-group">
-                                        <use xlink:href="#svg-join-group"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
-                            </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS AVATAR -->
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="group-timeline.html">Stream Designers</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">466 üzv</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-join-group">
-                                        <use xlink:href="#svg-join-group"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
-                            </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS AVATAR -->
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="group-timeline.html">Street Artists</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">951 üzv</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request decline">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-leave-group">
-                                        <use xlink:href="#svg-leave-group"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
-                            </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS AVATAR -->
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="group-timeline.html">Gaming Watchtower</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">2.365 üzv</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-join-group">
-                                        <use xlink:href="#svg-join-group"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
-                            </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
+                            <!-- /USER STATUS -->
+                        }
                     </div>
                     <!-- /USER STATUS LIST -->
                 </div>
@@ -1449,121 +447,32 @@
                     <!-- /FILTERS -->
                     <!-- USER STATUS LIST -->
                     <div class="user-status-list">
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="profile-timeline.html">Sarah Diamond</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">Dada skoru 245</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-add-friend">
-                                        <use xlink:href="#svg-add-friend"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
+                        @foreach (var item in Model.Users)
+                        {
+                            <!-- USER STATUS -->
+                            <div class="user-status request-small">
+                                <!-- USER STATUS TITLE -->
+                                <p class="user-status-title"><a class="bold" asp-controller="profile" asp-action="index" asp-route-username="@item.Username">d/@item.Username</a></p>
+                                <!-- /USER STATUS TITLE -->
+                                <!-- USER STATUS TEXT -->
+                                <p class="user-status-text small">Dada skoru 245</p>
+                                <!-- /USER STATUS TEXT -->
+                                <!-- ACTION REQUEST LIST -->
+                                <div class="action-request-list">
+                                    <!-- ACTION REQUEST -->
+                                    <div class="action-request accept">
+                                        <!-- ACTION REQUEST ICON -->
+                                        <svg class="action-request-icon icon-add-friend">
+                                            <use xlink:href="#svg-add-friend"></use>
+                                        </svg>
+                                        <!-- /ACTION REQUEST ICON -->
+                                    </div>
+                                    <!-- /ACTION REQUEST -->
                                 </div>
-                                <!-- /ACTION REQUEST -->
+                                <!-- ACTION REQUEST LIST -->
                             </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="profile-timeline.html">Nick Grissom</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">Dada skoru 301</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-add-friend">
-                                        <use xlink:href="#svg-add-friend"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
-                            </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="profile-timeline.html">Rosie Sakura</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">Dada skoru 560</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-add-friend">
-                                        <use xlink:href="#svg-add-friend"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
-                            </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="profile-timeline.html">Peter Stark</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">Dada skoru 17</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-add-friend">
-                                        <use xlink:href="#svg-add-friend"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
-                            </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="profile-timeline.html">Bearded Wonder</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">Dada skoru 96</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-add-friend">
-                                        <use xlink:href="#svg-add-friend"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
-                            </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
+                            <!-- /USER STATUS -->
+                        }
                     </div>
                     <!-- /USER STATUS LIST -->
                 </div>

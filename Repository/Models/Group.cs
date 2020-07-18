@@ -11,6 +11,7 @@ namespace Repository.Models
         public string Info { get; set; }
         public string Rules { get; set; }
         public ICollection<GroupUser> GroupUsers { get; set; }
+        public ICollection<Post> Posts { get; set; }
 
     }
 }

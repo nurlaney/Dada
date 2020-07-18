@@ -471,7 +471,7 @@
                             <div class="user-status">
                                 <!-- USER STATUS TITLE -->
                                 <p class="user-status-title medium">
-                                    <a class="bold" href="profile-timeline.html">
+                                    <a class="bold" asp-controller="post" asp-action="index" asp-route-id="@item.Id">
                                         @item.Title
                                     </a>
                                 </p>
@@ -512,6 +512,14 @@
                                 <!-- CONTENT ACTION -->
                                 <div class="content-action">
                                     <!-- META LINE -->
+                                    @if (item.GroupId != null)
+                                    {
+                                        <div class="meta-line">
+                                            <!-- META LINE LINK -->
+                                            <a asp-controller="group" asp-action="index" asp-route-id="@item.GroupId" class="meta-line-link">k/@item.Group.Name</a>
+                                            <!-- /META LINE LINK -->
+                                        </div>
+                                    }
                                     <div class="meta-line">
                                         <!-- META LINE LINK -->
                                         <p class="meta-line-link">d/@item.User.Username</p>
@@ -533,7 +541,7 @@
                                     <!-- META LINE -->
                                     <div class="meta-line">
                                         <!-- META LINE TEXT -->
-                                        <p class="meta-line-text">Başlığa get</p>
+                                        <a asp-controller="post" asp-action="index" asp-route-id="@item.Id" class="meta-line-text">Başlığa get</a>
                                         <!-- /META LINE TEXT -->
                                     </div>
                                     <!-- /META LINE -->
