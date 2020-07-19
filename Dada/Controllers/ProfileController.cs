@@ -58,6 +58,7 @@ namespace Dada.Controllers
         public IActionResult Compose(ProfileViewModel model)
         {
             var token = HttpContext.Request.Cookies["user-token"];
+
             var myprofile = _profileRepository.GetUserByToken(token);
             if (ModelState.IsValid)
             {
