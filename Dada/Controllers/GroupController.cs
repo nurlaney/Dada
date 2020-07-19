@@ -35,16 +35,25 @@ namespace Dada.Controllers
 
             var user = _profileRepository.GetUserByToken(token);
 
+            ViewBag.user = user;
+
+            ViewBag.token = token;
+
             var group = _groupRepository.GetGroupById(id);
 
-            var joined = _context.GroupUsers.Any(g => g.GroupId == group.Id && g.UserId == user.Id);
+            if(user != null)
+            {
+                var joined = _context.GroupUsers.Any(g => g.GroupId == group.Id && g.UserId == user.Id);
 
-            ViewBag.joined = joined;
+                ViewBag.joined = joined;
+
+                var groupUser = _context.GroupUsers.FirstOrDefault(g => g.GroupId == group.Id && g.UserId == user.Id);
+                ViewBag.groupuser = groupUser;
+            }
 
             var model = _mapper.Map<Group, GroupViewModel>(group);
 
-            var groupUser = _context.GroupUsers.FirstOrDefault(g => g.GroupId == group.Id && g.UserId == user.Id);
-            ViewBag.groupuser = groupUser;
+            
 
             if (model == null) return NotFound();
 

@@ -78,24 +78,26 @@
             <!-- PROFILE HEADER INFO ACTIONS -->
             <div class="profile-header-info-actions">
                 <!-- PROFILE HEADER INFO ACTION -->
-                @if (ViewBag.joined == false)
+                @if (ViewBag.user != null)
                 {
-                    <a class="profile-header-info-action button secondary" asp-action="joingroup" asp-route-id="@Model.Id">
-                        <!-- ICON JOIN GROUP -->
-                        <i class="fas fa-user-plus"style="font-size:22px; margin-top:13px;"></i>
-                        <!-- /ICON JOIN GROUP -->
-                    </a>
+                    @if (ViewBag.joined == false)
+                    {
+                        <a class="profile-header-info-action button secondary" asp-action="joingroup" asp-route-id="@Model.Id">
+                            <!-- ICON JOIN GROUP -->
+                            <i class="fas fa-user-plus" style="font-size:22px; margin-top:13px;"></i>
+                            <!-- /ICON JOIN GROUP -->
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="profile-header-info-action button bg-danger" asp-action="leavegroup" asp-route-id="@ViewBag.groupuser.Id">
+                            <!-- ICON JOIN GROUP -->
+                            <i class="fas fa-user-minus" style="font-size:22px; margin-top:13px;"></i>
+                            <!-- /ICON JOIN GROUP -->
+                        </a>
+                    }
                 }
-                else
-                {
-                    <a class="profile-header-info-action button bg-danger" asp-action="leavegroup" asp-route-id="@ViewBag.groupuser.Id">
-                        <!-- ICON JOIN GROUP -->
-                        <i class="fas fa-user-minus" style="font-size:22px; margin-top:13px;"></i>
-                        <!-- /ICON JOIN GROUP -->
-                    </a>
-                }
-                <!-- /PROFILE HEADER INFO ACTION -->
-                <!-- PROFILE HEADER INFO ACTION -->
+
                 <a class="profile-header-info-action button">
                     <!-- ICON MORE DOTS -->
                     <svg class="icon-more-dots">
@@ -421,7 +423,6 @@
                 <!-- /WIDGET BOX CONTENT -->
             </div>
             <!-- /WIDGET BOX -->
-            
             <!-- WIDGET BOX -->
             <div class="widget-box">
                 <!-- WIDGET BOX SETTINGS -->
@@ -891,7 +892,7 @@
                                 <!-- USER STATUS TITLE -->
                                 <p class="user-status-title medium">
                                     <a class="bold">
-                                       @item.Title
+                                        @item.Title
                                     </a>
                                 </p>
                                 <!-- /USER STATUS TITLE -->
