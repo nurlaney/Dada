@@ -907,20 +907,20 @@
                                 @if (item.User.Token == ViewBag.token)
                                 {
                                     <!-- SIMPLE DROPDOWN LINK -->
-                                    <a asp-action="deletepost" class="simple-dropdown-link highlighted text-danger"><i class="fas fa-trash-alt mr-2"></i>Sil</a>
+                                    <a asp-action="deletepost" class="simple-dropdown-link highlighted text-danger" style="display:block"><i class="fas fa-trash-alt mr-2"></i>Sil</a>
                                     <!-- /SIMPLE DROPDOWN LINK -->
                                 }
                                 else
                                 {
-                                    <p class="simple-dropdown-link"><i class="fas fa-bug mr-2"></i>Şikayət et</p>
+                                    <a class="simple-dropdown-link" href="#" style="display:block"><i class="fas fa-bug mr-2"></i>Şikayət et</a>
                                     <!-- /SIMPLE DROPDOWN LINK -->
                                     <!-- SIMPLE DROPDOWN LINK -->
-                                    <p class="simple-dropdown-link highlighted text-danger"><i class="fas fa-ban mr-2"></i>Blokla</p>
+                                    <a class="simple-dropdown-link highlighted text-danger"style="display:block" href="#"><i class="fas fa-ban mr-2"></i>Blokla</a>
                                     <!-- /SIMPLE DROPDOWN LINK -->
                                 }
 
                                 <!-- SIMPLE DROPDOWN LINK -->
-                                <a class="simple-dropdown-link"><i class="fas fa-thumbtack mr-2"></i>Sabitlə</a>
+                                <a class="simple-dropdown-link" style="display:block" href="#"><i class="fas fa-thumbtack mr-2"></i>Sabitlə</a>
                                 <!-- /SIMPLE DROPDOWN LINK -->
 
                             </div>
