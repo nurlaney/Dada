@@ -512,7 +512,7 @@
                                 <!-- CONTENT ACTION -->
                                 <div class="content-action">
                                     <!-- META LINE -->
-                                    @if (item.GroupId != null)
+                                    @if (item.Group != null)
                                     {
                                         <div class="meta-line">
                                             <!-- META LINE LINK -->
@@ -611,7 +611,7 @@
                             <div class="user-status request-small">
 
                                 <!-- USER STATUS TITLE -->
-                                <p class="user-status-title"><a class="bold" href="group-timeline.html">@item.Group.Name</a></p>
+                                <p class="user-status-title"><a class="bold" asp-controller="group" asp-action="index" asp-route-id="@item.GroupId">@item.Group.Name</a></p>
                                 <!-- /USER STATUS TITLE -->
                                 <!-- USER STATUS TEXT -->
                                 <p class="user-status-text small">139 members</p>

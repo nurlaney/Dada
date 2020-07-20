@@ -37,9 +37,10 @@ namespace Dada.Controllers
 
             ViewBag.user = user;
 
-            ViewBag.token = token;
-
             var group = _groupRepository.GetGroupById(id);
+
+            if (group == null) return NotFound();
+
 
             if(user != null)
             {
@@ -49,6 +50,7 @@ namespace Dada.Controllers
 
                 var groupUser = _context.GroupUsers.FirstOrDefault(g => g.GroupId == group.Id && g.UserId == user.Id);
                 ViewBag.groupuser = groupUser;
+
             }
 
             var model = _mapper.Map<Group, GroupViewModel>(group);
@@ -92,6 +94,36 @@ namespace Dada.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("index", new { id = groupuser.GroupId });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Compose(GroupViewModel model,int id)
+        {
+
+            var token = HttpContext.Request.Cookies["user-token"];
+
+            var user = _profileRepository.GetUserByToken(token);
+
+
+
+            if (ModelState.IsValid)
+            {
+                Post post = new Post
+                {
+                    Title = model.Post.Title,
+                    Text = model.Post.Text,
+                    AddedDate = DateTime.Now,
+                    GroupId = id,
+                    UserId = user.Id,
+                };
+
+                _profileRepository.CreatePost(post);
+
+                return RedirectToAction("index", new { id = id });
+            }
+
+            return View(model);
         }
 
     }

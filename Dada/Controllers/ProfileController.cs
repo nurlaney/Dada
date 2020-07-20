@@ -60,6 +60,7 @@ namespace Dada.Controllers
             var token = HttpContext.Request.Cookies["user-token"];
 
             var myprofile = _profileRepository.GetUserByToken(token);
+
             if (ModelState.IsValid)
             {
                 Post post = new Post

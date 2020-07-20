@@ -842,8 +842,47 @@
             <!-- /WIDGET BOX -->
         </div>
         <!-- /GRID COLUMN -->
+
         <!-- GRID COLUMN -->
         <div class="grid-column">
+            @if (ViewBag.user != null && ViewBag.joined != false)
+            {
+                <!-- QUICK POST -->
+                <div class="quick-post">
+
+                    <!-- QUICK POST BODY -->
+                    <div class="quick-post-body">
+                        <!-- FORM -->
+                        <form class="form" method="post">
+                            <!-- FORM ROW -->
+                            <div class="form-row">
+                                <!-- FORM ITEM -->
+                                <div class="form-item">
+                                    <!-- QUICK POST HEADER -->
+                                    <input asp-for="@Model.Post.Title" type="text" placeholder="başlığı bura.." />
+                                    <!-- /QUICK POST HEADER -->
+                                    <!-- FORM TEXTAREA -->
+                                    <div class="form-textarea">
+                                        <textarea asp-for="@Model.Post.Text" placeholder="şərhini bura yaz.."></textarea>
+                                        <!-- FORM TEXTAREA LIMIT TEXT -->
+                                        <p class="form-textarea-limit-text">998/1000</p>
+                                        <!-- /FORM TEXTAREA LIMIT TEXT -->
+                                    </div>
+                                    <!-- /FORM TEXTAREA -->
+                                </div>
+                                <!-- /FORM ITEM -->
+                            </div>
+                            <!-- /FORM ROW -->
+                            <button type="submit" asp-action="compose" asp-route-id="@Model.Id" class="button small secondary">Paylaş</button>
+
+                        </form>
+                        <!-- /FORM -->
+                    </div>
+                    <!-- /QUICK POST BODY -->
+                </div>
+                <!-- /QUICK POST -->
+            }
+
             @foreach (var item in Model.Posts)
             {
                 <!-- WIDGET BOX -->
@@ -974,6 +1013,7 @@
                 </div>
                 <!-- /WIDGET BOX -->
             }
+
             <!-- LOADER BARS -->
             <div class="loader-bars">
                 <div class="loader-bar"></div>

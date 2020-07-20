@@ -15,5 +15,6 @@ namespace Dada.Models.Account
         public string Rules { get; set; }
         public ICollection<GroupUser> GroupUsers { get; set; }
         public ICollection<PostViewModel> Posts { get; set; }
+        public PostViewModel Post { get; set; }
     }
 }
