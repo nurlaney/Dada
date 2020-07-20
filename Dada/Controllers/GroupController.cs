@@ -35,6 +35,7 @@ namespace Dada.Controllers
 
             var user = _profileRepository.GetUserByToken(token);
 
+            ViewBag.token = token;
             ViewBag.user = user;
 
             var group = _groupRepository.GetGroupById(id);
