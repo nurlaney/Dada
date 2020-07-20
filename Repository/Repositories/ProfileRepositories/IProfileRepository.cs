@@ -16,5 +16,7 @@ namespace Repository.Repositories.ProfileRepositories
         public Post GetPostByUsername(string username);
 
         public Post CreatePost(Post model);
+        public Post GetPostById(int id);
+        public Post DeletePost(Post post);
     }
 }

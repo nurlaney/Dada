@@ -25,6 +25,19 @@ namespace Repository.Repositories.ProfileRepositories
             return model;
         }
 
+        public Post DeletePost(Post post)
+        {
+            _context.Remove(post);
+            _context.SaveChanges();
+
+            return post;
+        }
+
+        public Post GetPostById(int id)
+        {
+           return _context.Posts.Include(p=>p.Comments).FirstOrDefault(p => p.Id == id);
+        }
+
         public Post GetPostByUsername(string username)
         {
             return _context.Posts.FirstOrDefault(p => p.User.Username == username);

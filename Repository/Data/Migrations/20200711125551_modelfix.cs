@@ -47,7 +47,7 @@ namespace Repository.Data.Migrations
                 column: "PostId",
                 principalTable: "Posts",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+                onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_GroupUsers_Groups_GroupId",
@@ -55,7 +55,7 @@ namespace Repository.Data.Migrations
                 column: "GroupId",
                 principalTable: "Groups",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+                onDelete: ReferentialAction.Cascade);
         }
     }
 }

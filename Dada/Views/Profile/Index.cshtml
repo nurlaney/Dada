@@ -1,5 +1,4 @@
 ﻿@model ProfileViewModel
-
 <!-- CONTENT GRID -->
 <div class="content-grid">
     <!-- PROFILE HEADER -->
@@ -162,10 +161,9 @@
                     <!-- /USER STAT TEXT -->
                 </div>
                 <!-- /USER STAT -->
-                
+
             </div>
             <!-- /USER STATS -->
-           
             <!-- /PROFILE HEADER INFO ACTIONS -->
         </div>
         <!-- /PROFILE HEADER INFO -->
@@ -375,8 +373,8 @@
                 <!-- /WIDGET BOX CONTENT -->
             </div>
             <!-- /WIDGET BOX -->
-            
-           
+
+
         </div>
         <!-- /GRID COLUMN -->
         <!-- GRID COLUMN -->
@@ -422,6 +420,8 @@
 
             @foreach (var item in Model.User.Posts)
             {
+
+
                 <!-- WIDGET BOX -->
                 <div class="widget-box no-padding">
                     <!-- WIDGET BOX SETTINGS -->
@@ -442,10 +442,14 @@
                                 @if (Model.User.Token == ViewBag.token)
                                 {
                                     <!-- SIMPLE DROPDOWN LINK -->
-                                    <a asp-action="deletepost" class="simple-dropdown-link highlighted text-danger"><i class="fas fa-trash-alt mr-2"></i>Sil</a>
+                                    <a class="simple-dropdown-link text-danger confirmd" style="display:block;"><i class="fas fa-trash mr-2"></i>Sil</a>
                                     <!-- /SIMPLE DROPDOWN LINK -->
                                     <!-- SIMPLE DROPDOWN LINK -->
-                                    <a class="simple-dropdown-link"><i class="fas fa-thumbtack mr-2"></i>Profilinə sabitlə</a>
+                                    <a class="simple-dropdown-link text-danger confirmed" asp-action="deletepost" asp-route-id="@item.Id" style="display:none;"><i class="fas fa-trash mr-2"></i>Əminsinizmi ?</a>
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <a class="simple-dropdown-link" style="display:block;"><i class="fas fa-thumbtack mr-2"></i>Profilinə sabitlə</a>
                                     <!-- /SIMPLE DROPDOWN LINK -->
                                 }
                                 else
@@ -644,3 +648,21 @@
     <!-- /GRID -->
 </div>
 <!-- /CONTENT GRID -->
+
+@section Scripts{
+
+<script>
+    $(".confirmd").click(function () {
+        $(".confirmd").removeClass("d-block").addClass("d-none");
+        $(".confirmed").removeClass("d-none").addClass("d-block");
+    });
+
+     $(".confirmed").mouseout(function () {
+        $(".confirmd").removeClass("d-none").addClass("d-block");
+        $(".confirmed").removeClass("d-block").addClass("d-none");
+    });
+
+</script>
+
+
+ }
