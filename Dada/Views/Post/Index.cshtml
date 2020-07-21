@@ -28,7 +28,7 @@
                     <!-- FORUM POST META -->
                     <div class="forum-post-meta">
                         <!-- FORUM POST TIMESTAMP -->
-                        <p class="forum-post-timestamp">April 15, 2019 at 4:05 am</p>
+                        <p class="forum-post-timestamp">@Model.AddedDate.ToString("dd/MM/yyyy")</p>
                         <!-- /FORUM POST TIMESTAMP -->
                     </div>
                     <!-- /FORUM POST META -->
@@ -78,7 +78,7 @@
                                 <div class="user-status">
                                     <!-- USER STATUS TITLE -->
                                     <p class="user-status-title medium">
-                                        <a class="bold" href="profile-timeline.html">
+                                        <a class="bold" href="#" style="font-size:20px">
                                             @Model.Title
                                         </a>
                                     </p>
@@ -178,9 +178,6 @@
                                             <!-- SIMPLE DROPDOWN LINK -->
                                             <a asp-action="deletepost" class="simple-dropdown-link highlighted text-danger"><i class="fas fa-trash-alt mr-2"></i>Sil</a>
                                             <!-- /SIMPLE DROPDOWN LINK -->
-                                            <!-- SIMPLE DROPDOWN LINK -->
-                                            <a class="simple-dropdown-link"><i class="fas fa-thumbtack mr-2"></i>Profilinə sabitlə</a>
-                                            <!-- /SIMPLE DROPDOWN LINK -->
                                         }
                                         else
                                         {
@@ -266,15 +263,15 @@
                     <!-- QUICK POST BODY -->
                     <div class="quick-post-body">
                         <!-- FORM -->
-                        <form class="form">
+                        <form class="form" method="post">
                             <!-- FORM ROW -->
                             <div class="form-row">
                                 <!-- FORM ITEM -->
                                 <div class="form-item">
                                     <!-- FORM TEXTAREA -->
                                     <div class="form-textarea">
-                                        <textarea id="forum-post-text" name="forum-post-text"
-                                                  placeholder="Hi Marina! Share your post here..."></textarea>
+                                        <textarea asp-for="Text"
+                                                  placeholder="Salam ,@ViewBag.user.Username, fikrini yazmaqda azadsan !"></textarea>
                                         <!-- FORM TEXTAREA LIMIT TEXT -->
                                         <p class="form-textarea-limit-text">998/1000</p>
                                         <!-- /FORM TEXTAREA LIMIT TEXT -->
@@ -294,22 +291,7 @@
                         <div class="quick-post-footer-actions">
                             <!-- QUICK POST FOOTER ACTION -->
                             <div class="quick-post-footer-action text-tooltip-tft-medium" data-title="Insert Photo">
-                                <!-- QUICK POST FOOTER ACTION ICON -->
-                                <svg class="quick-post-footer-action-icon icon-camera">
-                                    <use xlink:href="#svg-camera"></use>
-                                </svg>
-                                <!-- /QUICK POST FOOTER ACTION ICON -->
-                            </div>
-                            <!-- /QUICK POST FOOTER ACTION -->
-                            <!-- QUICK POST FOOTER ACTION -->
-                            <div class="quick-post-footer-action text-tooltip-tft-medium" data-title="Insert GIF">
-                                <!-- QUICK POST FOOTER ACTION ICON -->
-                                <svg class="quick-post-footer-action-icon icon-gif">
-                                    <use xlink:href="#svg-gif"></use>
-                                </svg>
-                                <!-- /QUICK POST FOOTER ACTION ICON -->
-                            </div>
-                            <!-- /QUICK POST FOOTER ACTION -->
+                               
                         </div>
                         <!-- /QUICK POST FOOTER ACTIONS -->
                         <!-- QUICK POST FOOTER ACTIONS -->
@@ -321,7 +303,7 @@
                                 <!-- /BUTTON -->
                             }
                             <!-- BUTTON -->
-                            <p class="button secondary">Post Reply</p>
+                            <button type="submit" class="button secondary">Göndər</button>
                             <!-- /BUTTON -->
                         </div>
                         <!-- /QUICK POST FOOTER ACTIONS -->
@@ -605,3 +587,4 @@
         <!-- /GRID -->
     </div>
     <!-- /CONTENT GRID -->
+</div>
