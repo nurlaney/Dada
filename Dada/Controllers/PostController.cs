@@ -32,14 +32,38 @@ namespace Dada.Controllers
             var myprofile = _profileRepository.GetUserByToken(token);
 
             ViewBag.token = token;
+
             ViewBag.user = myprofile;
 
             var post = _postRepository.GetPostById(id);
 
             var model = _mapper.Map<Post, PostViewModel>(post);
 
-
             return View(model);
+        }
+
+        public IActionResult ComposeComment(PostViewModel model, int id)
+        {
+            var token = HttpContext.Request.Cookies["user-token"];
+
+            var myprofile = _profileRepository.GetUserByToken(token);
+
+
+            if (ModelState.IsValid)
+            {
+                Comment comment = new Comment
+                {
+                    Text = model.Comment.Text,
+                    AddedDate = DateTime.Now,
+                    UserId = myprofile.Id,
+                    PostId = id
+                };
+
+                _postRepository.AddComment(comment);
+
+                return RedirectToAction("index", new { id = id });
+            }
+            return Ok(model);
         }
     }
 }

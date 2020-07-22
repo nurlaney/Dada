@@ -17,5 +17,6 @@ namespace Dada.Models.Profile
         public UserViewModel User { get; set; }
         public GroupViewModel Group { get; set; }
         public ICollection<CommentViewModel> Comments { get; set; }
+        public CommentViewModel Comment { get; set; }
     }
 }

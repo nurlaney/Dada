@@ -17,6 +17,19 @@ namespace Repository.Repositories.PostRepositories
             _context = context;
         }
 
+        public Comment AddComment(Comment comment)
+        {
+            _context.Add(comment);
+            _context.SaveChanges();
+
+            return comment;
+        }
+
+        public Comment GetCommentByPostId(int id)
+        {
+            return _context.Comments.FirstOrDefault(c => c.PostId == id);
+        }
+
         public Post GetPostById(int id)
         {
             return _context.Posts

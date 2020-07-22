@@ -1,5 +1,6 @@
 ﻿@model PostViewModel
- <!-- CONTENT GRID -->
+
+<!-- CONTENT GRID -->
 <div class="content-grid">
     <!-- SECTION BANNER -->
     <div class="section-banner">
@@ -146,7 +147,7 @@
                 <!-- /FORUM POST -->
                 @foreach (var item in Model.Comments)
                 {
-                    
+
                     <!-- FORUM POST -->
                     <div class="forum-post">
                         <!-- FORUM POST META -->
@@ -270,8 +271,7 @@
                                 <div class="form-item">
                                     <!-- FORM TEXTAREA -->
                                     <div class="form-textarea">
-                                        <textarea asp-for="Text"
-                                                  placeholder="Salam ,@ViewBag.user.Username, fikrini yazmaqda azadsan !"></textarea>
+                                        <textarea asp-for="@Model.Comment.Text"  placeholder="Salam ,@ViewBag.user.Username, fikrini yazmaqda azadsan !"></textarea>
                                         <!-- FORM TEXTAREA LIMIT TEXT -->
                                         <p class="form-textarea-limit-text">998/1000</p>
                                         <!-- /FORM TEXTAREA LIMIT TEXT -->
@@ -281,39 +281,43 @@
                                 <!-- /FORM ITEM -->
                             </div>
                             <!-- /FORM ROW -->
+                            <!-- QUICK POST FOOTER -->
+                            <div class="quick-post-footer">
+                                <!-- QUICK POST FOOTER ACTIONS -->
+                                <div class="quick-post-footer-actions">
+                                    <!-- QUICK POST FOOTER ACTION -->
+                                    <div class="quick-post-footer-action text-tooltip-tft-medium" data-title="Insert Photo">
+
+                                    </div>
+                                    <!-- /QUICK POST FOOTER ACTIONS -->
+                                    <!-- QUICK POST FOOTER ACTIONS -->
+                                    <div class="quick-post-footer-actions">
+                                        @if (Model.GroupId != null)
+                                        {
+                                            <!-- BUTTON -->
+                                            <p class="button void">k/@Model.Group.Name</p>
+                                            <!-- /BUTTON -->
+                                        }
+                                        <!-- BUTTON -->
+                                        <button type="submit" asp-action="composecomment" asp-route-id="@Model.Id" class="button secondary">Göndər</button>
+                                        <!-- /BUTTON -->
+                                    </div>
+                                    <!-- /QUICK POST FOOTER ACTIONS -->
+                                </div>
+                                <!-- /QUICK POST FOOTER -->
+                            </div>
+                            <!-- /QUICK POST -->
                         </form>
                         <!-- /FORM -->
                     </div>
                     <!-- /QUICK POST BODY -->
-                    <!-- QUICK POST FOOTER -->
-                    <div class="quick-post-footer">
-                        <!-- QUICK POST FOOTER ACTIONS -->
-                        <div class="quick-post-footer-actions">
-                            <!-- QUICK POST FOOTER ACTION -->
-                            <div class="quick-post-footer-action text-tooltip-tft-medium" data-title="Insert Photo">
-                               
-                        </div>
-                        <!-- /QUICK POST FOOTER ACTIONS -->
-                        <!-- QUICK POST FOOTER ACTIONS -->
-                        <div class="quick-post-footer-actions">
-                            @if (Model.GroupId != null)
-                            {
-                                <!-- BUTTON -->
-                                <p class="button void">k/@Model.Group.Name</p>
-                                <!-- /BUTTON -->
-                            }
-                            <!-- BUTTON -->
-                            <button type="submit" class="button secondary">Göndər</button>
-                            <!-- /BUTTON -->
-                        </div>
-                        <!-- /QUICK POST FOOTER ACTIONS -->
-                    </div>
-                    <!-- /QUICK POST FOOTER -->
+                    
                 </div>
-                <!-- /QUICK POST -->
+                <!-- /FORUM CONTENT -->
             </div>
-            <!-- /FORUM CONTENT -->
+            <!-- /GRID -->
         </div>
+
         <!-- FORUM SIDEBAR -->
         <div class="forum-sidebar grid-column">
             <!-- WIDGET BOX -->
@@ -584,7 +588,5 @@
             <!-- /WIDGET BOX -->
         </div>
         <!-- /FORUM SIDEBAR -->
-        <!-- /GRID -->
+        <!-- /CONTENT GRID -->
     </div>
-    <!-- /CONTENT GRID -->
-</div>
