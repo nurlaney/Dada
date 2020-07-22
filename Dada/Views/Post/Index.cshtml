@@ -1,5 +1,4 @@
 ﻿@model PostViewModel
-
 <!-- CONTENT GRID -->
 <div class="content-grid">
     <!-- SECTION BANNER -->
@@ -177,7 +176,10 @@
                                         @if (item.User.Token == ViewBag.token)
                                         {
                                             <!-- SIMPLE DROPDOWN LINK -->
-                                            <a asp-action="deletepost" class="simple-dropdown-link highlighted text-danger"><i class="fas fa-trash-alt mr-2"></i>Sil</a>
+                                            <a class="simple-dropdown-link highlighted text-danger confirmd d-block"><i class="fas fa-trash-alt mr-2"></i>Sil</a>
+                                            <!-- /SIMPLE DROPDOWN LINK -->
+                                            <!-- SIMPLE DROPDOWN LINK -->
+                                            <a asp-action="deletecomment" asp-route-id="@item.Id" class="simple-dropdown-link highlighted text-danger d-none confirmed"><i class="fas fa-trash-alt mr-2"></i>Əminsinizmi ?</a>
                                             <!-- /SIMPLE DROPDOWN LINK -->
                                         }
                                         else
@@ -271,7 +273,7 @@
                                 <div class="form-item">
                                     <!-- FORM TEXTAREA -->
                                     <div class="form-textarea">
-                                        <textarea asp-for="@Model.Comment.Text"  placeholder="Salam ,@ViewBag.user.Username, fikrini yazmaqda azadsan !"></textarea>
+                                        <textarea asp-for="@Model.Comment.Text" placeholder="Salam ,@ViewBag.user.Username, fikrini yazmaqda azadsan !"></textarea>
                                         <!-- FORM TEXTAREA LIMIT TEXT -->
                                         <p class="form-textarea-limit-text">998/1000</p>
                                         <!-- /FORM TEXTAREA LIMIT TEXT -->
@@ -311,7 +313,7 @@
                         <!-- /FORM -->
                     </div>
                     <!-- /QUICK POST BODY -->
-                    
+
                 </div>
                 <!-- /FORUM CONTENT -->
             </div>
@@ -590,3 +592,21 @@
         <!-- /FORUM SIDEBAR -->
         <!-- /CONTENT GRID -->
     </div>
+</div>
+@section Scripts{
+
+    <script>
+    $(".confirmd").click(function () {
+        $(".confirmd").removeClass("d-block").addClass("d-none");
+        $(".confirmed").removeClass("d-none").addClass("d-block");
+    });
+
+     $(".confirmed").mouseout(function () {
+        $(".confirmd").removeClass("d-none").addClass("d-block");
+        $(".confirmed").removeClass("d-block").addClass("d-none");
+    });
+
+    </script>
+
+
+}

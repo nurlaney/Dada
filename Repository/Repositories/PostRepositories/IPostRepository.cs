@@ -9,9 +9,11 @@ namespace Repository.Repositories.PostRepositories
     {
         public Post GetPostById(int id);
 
-        public Comment GetCommentByPostId(int id);
+        public Comment GetCommentById(int id);
 
         public Comment AddComment(Comment comment);
+
+        public Comment DeleteComment(Comment comment);
         
     }
 }

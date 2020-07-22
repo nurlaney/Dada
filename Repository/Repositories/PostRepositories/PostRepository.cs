@@ -25,9 +25,17 @@ namespace Repository.Repositories.PostRepositories
             return comment;
         }
 
-        public Comment GetCommentByPostId(int id)
+        public Comment DeleteComment(Comment comment)
         {
-            return _context.Comments.FirstOrDefault(c => c.PostId == id);
+            _context.Remove(comment);
+            _context.SaveChanges();
+
+            return comment;
+        }
+
+        public Comment GetCommentById(int id)
+        {
+            return _context.Comments.FirstOrDefault(c => c.Id == id);
         }
 
         public Post GetPostById(int id)

@@ -289,7 +289,7 @@
                                     <!-- META LINE -->
                                     <div class="meta-line">
                                         <!-- META LINE LINK -->
-                                        <p class="meta-line-link">d/@item.User.Username</p>
+                                        <a class="meta-line-text" asp-controller="profile" asp-action="index" asp-route-username="@item.User.Username">d/@item.User.Username</a>
                                         <!-- /META LINE LINK -->
                                     </div>
                                     <!-- /META LINE -->
@@ -303,7 +303,7 @@
                                     <!-- META LINE -->
                                     <div class="meta-line">
                                         <!-- META LINE TEXT -->
-                                        <p class="meta-line-text">Başlığa get</p>
+                                        <a asp-controller="post" asp-action="index" asp-route-id="@item.Id" class="meta-line-text">Başlığa get</a>
                                         <!-- /META LINE TEXT -->
                                     </div>
                                     <!-- /META LINE -->

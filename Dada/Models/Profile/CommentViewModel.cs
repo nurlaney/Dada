@@ -7,6 +7,7 @@ namespace Dada.Models.Profile
 {
     public class CommentViewModel
     {
+        public int Id { get; set; }
         public string Text { get; set; }
         public DateTime AddedDate { get; set; }
         public int UserId { get; set; }

@@ -65,5 +65,21 @@ namespace Dada.Controllers
             }
             return Ok(model);
         }
+
+        public IActionResult DeleteComment(int id)
+        {
+            var token = HttpContext.Request.Cookies["user-token"];
+
+            var myprofile = _profileRepository.GetUserByToken(token);
+
+            var comment = _postRepository.GetCommentById(id);
+
+            if (myprofile.Token == token)
+            {
+                _postRepository.DeleteComment(comment);
+            }
+
+            return RedirectToAction("index", new { id = comment.PostId });
+        }
     }
 }
