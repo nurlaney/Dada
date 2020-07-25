@@ -254,68 +254,76 @@
                     </div>
                     <!-- /FORUM POST -->
                 }
-                <!-- QUICK POST -->
-                <div class="quick-post medium">
-                    <!-- QUICK POST HEADER -->
-                    <div class="quick-post-header">
-                        <!-- QUICK POST HEADER TITLE -->
-                        <p class="quick-post-header-title">Yaz</p>
-                        <!-- /QUICK POST HEADER TITLE -->
-                    </div>
-                    <!-- /QUICK POST HEADER -->
-                    <!-- QUICK POST BODY -->
-                    <div class="quick-post-body">
-                        <!-- FORM -->
-                        <form class="form" method="post">
-                            <!-- FORM ROW -->
-                            <div class="form-row">
-                                <!-- FORM ITEM -->
-                                <div class="form-item">
-                                    <!-- FORM TEXTAREA -->
-                                    <div class="form-textarea">
-                                        <textarea asp-for="@Model.Comment.Text" placeholder="Salam ,@ViewBag.user.Username, fikrini yazmaqda azadsan !"></textarea>
-                                        <!-- FORM TEXTAREA LIMIT TEXT -->
-                                        <p class="form-textarea-limit-text">998/1000</p>
-                                        <!-- /FORM TEXTAREA LIMIT TEXT -->
-                                    </div>
-                                    <!-- /FORM TEXTAREA -->
-                                </div>
-                                <!-- /FORM ITEM -->
-                            </div>
-                            <!-- /FORM ROW -->
-                            <!-- QUICK POST FOOTER -->
-                            <div class="quick-post-footer">
-                                <!-- QUICK POST FOOTER ACTIONS -->
-                                <div class="quick-post-footer-actions">
-                                    <!-- QUICK POST FOOTER ACTION -->
-                                    <div class="quick-post-footer-action text-tooltip-tft-medium" data-title="Insert Photo">
+                @if (ViewBag.user != null)
+                {
 
+                    <!-- QUICK POST -->
+                    <div class="quick-post medium">
+                        <!-- QUICK POST HEADER -->
+                        <div class="quick-post-header">
+                            <!-- QUICK POST HEADER TITLE -->
+                            <p class="quick-post-header-title">Yaz</p>
+                            <!-- /QUICK POST HEADER TITLE -->
+                        </div>
+                        <!-- /QUICK POST HEADER -->
+                        <!-- QUICK POST BODY -->
+                        <div class="quick-post-body">
+                            <!-- FORM -->
+                            <form class="form" method="post">
+                                <!-- FORM ROW -->
+                                <div class="form-row">
+                                    <!-- FORM ITEM -->
+                                    <div class="form-item">
+                                        <!-- FORM TEXTAREA -->
+                                        <div class="form-textarea">
+                                            <textarea asp-for="@Model.Comment.Text" placeholder="Salam ,@ViewBag.user.Username, fikrini yazmaqda azadsan !"></textarea>
+                                            <!-- FORM TEXTAREA LIMIT TEXT -->
+                                            <p class="form-textarea-limit-text">998/1000</p>
+                                            <!-- /FORM TEXTAREA LIMIT TEXT -->
+                                        </div>
+                                        <!-- /FORM TEXTAREA -->
                                     </div>
-                                    <!-- /QUICK POST FOOTER ACTIONS -->
+                                    <!-- /FORM ITEM -->
+                                </div>
+                                <!-- /FORM ROW -->
+                                <!-- QUICK POST FOOTER -->
+                                <div class="quick-post-footer">
                                     <!-- QUICK POST FOOTER ACTIONS -->
                                     <div class="quick-post-footer-actions">
-                                        @if (Model.GroupId != null)
-                                        {
-                                            <!-- BUTTON -->
-                                            <p class="button void">k/@Model.Group.Name</p>
-                                            <!-- /BUTTON -->
-                                        }
-                                        <!-- BUTTON -->
-                                        <button type="submit" asp-action="composecomment" asp-route-id="@Model.Id" class="button secondary">Göndər</button>
-                                        <!-- /BUTTON -->
-                                    </div>
-                                    <!-- /QUICK POST FOOTER ACTIONS -->
-                                </div>
-                                <!-- /QUICK POST FOOTER -->
-                            </div>
-                            <!-- /QUICK POST -->
-                        </form>
-                        <!-- /FORM -->
-                    </div>
-                    <!-- /QUICK POST BODY -->
+                                        <!-- QUICK POST FOOTER ACTION -->
+                                        <div class="quick-post-footer-action text-tooltip-tft-medium" data-title="Insert Photo">
 
-                </div>
-                <!-- /FORUM CONTENT -->
+                                        </div>
+                                        <!-- /QUICK POST FOOTER ACTIONS -->
+                                        <!-- QUICK POST FOOTER ACTIONS -->
+                                        <div class="quick-post-footer-actions">
+                                            @if (Model.GroupId != null)
+                                            {
+                                                <!-- BUTTON -->
+                                                <p class="button void">k/@Model.Group.Name</p>
+                                                <!-- /BUTTON -->
+                                            }
+                                            <!-- BUTTON -->
+                                            <button type="submit" asp-action="composecomment" asp-route-id="@Model.Id" class="button secondary">Göndər</button>
+                                            <!-- /BUTTON -->
+                                        </div>
+                                        <!-- /QUICK POST FOOTER ACTIONS -->
+                                    </div>
+                                    <!-- /QUICK POST FOOTER -->
+                                </div>
+                                <!-- /QUICK POST -->
+                            </form>
+                            <!-- /FORM -->
+                        </div>
+                        <!-- /QUICK POST BODY -->
+
+                    </div>
+                    <!-- /FORUM CONTENT -->
+                }
+                else
+                {
+                    <a class="btn btn-warning mt-5 d-block" style="font-size:16px;" asp-controller="auth" asp-action="index">fikrini paylaşmaq üçün Qeydiyyatdan keç / Daxil ol</a>
+                }
             </div>
             <!-- /GRID -->
         </div>

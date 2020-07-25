@@ -20,12 +20,15 @@ namespace Dada.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IMainRepositories _mainRepositories;
+        private readonly IProfileRepository _profileRepository;
 
         public HomeController(IMapper mapper,
-                              IMainRepositories mainRepositories)
+                              IMainRepositories mainRepositories,
+                              IProfileRepository profileRepository)
         {
             _mapper = mapper;
             _mainRepositories = mainRepositories;
+            _profileRepository = profileRepository;
         }
 
         public IActionResult Index()
@@ -34,6 +37,10 @@ namespace Dada.Controllers
             var groups = _mainRepositories.GetGroups();
             var users = _mainRepositories.GetUsers();
             var token = HttpContext.Request.Cookies["user-token"];
+
+            var myprofile = _profileRepository.GetUserByToken(token);
+
+            ViewBag.user = myprofile;
 
             ViewBag.token = token;
 

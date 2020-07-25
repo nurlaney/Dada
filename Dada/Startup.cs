@@ -32,6 +32,7 @@ namespace Dada
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Startup));
+            services.AddSignalR();
 
 
             services.AddTransient<IUserRepository, UserRepository>();
@@ -71,6 +72,7 @@ namespace Dada
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
             });
         }
     }
