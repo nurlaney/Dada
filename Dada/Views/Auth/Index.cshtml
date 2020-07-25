@@ -2,29 +2,14 @@
 <div class="vhole">
     <div class="login-page">
         <div class="form">
-            <form method="post" class="register-form">
-                <input type="text" placeholder="name" />
-                <input type="text" placeholder="email address" />
-                <input type="password" placeholder="password" />
-                <input type="password" placeholder="password confirm" />
-                <button type="submit">create</button>
-                <p class="message">Already registered? <a href="#">Sign In</a></p>
-            </form>
             <form class="login-form" method="post">
-                <input asp-for="Email" type="text" placeholder="username" />
-                <input asp-for="Password" type="password" placeholder="password" />
-                <button type="submit" asp-action="login">login</button>
-                <p class="message">Not registered? <a href="#">Create an account</a></p>
+                <span asp-validation-for="Username" class="text-danger" style="font-size:13px"></span>
+                <input asp-for="Username" type="text" placeholder="istifadəçi adı" />
+                <span asp-validation-for="Password" class="text-danger" style="font-size:13px"></span>
+                <input asp-for="Password" type="password" placeholder="şifrə" />
+                <button type="submit" asp-action="login">Daxil ol</button>
+                <p class="message">Üzv deyilsən ? <a class="text-info" asp-action="register">Qeydiyyatdan keç</a></p>
             </form>
         </div>
     </div>
 </div>
-
-@section Scripts{ 
-    <script>
-
-        $('.message a').click(function () {
-            $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
-        });
-    </script>
-}

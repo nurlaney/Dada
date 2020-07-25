@@ -21,9 +21,19 @@ namespace Repository.Repositories.AccountRepositories
             return _context.Users.FirstOrDefault(a => a.Token == token);
         }
 
-        public User Login(string email, string password)
+        public bool CheckEmail(string email)
         {
-            User user = _context.Users.FirstOrDefault(a => a.Email == email);
+            return _context.Users.Any(u => u.Email == email);
+        }
+
+        public bool CheckUserName(string username)
+        {
+            return _context.Users.Any(u => u.Username == username);
+        }
+
+        public User Login(string username, string password)
+        {
+            User user = _context.Users.FirstOrDefault(a => a.Username == username);
 
             if (user != null && CryptoHelper.Crypto.VerifyHashedPassword(user.Password, password))
             {
@@ -31,6 +41,16 @@ namespace Repository.Repositories.AccountRepositories
             }
 
             return null;
+        }
+
+        public User Register(User user)
+        {
+            user.Password = CryptoHelper.Crypto.HashPassword(user.Password);
+
+            _context.Add(user);
+            _context.SaveChanges();
+
+            return user;
         }
 
         public void UpdateToken(int id, string token)
@@ -42,9 +62,9 @@ namespace Repository.Repositories.AccountRepositories
             _context.SaveChanges();
         }
 
-        public bool UserExsist(string email)
+        public bool UserExsist(string username)
         {
-            return _context.Users.Any(a => a.Email == email);
+            return _context.Users.Any(a => a.Username == username);
         }
     }
 }

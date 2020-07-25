@@ -150,3 +150,4 @@ C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Dada.pdb
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Post\Index.cshtml.g.cs
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Group\Index.cshtml.g.cs
 C:\Users\DostTech\source\repos\Dada\Dada\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Auth\Register.cshtml.g.cs

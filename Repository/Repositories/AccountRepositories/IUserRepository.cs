@@ -7,9 +7,12 @@ namespace Repository.Repositories.AccountRepositories
 {
    public interface IUserRepository
     {
-        User Login(string email, string password);
-        bool UserExsist(string email);
+        User Login(string username, string password);
+        bool UserExsist(string username);
         User CheckByToken(string token);
         void UpdateToken(int id, string token);
+        public bool CheckEmail(string email);
+        public bool CheckUserName(string username);
+        public User Register(User user);
     }
 }

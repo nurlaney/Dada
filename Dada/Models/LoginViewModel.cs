@@ -11,10 +11,11 @@ namespace Dada.Models
         [Required]
         [MaxLength(50)]
         [MinLength(3)]
-        public string Email { get; set; }
+        public string Username { get; set; }
         [Required]
         [MaxLength(50)]
         [MinLength(3)]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
     }
 }

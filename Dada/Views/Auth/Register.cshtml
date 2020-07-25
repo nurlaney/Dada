@@ -1,0 +1,24 @@
+﻿@model RegisterViewModel
+
+<div class="vhole">
+    <div class="login-page" style="padding-top:10%">
+        <div class="form">
+            <form method="post">
+                <span asp-validation-for="FullName" class="text-danger" style="font-size:13px"></span>
+                <input type="text" asp-for="FullName" placeholder="Adınız..Məsələn: Nurlan Yusifli" />
+                <span asp-validation-for="Username" class="text-danger" style="font-size:13px"></span>
+                <input type="text" asp-for="Username" placeholder="istifadəçi adınız" />
+                <span asp-validation-for="Email" class="text-danger" style="font-size:13px"></span>
+                <input type="text" asp-for="Email" placeholder="email adresiniz" />
+                <span asp-validation-for="Password" class="text-danger" style="font-size:13px"></span>
+                <input type="password" asp-for="Password" placeholder="şifrə" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger" style="font-size:13px"></span>
+                <input type="password" asp-for="ConfirmPassword" placeholder="şifrə yenidən" />
+
+                <button type="submit">Üzv ol</button>
+                <p class="message">Artıq üzv olmusan ? <a class="text-info" asp-action="index">Daxil ol</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+

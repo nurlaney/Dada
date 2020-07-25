@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Dada.Models;
 using Microsoft.AspNetCore.Mvc;
+using Repository.Models;
 using Repository.Repositories.AccountRepositories;
 
 namespace Dada.Controllers
@@ -11,8 +13,11 @@ namespace Dada.Controllers
     public class AuthController : Controller
     {
         private readonly IUserRepository _userRepository;
-        public AuthController(IUserRepository userRepository)
+        private readonly IMapper _mapper;
+        public AuthController(IUserRepository userRepository,
+                              IMapper mapper)
         {
+            _mapper = mapper;
             _userRepository = userRepository;
         }
         public IActionResult Index()
@@ -27,7 +32,7 @@ namespace Dada.Controllers
 
             if (ModelState.IsValid)
             {
-                var user = _userRepository.Login(model.Email, model.Password);
+                var user = _userRepository.Login(model.Username, model.Password);
 
                 if (user != null)
                 {
@@ -46,5 +51,49 @@ namespace Dada.Controllers
             }
             return View("Views/Auth/Index.cshtml",model);
         }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Register(RegisterViewModel model)
+        {
+            bool CheckEmail = _userRepository.CheckEmail(model.Email);
+
+            if (CheckEmail)
+            {
+                ModelState.AddModelError("Email", "Bu E-mail artiq movcuddur");
+            }
+            bool CheckUsername = _userRepository.CheckUserName(model.Username);
+            if (CheckUsername)
+            {
+                ModelState.AddModelError("Username", "Bu istifadəçi adı artıq mövcuddur");
+            }
+
+            if (ModelState.IsValid)
+            {
+                var user = _mapper.Map<RegisterViewModel, User>(model);
+
+                user.Token = Guid.NewGuid().ToString();
+
+                _userRepository.Register(user);
+
+                Response.Cookies.Append("user-token", user.Token, new Microsoft.AspNetCore.Http.CookieOptions
+                {
+                    HttpOnly = true,
+                    Expires = DateTime.Now.AddYears(1)
+                });
+
+                return RedirectToAction("index", "home");
+            }
+
+
+            return View(model);
+        }
+
     }
 }

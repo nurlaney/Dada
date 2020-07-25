@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Dada.Models;
 using Dada.Models.Account;
 using Dada.Models.Profile;
 using Repository.Models;
@@ -22,6 +23,8 @@ namespace Dada.Mapping
             CreateMap<Post, PostViewModel>();
 
             CreateMap<Comment, CommentViewModel>();
+
+            CreateMap<RegisterViewModel, User>();
         }
     }
 }
