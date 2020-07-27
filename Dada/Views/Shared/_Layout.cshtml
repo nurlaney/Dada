@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <partial name="Favicon/_Favicons.cshtml" />
     <!-- bootstrap 4.3.1 -->
     <link rel="stylesheet" href="~/css/vendor/bootstrap.min.css">
     <!-- styles -->
@@ -251,11 +252,11 @@
             <!-- HEADER BRAND -->
             <div class="header-brand">
                 <!-- LOGO -->
-                <div class="logo">
+                <div class="logo" style="max-width:82px">
                     <!-- ICON LOGO VIKINGER -->
-                    <svg class="icon-logo-vikinger small">
-                        <use xlink:href="#svg-logo-vikinger"></use>
-                    </svg>
+                    <a asp-controller="home" asp-action="index">
+                    <img style="width:100%" src="https://cdn3.dada.nyc/assets/new-logo-dada-06-02e8a6f21e2465974f11f4ffe4a30049.png" />
+                    </a>
                     <!-- /ICON LOGO VIKINGER -->
                 </div>
                 <!-- /LOGO -->
