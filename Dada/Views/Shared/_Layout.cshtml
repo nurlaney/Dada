@@ -255,7 +255,7 @@
                 <div class="logo" style="max-width:82px">
                     <!-- ICON LOGO VIKINGER -->
                     <a asp-controller="home" asp-action="index">
-                    <img style="width:100%" src="https://cdn3.dada.nyc/assets/new-logo-dada-06-02e8a6f21e2465974f11f4ffe4a30049.png" />
+                        <img style="width:100%" src="https://cdn3.dada.nyc/assets/new-logo-dada-06-02e8a6f21e2465974f11f4ffe4a30049.png" />
                     </a>
                     <!-- /ICON LOGO VIKINGER -->
                 </div>
@@ -371,7 +371,130 @@
             <!-- /NAVIGATION -->
         </div>
         <!-- /HEADER ACTIONS -->
-
+        <!-- HEADER ACTIONS -->
+        <div class="header-actions search-bar">
+            <!-- INTERACTIVE INPUT -->
+            <div class="interactive-input dark">
+                <input type="text" id="search-main" name="search_main" placeholder="Search here for people or groups">
+                <!-- INTERACTIVE INPUT ICON WRAP -->
+                <div class="interactive-input-icon-wrap">
+                    <!-- INTERACTIVE INPUT ICON -->
+                    <svg class="interactive-input-icon icon-magnifying-glass">
+                        <use xlink:href="#svg-magnifying-glass"></use>
+                    </svg>
+                    <!-- /INTERACTIVE INPUT ICON -->
+                </div>
+                <!-- /INTERACTIVE INPUT ICON WRAP -->
+                <!-- INTERACTIVE INPUT ACTION -->
+                <div class="interactive-input-action">
+                    <!-- INTERACTIVE INPUT ACTION ICON -->
+                    <svg class="interactive-input-action-icon icon-cross-thin">
+                        <use xlink:href="#svg-cross-thin"></use>
+                    </svg>
+                    <!-- /INTERACTIVE INPUT ACTION ICON -->
+                </div>
+                <!-- /INTERACTIVE INPUT ACTION -->
+            </div>
+            <!-- /INTERACTIVE INPUT -->
+            <!-- DROPDOWN BOX -->
+            <div class="dropdown-box padding-bottom-small header-search-dropdown">
+                <!-- DROPDOWN BOX CATEGORY -->
+                <div class="dropdown-box-category">
+                    <!-- DROPDOWN BOX CATEGORY TITLE -->
+                    <p class="dropdown-box-category-title">Members</p>
+                    <!-- /DROPDOWN BOX CATEGORY TITLE -->
+                </div>
+                <!-- /DROPDOWN BOX CATEGORY -->
+                <!-- DROPDOWN BOX LIST -->
+                <div class="dropdown-box-list small no-scroll">
+                    <!-- DROPDOWN BOX LIST ITEM -->
+                    <!-- DROPDOWN BOX LIST ITEM -->
+                    <a class="dropdown-box-list-item" href="group-timeline.html">
+                        <!-- USER STATUS -->
+                        <div class="user-status notification">
+                            <!-- USER STATUS TITLE -->
+                            <p class="user-status-title"><span class="bold">Cosplayers of the World</span></p>
+                            <!-- /USER STATUS TITLE -->
+                            <!-- USER STATUS TEXT -->
+                            <p class="user-status-text">139 üzv</p>
+                            <!-- /USER STATUS TEXT -->
+                            <!-- USER STATUS ICON -->
+                            <div class="user-status-icon">
+                                <!-- ICON GROUP -->
+                                <svg class="icon-group">
+                                    <use xlink:href="#svg-group"></use>
+                                </svg>
+                                <!-- /ICON GROUP -->
+                            </div>
+                            <!-- /USER STATUS ICON -->
+                        </div>
+                        <!-- /USER STATUS -->
+                    </a>
+                    <!-- /DROPDOWN BOX LIST ITEM -->
+                    <!-- DROPDOWN BOX LIST ITEM -->
+                    <a class="dropdown-box-list-item" href="group-timeline.html">
+                        <!-- USER STATUS -->
+                        <div class="user-status notification">
+                            <!-- USER STATUS TITLE -->
+                            <p class="user-status-title"><span class="bold">Cosplayers of the World</span></p>
+                            <!-- /USER STATUS TITLE -->
+                            <!-- USER STATUS TEXT -->
+                            <p class="user-status-text">139 üzv</p>
+                            <!-- /USER STATUS TEXT -->
+                            <!-- USER STATUS ICON -->
+                            <div class="user-status-icon">
+                                <!-- ICON GROUP -->
+                                <svg class="icon-group">
+                                    <use xlink:href="#svg-group"></use>
+                                </svg>
+                                <!-- /ICON GROUP -->
+                            </div>
+                            <!-- /USER STATUS ICON -->
+                        </div>
+                        <!-- /USER STATUS -->
+                    </a>
+                    <!-- /DROPDOWN BOX LIST ITEM -->
+                    <!-- /DROPDOWN BOX LIST ITEM -->
+                </div>
+                <!-- /DROPDOWN BOX LIST -->
+                <!-- DROPDOWN BOX CATEGORY -->
+                <div class="dropdown-box-category">
+                    <!-- DROPDOWN BOX CATEGORY TITLE -->
+                    <p class="dropdown-box-category-title">Groups</p>
+                    <!-- /DROPDOWN BOX CATEGORY TITLE -->
+                </div>
+                <!-- /DROPDOWN BOX CATEGORY -->
+                <!-- DROPDOWN BOX LIST -->
+                <div class="dropdown-box-list small no-scroll">
+                    <!-- DROPDOWN BOX LIST ITEM -->
+                    <a class="dropdown-box-list-item" href="group-timeline.html">
+                        <!-- USER STATUS -->
+                        <div class="user-status notification">
+                            <!-- USER STATUS TITLE -->
+                            <p class="user-status-title"><span class="bold">Cosplayers of the World</span></p>
+                            <!-- /USER STATUS TITLE -->
+                            <!-- USER STATUS TEXT -->
+                            <p class="user-status-text">139 üzv</p>
+                            <!-- /USER STATUS TEXT -->
+                            <!-- USER STATUS ICON -->
+                            <div class="user-status-icon">
+                                <!-- ICON GROUP -->
+                                <svg class="icon-group">
+                                    <use xlink:href="#svg-group"></use>
+                                </svg>
+                                <!-- /ICON GROUP -->
+                            </div>
+                            <!-- /USER STATUS ICON -->
+                        </div>
+                        <!-- /USER STATUS -->
+                    </a>
+                    <!-- /DROPDOWN BOX LIST ITEM -->
+                </div>
+                <!-- /DROPDOWN BOX LIST -->
+            </div>
+            <!-- /DROPDOWN BOX -->
+        </div>
+        <!-- /HEADER ACTIONS -->
         <vc:end-points></vc:end-points>
     </header>
     <!-- /HEADER -->
@@ -401,6 +524,19 @@
     </aside>
     <!-- /FLOATY BAR -->
 
+    <form asp-controller="postapi" asp-action="search" style="width: 300px; margin-left: 300px; margin-top:300px" method="get">
+        <div class="input-group mb-3">
+            <input type="text" id="f" name="postTitle" class="btn btn-outline-primary" placeholder="Enter your keyword" aria-describedby="basic-addon1" />
+            <div class="input-group-append">
+                <button class="btn btn-outline-primary" type="submit">Search for post</button>
+            </div>
+        </div>
+    </form>
+
+
+
+
+
     @RenderBody()
 
     <!-- app -->
@@ -410,7 +546,23 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#search-main").autocomplete({
+                source: 'api/postapi/search'
+            });
+        });
+    </script>
+
+
+
     @RenderSection("Scripts", required: false)
+
+
+
+
 
 </body>
 

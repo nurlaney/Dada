@@ -601,18 +601,20 @@
         <!-- /CONTENT GRID -->
     </div>
 </div>
+
 @section Scripts{
 
     <script>
-    $(".confirmd").click(function () {
-        $(".confirmd").removeClass("d-block").addClass("d-none");
-        $(".confirmed").removeClass("d-none").addClass("d-block");
-    });
 
-     $(".confirmed").mouseout(function () {
-        $(".confirmd").removeClass("d-none").addClass("d-block");
-        $(".confirmed").removeClass("d-block").addClass("d-none");
-    });
+        $(".confirmd").click(function () {
+            $(".confirmd").removeClass("d-block").addClass("d-none");
+            $(".confirmed").removeClass("d-none").addClass("d-block");
+        });
+
+        $(".confirmed").mouseout(function () {
+            $(".confirmd").removeClass("d-none").addClass("d-block");
+            $(".confirmed").removeClass("d-block").addClass("d-none");
+        });
 
     </script>
 
