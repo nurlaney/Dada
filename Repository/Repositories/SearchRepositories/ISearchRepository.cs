@@ -7,6 +7,8 @@ namespace Repository.Repositories.SearchRepositories
 {
    public interface ISearchRepository
     {
-        public IEnumerable<User> GetMembers();
+        public IList<User> GetMembers(string term);
+        public IList<Group> GetGroups(string term);
+        public IList<Post> GetPostTitles(string term);
     }
 }

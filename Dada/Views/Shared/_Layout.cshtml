@@ -524,15 +524,6 @@
     </aside>
     <!-- /FLOATY BAR -->
 
-    <form asp-controller="postapi" asp-action="search" style="width: 300px; margin-left: 300px; margin-top:300px" method="get">
-        <div class="input-group mb-3">
-            <input type="text" id="f" name="postTitle" class="btn btn-outline-primary" placeholder="Enter your keyword" aria-describedby="basic-addon1" />
-            <div class="input-group-append">
-                <button class="btn btn-outline-primary" type="submit">Search for post</button>
-            </div>
-        </div>
-    </form>
-
 
 
 
@@ -541,17 +532,45 @@
 
     <!-- app -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="~/app.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/55b64b4942.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script>
         $(document).ready(function () {
             $("#search-main").autocomplete({
-                source: 'api/postapi/search'
+                source: function (request, response) {
+
+                    $.ajax({
+                        url: '/Search/Search',
+                        type: 'GET',
+                        cache: false,
+                        data: request,
+                        dataType: 'json',
+                        success: function (data) {
+
+                            console.log(data)
+
+                            response($.map(data, function (item) {
+
+                                return {
+
+                                    label: item,
+                                    value: item
+                                }
+                            }))
+                        }
+                    });
+                },
+                minLength: 1,
+                select: function (event, ui) {
+                    alert('you have selected ' + ui.item.label + ' ID: ' + ui.item.value);
+                    $('#search-main').val(ui.item.label);
+                    return false;
+                }
             });
         });
     </script>

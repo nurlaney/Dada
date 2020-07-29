@@ -16,9 +16,19 @@ namespace Repository.Repositories.SearchRepositories
             _context = context;
         }
 
-        public IEnumerable<User> GetMembers()
+        public IList<Group> GetGroups(string term)
         {
-            return _context.Users.ToList();
+            return _context.Groups.Where(u => u.Name.Contains(term)).ToList();
+        }
+
+        public IList<User> GetMembers(string term)
+        {
+            return _context.Users.Where(u => u.Username.Contains(term)).ToList();   
+        }
+
+        public IList<Post> GetPostTitles(string term)
+        {
+            return _context.Posts.Where(u => u.Title.Contains(term)).ToList();
         }
     }
 }
