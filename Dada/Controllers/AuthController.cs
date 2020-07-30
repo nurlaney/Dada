@@ -79,6 +79,7 @@ namespace Dada.Controllers
                 var user = _mapper.Map<RegisterViewModel, User>(model);
 
                 user.Token = Guid.NewGuid().ToString();
+                user.Username = "d/" + model.Username;
 
                 _userRepository.Register(user);
 

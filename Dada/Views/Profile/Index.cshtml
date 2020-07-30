@@ -12,7 +12,7 @@
                 <p class="user-short-description-title"><a href="profile-timeline.html">@Model.User.FullName</a></p>
                 <!-- /USER SHORT DESCRIPTION TITLE -->
                 <!-- USER SHORT DESCRIPTION TEXT -->
-                <p class="user-short-description-text"><a href="#">d/@Model.User.Username</a></p>
+                <p class="user-short-description-text"><a href="#">@Model.User.Username</a></p>
                 <!-- /USER SHORT DESCRIPTION TEXT -->
             </div>
             <!-- /USER SHORT DESCRIPTION -->
@@ -520,13 +520,13 @@
                                     {
                                         <div class="meta-line">
                                             <!-- META LINE LINK -->
-                                            <a asp-controller="group" asp-action="index" asp-route-id="@item.GroupId" class="meta-line-link">k/@item.Group.Name</a>
+                                            <a asp-controller="group" asp-action="index" asp-route-id="@item.GroupId" class="meta-line-link">@item.Group.Name</a>
                                             <!-- /META LINE LINK -->
                                         </div>
                                     }
                                     <div class="meta-line">
                                         <!-- META LINE LINK -->
-                                        <p class="meta-line-link">d/@item.User.Username</p>
+                                        <p class="meta-line-link">@item.User.Username</p>
                                         <!-- /META LINE LINK -->
                                     </div>
                                     <div class="meta-line">
