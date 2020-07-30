@@ -8,5 +8,9 @@ namespace Repository.Repositories.GroupRepositories
   public interface IGroupRepository
     {
         public Group GetGroupById(int id);
+        public List<User> FindGroupAdmins(int groupId);
+        public bool IsJoined(int groupId, int userId);
+        public GroupUser GetGroupHub(int groupId, int userId);
+        public GroupUser GetGroupHub(int id);
     }
 }

@@ -21,13 +21,11 @@ namespace Dada.Controllers
 
        public GroupController(IGroupRepository groupRepository,
                               IMapper mapper,
-                              IProfileRepository profileRepository,
-                              DadaDbContext context)
+                              IProfileRepository profileRepository)
         {
             _groupRepository = groupRepository;
             _mapper = mapper;
             _profileRepository = profileRepository;
-            _context = context;
         }
         public IActionResult Index(int id)
         {
@@ -42,21 +40,27 @@ namespace Dada.Controllers
 
             if (group == null) return NotFound();
 
+            var groupAdmins = _groupRepository.FindGroupAdmins(group.Id);
+
+            ViewBag.gadmins = groupAdmins;
+
 
             if(user != null)
             {
-                var joined = _context.GroupUsers.Any(g => g.GroupId == group.Id && g.UserId == user.Id);
+                var joined = _groupRepository.IsJoined(group.Id, user.Id);
 
                 ViewBag.joined = joined;
 
-                var groupUser = _context.GroupUsers.FirstOrDefault(g => g.GroupId == group.Id && g.UserId == user.Id);
-                ViewBag.groupuser = groupUser;
+                var grouphub = _groupRepository.GetGroupHub(group.Id, user.Id);
+
+                ViewBag.grouphub = grouphub;
 
             }
 
             var model = _mapper.Map<Group, GroupViewModel>(group);
 
-            
+
+
 
             if (model == null) return NotFound();
 
@@ -89,7 +93,7 @@ namespace Dada.Controllers
 
         public IActionResult LeaveGroup(int id)
         {
-            var groupuser = _context.GroupUsers.FirstOrDefault(g => g.Id == id);
+            var groupuser = _groupRepository.GetGroupHub(id);
 
             _context.Remove(groupuser);
             _context.SaveChanges();

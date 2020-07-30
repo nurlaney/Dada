@@ -16,6 +16,12 @@ namespace Repository.Repositories.GroupRepositories
         {
             _context = context;
         }
+
+        public List<User> FindGroupAdmins(int groupId)
+        {
+            return _context.GroupUsers.Where(g => g.GroupId == groupId && g.RoleId == 1).Select(g => g.User).ToList();
+        }
+
         public Group GetGroupById(int id)
         {
             return _context.Groups
@@ -23,6 +29,21 @@ namespace Repository.Repositories.GroupRepositories
                                   .Include("GroupUsers.User")
                                   .Include(g=>g.Posts)
                                   .FirstOrDefault(g => g.Id == id);
+        }
+
+        public GroupUser GetGroupHub(int groupId, int userId)
+        {
+            return _context.GroupUsers.FirstOrDefault(g => g.GroupId == groupId && g.UserId == userId);
+        }
+
+        public GroupUser GetGroupHub(int id)
+        {
+            return _context.GroupUsers.FirstOrDefault(g => g.Id == id);
+        }
+
+        public bool IsJoined(int groupId, int userId)
+        {
+            return _context.GroupUsers.Any(g => g.GroupId == groupId && g.UserId == userId);
         }
     }
 }
