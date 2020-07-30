@@ -95,5 +95,13 @@ namespace Dada.Controllers
             return View(model);
         }
 
+        public IActionResult Logout()
+        {
+            Request.Cookies.TryGetValue("user-token", out string token);
+            var user = _userRepository.CheckByToken(token);
+            _userRepository.UpdateToken(user.Id, "NULL");
+            return RedirectToAction("index");
+        }
     }
+
 }
