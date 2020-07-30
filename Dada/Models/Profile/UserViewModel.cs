@@ -15,5 +15,6 @@ namespace Dada.Models.Profile
         public string Token { get; set; }
         public ICollection<GroupUser> GroupUsers { get; set; }
         public ICollection<PostViewModel> Posts { get; set; }
+        public ICollection<CommentViewModel> Comments { get; set; }
     }
 }
