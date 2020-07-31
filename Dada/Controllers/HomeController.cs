@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Dada.Models;
 using Repository.Repositories.ProfileRepositories;
 using AutoMapper;
@@ -13,6 +9,7 @@ using Dada.Models.Profile;
 using Microsoft.AspNetCore.Http;
 using Repository.Repositories.MainRepositories;
 using Dada.Models.Account;
+using System;
 
 namespace Dada.Controllers
 {
@@ -36,6 +33,7 @@ namespace Dada.Controllers
             var posts = _mainRepositories.GetPosts();
             var groups = _mainRepositories.GetGroups();
             var users = _mainRepositories.GetUsers();
+
             var token = HttpContext.Request.Cookies["user-token"];
 
             var myprofile = _profileRepository.GetUserByToken(token);
@@ -54,6 +52,33 @@ namespace Dada.Controllers
 
             return View(model);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Compose(MainViewModel model)
+        {
+            var token = HttpContext.Request.Cookies["user-token"];
+
+            var myprofile = _profileRepository.GetUserByToken(token);
+
+            if (ModelState.IsValid)
+            {
+                Post post = new Post
+                {
+                    Title = model.Post.Title,
+                    Text = model.Post.Text,
+                    AddedDate = DateTime.Now,
+                    UserId = myprofile.Id,
+                };
+
+                _profileRepository.CreatePost(post);
+
+                return RedirectToAction("index");
+            }
+
+            return View(model);
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

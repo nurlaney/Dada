@@ -11,8 +11,9 @@ namespace Dada.Models
     public class MainViewModel
     {
         public ICollection<PostViewModel> Posts { get; set; }
-        public GroupUser GroupUsers { get; set; }
+        public GroupUser GroupUser { get; set; }
         public ICollection<GroupViewModel> Groups { get; set; }
         public ICollection<UserViewModel> Users { get; set; }
+        public PostViewModel Post { get; set; }
     }
 }

@@ -82,82 +82,44 @@
         <!-- /GRID COLUMN -->
         <!-- GRID COLUMN -->
         <div class="grid-column">
-            <!-- QUICK POST -->
-            <div class="quick-post">
-                <!-- QUICK POST HEADER -->
-                <input type="text" placeholder="başlığı bura.." />
-                <!-- /QUICK POST HEADER -->
-                <!-- QUICK POST BODY -->
-                <div class="quick-post-body">
-                    <!-- FORM -->
-                    <form class="form">
-                        <!-- FORM ROW -->
-                        <div class="form-row">
-                            <!-- FORM ITEM -->
-                            <div class="form-item">
-                                <!-- FORM TEXTAREA -->
-                                <div class="form-textarea">
-                                    <textarea id="quick-post-text" name="quick-post-text" placeholder="şərhini bura yaz.."></textarea>
-                                    <!-- FORM TEXTAREA LIMIT TEXT -->
-                                    <p class="form-textarea-limit-text">998/1000</p>
-                                    <!-- /FORM TEXTAREA LIMIT TEXT -->
+            @if (ViewBag.user != null)
+            {
+                <!-- QUICK POST -->
+                <div class="quick-post">
+
+                    <!-- QUICK POST BODY -->
+                    <div class="quick-post-body">
+                        <!-- FORM -->
+                        <form class="form" method="post">
+                            <!-- FORM ROW -->
+                            <div class="form-row">
+                                <!-- FORM ITEM -->
+                                <div class="form-item">
+                                    <!-- QUICK POST HEADER -->
+                                    <input asp-for="@Model.Post.Title" type="text" placeholder="başlığı bura.." />
+                                    <!-- /QUICK POST HEADER -->
+                                    <!-- FORM TEXTAREA -->
+                                    <div class="form-textarea">
+                                        <textarea asp-for="@Model.Post.Text" placeholder="şərhini bura yaz.."></textarea>
+                                        <!-- FORM TEXTAREA LIMIT TEXT -->
+                                        <p class="form-textarea-limit-text">998/1000</p>
+                                        <!-- /FORM TEXTAREA LIMIT TEXT -->
+                                    </div>
+                                    <!-- /FORM TEXTAREA -->
                                 </div>
-                                <!-- /FORM TEXTAREA -->
+                                <!-- /FORM ITEM -->
                             </div>
-                            <!-- /FORM ITEM -->
-                        </div>
-                        <!-- /FORM ROW -->
-                    </form>
-                    <!-- /FORM -->
-                </div>
-                <!-- /QUICK POST BODY -->
-                <!-- QUICK POST FOOTER -->
-                <div class="quick-post-footer">
-                    <!-- QUICK POST FOOTER ACTIONS -->
-                    <div class="quick-post-footer-actions">
-                        <!-- QUICK POST FOOTER ACTION -->
-                        <div class="quick-post-footer-action text-tooltip-tft-medium" data-title="Insert Photo">
-                            <!-- QUICK POST FOOTER ACTION ICON -->
-                            <svg class="quick-post-footer-action-icon icon-camera">
-                                <use xlink:href="#svg-camera"></use>
-                            </svg>
-                            <!-- /QUICK POST FOOTER ACTION ICON -->
-                        </div>
-                        <!-- /QUICK POST FOOTER ACTION -->
-                        <!-- QUICK POST FOOTER ACTION -->
-                        <div class="quick-post-footer-action text-tooltip-tft-medium" data-title="Insert GIF">
-                            <!-- QUICK POST FOOTER ACTION ICON -->
-                            <svg class="quick-post-footer-action-icon icon-gif">
-                                <use xlink:href="#svg-gif"></use>
-                            </svg>
-                            <!-- /QUICK POST FOOTER ACTION ICON -->
-                        </div>
-                        <!-- /QUICK POST FOOTER ACTION -->
-                        <!-- QUICK POST FOOTER ACTION -->
-                        <div class="quick-post-footer-action text-tooltip-tft-medium" data-title="Insert Tag">
-                            <!-- QUICK POST FOOTER ACTION ICON -->
-                            <svg class="quick-post-footer-action-icon icon-tags">
-                                <use xlink:href="#svg-tags"></use>
-                            </svg>
-                            <!-- /QUICK POST FOOTER ACTION ICON -->
-                        </div>
-                        <!-- /QUICK POST FOOTER ACTION -->
+                            <!-- /FORM ROW -->
+                            <button type="submit" asp-action="compose" class="button small secondary">Paylaş</button>
+
+                        </form>
+                        <!-- /FORM -->
                     </div>
-                    <!-- /QUICK POST FOOTER ACTIONS -->
-                    <!-- QUICK POST FOOTER ACTIONS -->
-                    <div class="quick-post-footer-actions">
-                        <!-- BUTTON -->
-                        <p class="button small void">Discard</p>
-                        <!-- /BUTTON -->
-                        <!-- BUTTON -->
-                        <p class="button small secondary">Post</p>
-                        <!-- /BUTTON -->
-                    </div>
-                    <!-- /QUICK POST FOOTER ACTIONS -->
+                    <!-- /QUICK POST BODY -->
                 </div>
-                <!-- /QUICK POST FOOTER -->
-            </div>
-            <!-- /QUICK POST -->
+                <!-- /QUICK POST -->
+            }
+
             <!-- SIMPLE TAB ITEMS -->
             <div class="simple-tab-items">
                 <!-- FORM -->
@@ -265,7 +227,7 @@
                                     <!-- META LINE -->
                                     <div class="meta-line">
                                         <!-- META LINE LINK -->
-                                        <a  href="#"><i class="fab fa-fly"></i></a>
+                                        <a href="#"><i class="fab fa-fly"></i></a>
                                         <!-- /META LINE LINK -->
                                     </div>
                                     <!-- /META LINE -->
@@ -289,7 +251,7 @@
                                     <!-- META LINE -->
                                     <div class="meta-line">
                                         <!-- META LINE LINK -->
-                                        <a class="meta-line-text" asp-controller="profile" asp-action="index" asp-route-username="@item.User.Username">d/@item.User.Username</a>
+                                        <a class="meta-line-text" asp-controller="profile" asp-action="index" asp-route-username="@item.User.Username">@item.User.Username</a>
                                         <!-- /META LINE LINK -->
                                     </div>
                                     <!-- /META LINE -->
