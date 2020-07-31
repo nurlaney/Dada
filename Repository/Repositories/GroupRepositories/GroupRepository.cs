@@ -45,5 +45,21 @@ namespace Repository.Repositories.GroupRepositories
         {
             return _context.GroupUsers.Any(g => g.GroupId == groupId && g.UserId == userId);
         }
+
+        public GroupUser JoinGroup(GroupUser groupUser)
+        {
+            _context.Add(groupUser);
+            _context.SaveChanges();
+
+            return groupUser;
+        }
+
+        public GroupUser LeaveGroup(GroupUser groupUser)
+        {
+            _context.Remove(groupUser);
+            _context.SaveChanges();
+
+            return groupUser;
+        }
     }
 }

@@ -12,5 +12,7 @@ namespace Repository.Repositories.GroupRepositories
         public bool IsJoined(int groupId, int userId);
         public GroupUser GetGroupHub(int groupId, int userId);
         public GroupUser GetGroupHub(int id);
+        public GroupUser JoinGroup(GroupUser groupUser);
+        public GroupUser LeaveGroup(GroupUser groupUser);
     }
 }

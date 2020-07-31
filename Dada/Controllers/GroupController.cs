@@ -17,7 +17,6 @@ namespace Dada.Controllers
         private readonly IMapper _mapper;
         private readonly IGroupRepository _groupRepository;
         private readonly IProfileRepository _profileRepository;
-        private readonly DadaDbContext _context;
 
        public GroupController(IGroupRepository groupRepository,
                               IMapper mapper,
@@ -81,9 +80,7 @@ namespace Dada.Controllers
                     UserId = user.Id
                 };
 
-                _context.Add(groupUser);
-
-                _context.SaveChanges();
+                _groupRepository.JoinGroup(groupUser);
 
                 return RedirectToAction("index", new { id = model.Id });
             }
@@ -95,8 +92,7 @@ namespace Dada.Controllers
         {
             var groupuser = _groupRepository.GetGroupHub(id);
 
-            _context.Remove(groupuser);
-            _context.SaveChanges();
+            _groupRepository.LeaveGroup(groupuser);
 
             return RedirectToAction("index", new { id = groupuser.GroupId });
         }
