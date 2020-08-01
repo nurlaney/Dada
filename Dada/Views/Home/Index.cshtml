@@ -177,24 +177,26 @@
                                 <!-- /POST SETTINGS ICON -->
                             </div>
                             <!-- /POST SETTINGS -->
-
                             <!-- SIMPLE DROPDOWN -->
                             <div class="simple-dropdown widget-box-post-settings-dropdown">
-                                <!-- SIMPLE DROPDOWN LINK -->
-                                <p class="simple-dropdown-link">Edit Post</p>
-                                <!-- /SIMPLE DROPDOWN LINK -->
-                                <!-- SIMPLE DROPDOWN LINK -->
-                                <p class="simple-dropdown-link">Delete Post</p>
-                                <!-- /SIMPLE DROPDOWN LINK -->
-                                <!-- SIMPLE DROPDOWN LINK -->
-                                <p class="simple-dropdown-link">Make it Featured</p>
-                                <!-- /SIMPLE DROPDOWN LINK -->
-                                <!-- SIMPLE DROPDOWN LINK -->
-                                <p class="simple-dropdown-link">Report Post</p>
-                                <!-- /SIMPLE DROPDOWN LINK -->
-                                <!-- SIMPLE DROPDOWN LINK -->
-                                <p class="simple-dropdown-link">Report Author</p>
-                                <!-- /SIMPLE DROPDOWN LINK -->
+                                @if (ViewBag.token == item.User.Token)
+                                {
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <a class="simple-dropdown-link text-danger confirmd" style="display:block;"><i class="fas fa-trash mr-2"></i>Sil</a>
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <a class="simple-dropdown-link text-danger confirmed" asp-action="deletepost" asp-route-id="@item.Id" style="display:none;"><i class="fas fa-trash mr-2"></i>Əminsinizmi ?</a>
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+                                }
+                                else
+                                {
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <p class="simple-dropdown-link"><i class="fas fa-bug mr-2"></i>Şikayət et</p>
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <p class="simple-dropdown-link highlighted text-danger"><i class="fas fa-ban mr-2"></i>Blokla</p>
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+                                }
                             </div>
                             <!-- /SIMPLE DROPDOWN -->
                         </div>
@@ -209,7 +211,7 @@
                             <div class="user-status">
                                 <!-- USER STATUS TITLE -->
                                 <p class="user-status-title medium">
-                                    <a class="bold" href="profile-timeline.html">
+                                    <a class="bold" asp-controller="post" asp-action="index">
                                         @item.Title
                                     </a>
                                 </p>
@@ -456,3 +458,20 @@
     <!-- /GRID -->
 </div>
 <!-- /CONTENT GRID -->
+@section Scripts{
+
+    <script>
+    $(".confirmd").click(function () {
+        $(".confirmd").removeClass("d-block").addClass("d-none");
+        $(".confirmed").removeClass("d-none").addClass("d-block");
+    });
+
+     $(".confirmed").mouseout(function () {
+        $(".confirmd").removeClass("d-none").addClass("d-block");
+        $(".confirmed").removeClass("d-block").addClass("d-none");
+    });
+
+    </script>
+
+
+}

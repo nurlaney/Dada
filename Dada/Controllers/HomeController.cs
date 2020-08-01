@@ -80,6 +80,23 @@ namespace Dada.Controllers
         }
 
 
+        public IActionResult DeletePost(int id)
+        {
+            var token = HttpContext.Request.Cookies["user-token"];
+
+            var myprofile = _profileRepository.GetUserByToken(token);
+
+            var post = _profileRepository.GetPostById(id);
+
+            if (myprofile.Token == token)
+            {
+                _profileRepository.DeletePost(post);
+            }
+
+            return RedirectToAction("index");
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
