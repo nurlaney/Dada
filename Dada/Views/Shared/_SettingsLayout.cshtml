@@ -1,0 +1,176 @@
+﻿@{
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+
+<html>
+<body>
+    <!-- CONTENT GRID -->
+    <div class="content-grid">
+        <!-- SECTION BANNER -->
+        <div class="section-banner">
+            <!-- SECTION BANNER ICON -->
+            <img class="section-banner-icon" src="img/banner/accounthub-icon.png" alt="accounthub-icon">
+            <!-- /SECTION BANNER ICON -->
+            <!-- SECTION BANNER TITLE -->
+            <p class="section-banner-title">Account Hub</p>
+            <!-- /SECTION BANNER TITLE -->
+            <!-- SECTION BANNER TEXT -->
+            <p class="section-banner-text">Profile info, messages, settings and much more!</p>
+            <!-- /SECTION BANNER TEXT -->
+        </div>
+        <!-- /SECTION BANNER -->
+        <!-- GRID -->
+        <div class="grid grid-3-9 medium-space">
+            <!-- GRID COLUMN -->
+            <div class="account-hub-sidebar">
+                <!-- SIDEBAR BOX -->
+                <div class="sidebar-box no-padding">
+                    <!-- SIDEBAR MENU -->
+                    <div class="sidebar-menu">
+                        <!-- SIDEBAR MENU ITEM -->
+                        <div class="sidebar-menu-item">
+                            <!-- SIDEBAR MENU HEADER -->
+                            <div class="sidebar-menu-header accordion-trigger-linked">
+                                <!-- SIDEBAR MENU HEADER ICON -->
+                                <svg class="sidebar-menu-header-icon icon-profile">
+                                    <use xlink:href="#svg-profile"></use>
+                                </svg>
+                                <!-- /SIDEBAR MENU HEADER ICON -->
+                                <!-- SIDEBAR MENU HEADER CONTROL ICON -->
+                                <div class="sidebar-menu-header-control-icon">
+                                    <!-- SIDEBAR MENU HEADER CONTROL ICON OPEN -->
+                                    <svg class="sidebar-menu-header-control-icon-open icon-minus-small">
+                                        <use xlink:href="#svg-minus-small"></use>
+                                    </svg>
+                                    <!-- /SIDEBAR MENU HEADER CONTROL ICON OPEN -->
+                                    <!-- SIDEBAR MENU HEADER CONTROL ICON CLOSED -->
+                                    <svg class="sidebar-menu-header-control-icon-closed icon-plus-small">
+                                        <use xlink:href="#svg-plus-small"></use>
+                                    </svg>
+                                    <!-- /SIDEBAR MENU HEADER CONTROL ICON CLOSED -->
+                                </div>
+                                <!-- /SIDEBAR MENU HEADER CONTROL ICON -->
+                                <!-- SIDEBAR MENU HEADER TITLE -->
+                                <p class="sidebar-menu-header-title">Profilim</p>
+                                <!-- /SIDEBAR MENU HEADER TITLE -->
+                                <!-- SIDEBAR MENU HEADER TEXT -->
+                                <p class="sidebar-menu-header-text">İstifadəçi adınızı,adınızı,email ünvanınızı dəyişdirin.</p>
+                                <!-- /SIDEBAR MENU HEADER TEXT -->
+                            </div>
+                            <!-- /SIDEBAR MENU HEADER -->
+                            <!-- SIDEBAR MENU BODY -->
+                            <div class="sidebar-menu-body accordion-content-linked">
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" asp-controller="setting" asp-action="profile">Profil məlumatları</a>
+                                <!-- /SIDEBAR MENU LINK -->
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" asp-controller="setting" asp-action="social">Sosial media</a>
+                                <!-- /SIDEBAR MENU LINK -->
+                                <!-- /SIDEBAR MENU BODY -->
+                            </div>
+                            <!-- /SIDEBAR MENU ITEM -->
+
+                        </div>
+                        <!-- /SIDEBAR MENU -->
+                        <!-- SIDEBAR MENU ITEM -->
+                        <div class="sidebar-menu-item">
+                            <!-- SIDEBAR MENU HEADER -->
+                            <div class="sidebar-menu-header accordion-trigger-linked">
+                                <!-- SIDEBAR MENU HEADER ICON -->
+                                <svg class="sidebar-menu-header-icon icon-settings">
+                                    <use xlink:href="#svg-settings"></use>
+                                </svg>
+                                <!-- /SIDEBAR MENU HEADER ICON -->
+                                <!-- SIDEBAR MENU HEADER CONTROL ICON -->
+                                <div class="sidebar-menu-header-control-icon">
+                                    <!-- SIDEBAR MENU HEADER CONTROL ICON OPEN -->
+                                    <svg class="sidebar-menu-header-control-icon-open icon-minus-small">
+                                        <use xlink:href="#svg-minus-small"></use>
+                                    </svg>
+                                    <!-- /SIDEBAR MENU HEADER CONTROL ICON OPEN -->
+                                    <!-- SIDEBAR MENU HEADER CONTROL ICON CLOSED -->
+                                    <svg class="sidebar-menu-header-control-icon-closed icon-plus-small">
+                                        <use xlink:href="#svg-plus-small"></use>
+                                    </svg>
+                                    <!-- /SIDEBAR MENU HEADER CONTROL ICON CLOSED -->
+                                </div>
+                                <!-- /SIDEBAR MENU HEADER CONTROL ICON -->
+                                <!-- SIDEBAR MENU HEADER TITLE -->
+                                <p class="sidebar-menu-header-title">Hesab</p>
+                                <!-- /SIDEBAR MENU HEADER TITLE -->
+                                <!-- SIDEBAR MENU HEADER TEXT -->
+                                <p class="sidebar-menu-header-text">Şifrənizi və gizlilik tənzimləmələrini dəyişin.</p>
+                                <!-- /SIDEBAR MENU HEADER TEXT -->
+                            </div>
+                            <!-- /SIDEBAR MENU HEADER -->
+                            <!-- SIDEBAR MENU BODY -->
+                            <div class="sidebar-menu-body accordion-content-linked">
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" asp-controller="setting" asp-action="changepassword">Şifrə yeniləməsi</a>
+                                <!-- /SIDEBAR MENU LINK -->
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" href="hub-account-settings.html">Gizlilik</a>
+                                <!-- /SIDEBAR MENU LINK -->
+                            </div>
+                            <!-- /SIDEBAR MENU BODY -->
+                        </div>
+                        <!-- /SIDEBAR MENU ITEM -->
+                        <!-- SIDEBAR MENU ITEM -->
+                        <div class="sidebar-menu-item">
+                            <!-- SIDEBAR MENU HEADER -->
+                            <div class="sidebar-menu-header accordion-trigger-linked">
+                                <!-- SIDEBAR MENU HEADER ICON -->
+                                <svg class="sidebar-menu-header-icon icon-group">
+                                    <use xlink:href="#svg-group"></use>
+                                </svg>
+                                <!-- /SIDEBAR MENU HEADER ICON -->
+                                <!-- SIDEBAR MENU HEADER CONTROL ICON -->
+                                <div class="sidebar-menu-header-control-icon">
+                                    <!-- SIDEBAR MENU HEADER CONTROL ICON OPEN -->
+                                    <svg class="sidebar-menu-header-control-icon-open icon-minus-small">
+                                        <use xlink:href="#svg-minus-small"></use>
+                                    </svg>
+                                    <!-- /SIDEBAR MENU HEADER CONTROL ICON OPEN -->
+                                    <!-- SIDEBAR MENU HEADER CONTROL ICON CLOSED -->
+                                    <svg class="sidebar-menu-header-control-icon-closed icon-plus-small">
+                                        <use xlink:href="#svg-plus-small"></use>
+                                    </svg>
+                                    <!-- /SIDEBAR MENU HEADER CONTROL ICON CLOSED -->
+                                </div>
+                                <!-- /SIDEBAR MENU HEADER CONTROL ICON -->
+                                <!-- SIDEBAR MENU HEADER TITLE -->
+                                <p class="sidebar-menu-header-title">Klublar</p>
+                                <!-- /SIDEBAR MENU HEADER TITLE -->
+                                <!-- SIDEBAR MENU HEADER TEXT -->
+                                <p class="sidebar-menu-header-text">Yeni klub yarat,mövcud klublarını idarə et.</p>
+                                <!-- /SIDEBAR MENU HEADER TEXT -->
+                            </div>
+                            <!-- /SIDEBAR MENU HEADER -->
+                            <!-- SIDEBAR MENU BODY -->
+                            <div class="sidebar-menu-body accordion-content-linked">
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" href="hub-group-management.html">Klub tənzimləmələri</a>
+                                <!-- /SIDEBAR MENU LINK -->
+                            </div>
+                            <!-- /SIDEBAR MENU BODY -->
+                        </div>
+                        <!-- /SIDEBAR MENU ITEM -->
+                    </div>
+                    <!-- /SIDEBAR BOX -->
+                </div>
+                <!-- /GRID COLUMN -->
+            </div>
+            <!-- /GRID -->
+
+
+            @RenderBody()
+
+        </div>
+    </div>
+
+
+</body>
+
+@RenderSection("Scripts", required: false)
+</html>

@@ -152,3 +152,7 @@ C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Gro
 C:\Users\DostTech\source\repos\Dada\Dada\bin\Debug\netcoreapp3.1\libman.json
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Auth\Register.cshtml.g.cs
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Favicon\_Favicons.cshtml.g.cs
+C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SettingsLayout.cshtml.g.cs
+C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Setting\Profile.cshtml.g.cs
+C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Setting\Social.cshtml.g.cs
+C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Setting\ChangePassword.cshtml.g.cs
