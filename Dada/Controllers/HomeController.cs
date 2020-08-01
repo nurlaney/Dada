@@ -12,6 +12,7 @@ using Dada.Models.Account;
 using System;
 
 namespace Dada.Controllers
+
 {
     public class HomeController : Controller
     {
@@ -78,7 +79,6 @@ namespace Dada.Controllers
 
             return View(model);
         }
-
 
         public IActionResult DeletePost(int id)
         {
