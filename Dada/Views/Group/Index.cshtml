@@ -37,7 +37,7 @@
                 <!-- USER STAT -->
                 <div class="user-stat big">
                     <!-- USER STAT TITLE -->
-                    <p class="user-stat-title">139</p>
+                    <p class="user-stat-title">@Model.GroupUsers.Count()</p>
                     <!-- /USER STAT TITLE -->
                     <!-- USER STAT TEXT -->
                     <p class="user-stat-text">üzvlər</p>
@@ -47,7 +47,7 @@
                 <!-- USER STAT -->
                 <div class="user-stat big">
                     <!-- USER STAT TITLE -->
-                    <p class="user-stat-title">105</p>
+                    <p class="user-stat-title">@Model.Posts.Count()</p>
                     <!-- /USER STAT TITLE -->
                     <!-- USER STAT TEXT -->
                     <p class="user-stat-text">başlıqlar</p>
@@ -977,16 +977,10 @@
                                 <!-- /CONTENT ACTION -->
                                 <!-- CONTENT ACTION -->
                                 <div class="content-action">
-                                    <!-- META LINE -->
-                                    <div class="meta-line">
-                                        <!-- META LINE LINK -->
-                                        <p class="meta-line-link">k/@Model.Name</p>
-                                        <!-- /META LINE LINK -->
-                                    </div>
 
                                     <div class="meta-line">
                                         <!-- META LINE LINK -->
-                                        <p class="meta-line-link">d/@item.User.Username</p>
+                                        <p class="meta-line-link">@item.User.Username</p>
                                         <!-- /META LINE LINK -->
                                     </div>
                                     <div class="meta-line">
@@ -998,14 +992,14 @@
                                     <!-- META LINE -->
                                     <div class="meta-line">
                                         <!-- META LINE TEXT -->
-                                        <p class="meta-line-text">45 şərh</p>
+                                        <p class="meta-line-text">@item.Comments.Count() şərh</p>
                                         <!-- /META LINE TEXT -->
                                     </div>
                                     <!-- /META LINE -->
                                     <!-- META LINE -->
                                     <div class="meta-line">
                                         <!-- META LINE TEXT -->
-                                        <a class="meta-line-text">Başlığa get</a>
+                                        <a asp-controller="post" asp-action="index" asp-route-id="@item.Id">Başlığa get</a>
                                         <!-- /META LINE TEXT -->
                                     </div>
                                     <!-- /META LINE -->

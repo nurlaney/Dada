@@ -1,4 +1,5 @@
-﻿using Repository.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Repository.Data;
 using Repository.Models;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,9 @@ namespace Repository.Repositories.MainRepositories
 
         public ICollection<Post> GetPosts()
         {
-            return _context.Posts.OrderByDescending(p=>p.AddedDate).ToList();
+            return _context.Posts
+                                 .Include("Comments")
+                                 .OrderByDescending(p=>p.AddedDate).ToList();
         }
 
         public ICollection<User> GetUsers()
