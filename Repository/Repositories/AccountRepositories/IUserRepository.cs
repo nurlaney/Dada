@@ -14,5 +14,7 @@ namespace Repository.Repositories.AccountRepositories
         public bool CheckEmail(string email);
         public bool CheckUserName(string username);
         public User Register(User user);
+        public UserData AddUserData(UserData model);
+        public UserSocial AddUserSocial(UserSocial model);
     }
 }

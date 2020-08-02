@@ -40,8 +40,15 @@ using Dada.Models.Account;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\DostTech\source\repos\Dada\Dada\Views\_ViewImports.cshtml"
+using Dada.Models.Userdata;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9af41f4e04d2edb79a3ce7cb759c57694716d8a2", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"86ac85f7da9d649678e95c57b5bf9a186ed39845", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5df8d91f3053575989349cd954876bfedd45bcfc", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<MainViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "post", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -166,7 +173,7 @@ using Dada.Models.Account;
                                 <!-- POST PEEK TITLE -->
                                 <p class=""post-peek-title"">
                                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a214722", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a214898", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 62 "C:\Users\DostTech\source\repos\Dada\Dada\Views\Home\Index.cshtml"
@@ -258,7 +265,7 @@ using Dada.Models.Account;
 #line hidden
 #nullable disable
             WriteLiteral("                <!-- QUICK POST -->\r\n                <div class=\"quick-post\">\r\n\r\n                    <!-- QUICK POST BODY -->\r\n                    <div class=\"quick-post-body\">\r\n                        <!-- FORM -->\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a219879", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a220055", async() => {
                 WriteLiteral(@"
                             <!-- FORM ROW -->
                             <div class=""form-row"">
@@ -266,7 +273,7 @@ using Dada.Models.Account;
                                 <div class=""form-item"">
                                     <!-- QUICK POST HEADER -->
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9af41f4e04d2edb79a3ce7cb759c57694716d8a220449", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9af41f4e04d2edb79a3ce7cb759c57694716d8a220625", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -290,7 +297,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                    <!-- /QUICK POST HEADER -->\r\n                                    <!-- FORM TEXTAREA -->\r\n                                    <div class=\"form-textarea\">\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("textarea", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a222463", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("textarea", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a222639", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.TextAreaTagHelper>();
@@ -322,7 +329,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                             </div>
                             <!-- /FORM ROW -->
                             ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a224599", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a224775", async() => {
                     WriteLiteral("Paylaş");
                 }
                 );
@@ -365,9 +372,9 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
 #line hidden
 #nullable disable
             WriteLiteral("\r\n            <!-- SIMPLE TAB ITEMS -->\r\n            <div class=\"simple-tab-items\">\r\n                <!-- FORM -->\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a227820", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a227996", async() => {
                 WriteLiteral("\r\n                    <!-- FORM SELECT -->\r\n                    <div class=\"form-select\">\r\n                        <select id=\"newsfeed-filter-category\" name=\"newsfeed_filter_category\">\r\n                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a228304", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a228480", async() => {
                     WriteLiteral("All Updates");
                 }
                 );
@@ -383,7 +390,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a229563", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a229739", async() => {
                     WriteLiteral("Mentions");
                 }
                 );
@@ -399,7 +406,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a230819", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a230995", async() => {
                     WriteLiteral("Friends");
                 }
                 );
@@ -415,7 +422,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a232074", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a232250", async() => {
                     WriteLiteral("Groups");
                 }
                 );
@@ -431,7 +438,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a233328", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a233504", async() => {
                     WriteLiteral("Blog Posts");
                 }
                 );
@@ -530,7 +537,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                                     <!-- /SIMPLE DROPDOWN LINK -->
                                     <!-- SIMPLE DROPDOWN LINK -->
                                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a238837", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a239013", async() => {
                 WriteLiteral("<i class=\"fas fa-trash mr-2\"></i>Əminsinizmi ?");
             }
             );
@@ -601,7 +608,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                                 <!-- USER STATUS TITLE -->
                                 <p class=""user-status-title medium"">
                                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a243122", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a243298", async() => {
                 WriteLiteral("\r\n                                        ");
 #nullable restore
 #line 215 "C:\Users\DostTech\source\repos\Dada\Dada\Views\Home\Index.cshtml"
@@ -684,7 +691,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
 #line hidden
 #nullable disable
             WriteLiteral("                                        <div class=\"meta-line\">\r\n                                            <!-- META LINE LINK -->\r\n                                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a247750", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a247926", async() => {
 #nullable restore
 #line 258 "C:\Users\DostTech\source\repos\Dada\Dada\Views\Home\Index.cshtml"
                                                                                                                                         Write(item.Group.Name);
@@ -732,7 +739,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
 #line hidden
 #nullable disable
             WriteLiteral("                                    <!-- META LINE -->\r\n                                    <div class=\"meta-line\">\r\n                                        <!-- META LINE LINK -->\r\n                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a251071", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a251247", async() => {
 #nullable restore
 #line 265 "C:\Users\DostTech\source\repos\Dada\Dada\Views\Home\Index.cshtml"
                                                                                                                                                   Write(item.User.Username);
@@ -794,7 +801,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                                     <div class=""meta-line"">
                                         <!-- META LINE TEXT -->
                                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a254984", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a255160", async() => {
                 WriteLiteral("Başlığa get");
             }
             );
@@ -917,7 +924,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
 #line hidden
 #nullable disable
             WriteLiteral("                            <!-- USER STATUS -->\r\n                            <div class=\"user-status request-small\">\r\n\r\n                                <!-- USER STATUS TITLE -->\r\n                                <p class=\"user-status-title\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a261486", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a261662", async() => {
 #nullable restore
 #line 356 "C:\Users\DostTech\source\repos\Dada\Dada\Views\Home\Index.cshtml"
                                                                                                                                           Write(item.Name);
@@ -1035,7 +1042,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
 #line hidden
 #nullable disable
             WriteLiteral("                            <!-- USER STATUS -->\r\n                            <div class=\"user-status request-small\">\r\n                                <!-- USER STATUS TITLE -->\r\n                                <p class=\"user-status-title\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a268514", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9af41f4e04d2edb79a3ce7cb759c57694716d8a268690", async() => {
 #nullable restore
 #line 428 "C:\Users\DostTech\source\repos\Dada\Dada\Views\Home\Index.cshtml"
                                                                                                                                                         Write(item.Username);

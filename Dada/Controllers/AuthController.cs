@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -80,8 +81,22 @@ namespace Dada.Controllers
 
                 user.Token = Guid.NewGuid().ToString();
                 user.Username = "d/" + model.Username;
+                user.JoinDate = DateTime.Now;
+
 
                 _userRepository.Register(user);
+
+                UserData userData = new UserData
+                {
+                    UserId = user.Id,
+                };
+                UserSocial userSocial = new UserSocial
+                {
+                    UserId = user.Id
+                };
+
+                _userRepository.AddUserSocial(userSocial);
+                _userRepository.AddUserData(userData);
 
                 Response.Cookies.Append("user-token", user.Token, new Microsoft.AspNetCore.Http.CookieOptions
                 {

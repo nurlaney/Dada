@@ -42,43 +42,31 @@
                     </div>
                     <!-- /DROPDOWN NAVIGATION HEADER -->
                     <!-- DROPDOWN NAVIGATION CATEGORY -->
-                    <p class="dropdown-navigation-category">My Profile</p>
+                    <p class="dropdown-navigation-category">Profil</p>
                     <!-- /DROPDOWN NAVIGATION CATEGORY -->
                     <!-- DROPDOWN NAVIGATION LINK -->
-                    <a class="dropdown-navigation-link" href="hub-profile-info.html">Profile Info</a>
+                    <a class="dropdown-navigation-link" asp-controller="setting" asp-action="profile">Profil məlumatları</a>
                     <!-- /DROPDOWN NAVIGATION LINK -->
                     <!-- DROPDOWN NAVIGATION LINK -->
-                    <a class="dropdown-navigation-link" href="hub-profile-social.html">Social &amp; Stream</a>
-                    <!-- /DROPDOWN NAVIGATION LINK -->
-                    <!-- DROPDOWN NAVIGATION LINK -->
-                    <a class="dropdown-navigation-link" href="hub-profile-notifications.html">Notifications</a>
-                    <!-- /DROPDOWN NAVIGATION LINK -->
-                    <!-- DROPDOWN NAVIGATION LINK -->
-                    <a class="dropdown-navigation-link" href="hub-profile-messages.html">Messages</a>
-                    <!-- /DROPDOWN NAVIGATION LINK -->
-                    <!-- DROPDOWN NAVIGATION LINK -->
-                    <a class="dropdown-navigation-link" href="hub-profile-requests.html">Friend Requests</a>
+                    <a class="dropdown-navigation-link" asp-controller="setting" asp-action="social">Sosial media hesablarım</a>
                     <!-- /DROPDOWN NAVIGATION LINK -->
                     <!-- DROPDOWN NAVIGATION CATEGORY -->
-                    <p class="dropdown-navigation-category">Account</p>
+                    <p class="dropdown-navigation-category">Hesab</p>
                     <!-- /DROPDOWN NAVIGATION CATEGORY -->
                     <!-- DROPDOWN NAVIGATION LINK -->
-                    <a class="dropdown-navigation-link" href="hub-account-info.html">Account Info</a>
+                    <a class="dropdown-navigation-link" asp-controller="setting" asp-action="changepassüord">Şifrə yeniləməsi</a>
                     <!-- /DROPDOWN NAVIGATION LINK -->
                     <!-- DROPDOWN NAVIGATION LINK -->
-                    <a class="dropdown-navigation-link" href="hub-account-password.html">Change Password</a>
-                    <!-- /DROPDOWN NAVIGATION LINK -->
-                    <!-- DROPDOWN NAVIGATION LINK -->
-                    <a class="dropdown-navigation-link" href="hub-account-settings.html">General Settings</a>
+                    <a class="dropdown-navigation-link" href="hub-account-password.html">Gizlilik</a>
                     <!-- /DROPDOWN NAVIGATION LINK -->
                     <!-- DROPDOWN NAVIGATION CATEGORY -->
-                    <p class="dropdown-navigation-category">Groups</p>
+                    <p class="dropdown-navigation-category">Klublar</p>
                     <!-- /DROPDOWN NAVIGATION CATEGORY -->
                     <!-- DROPDOWN NAVIGATION LINK -->
-                    <a class="dropdown-navigation-link" href="hub-group-management.html">Manage Groups</a>
+                    <a class="dropdown-navigation-link"asp-controller="setting" asp-action="clubs">Klubları idarə et</a>
                     <!-- /DROPDOWN NAVIGATION LINK -->
                     <!-- DROPDOWN NAVIGATION LINK -->
-                    <a class="dropdown-navigation-link" href="hub-group-invitations.html">Invitations</a>
+                    <a class="dropdown-navigation-link" asp-controller="setting" asp-action="createclub">Klub yarat</a>
                     <!-- /DROPDOWN NAVIGATION LINK -->
                     <!-- DROPDOWN NAVIGATION BUTTON -->
                     <a asp-controller="auth" asp-action="logout" class="dropdown-navigation-button button small secondary">Logout</a>

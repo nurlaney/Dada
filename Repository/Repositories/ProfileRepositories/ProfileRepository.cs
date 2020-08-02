@@ -49,6 +49,8 @@ namespace Repository.Repositories.ProfileRepositories
                                     .Include("GroupUsers")
                                     .Include(u => u.Posts)
                                     .Include("Comments")
+                                    .Include("UserData")
+                                    .Include("UserSocial")
                                     .Include("GroupUsers.Group")
                                     .FirstOrDefault(u => u.Username == username);
         } 
@@ -59,6 +61,8 @@ namespace Repository.Repositories.ProfileRepositories
                                     .Include("GroupUsers")
                                     .Include(u => u.Posts)
                                     .Include("Comments")
+                                    .Include("UserData")
+                                    .Include("UserSocial")
                                     .Include("GroupUsers.Group")
                                     .FirstOrDefault(u => u.Token == token);
         }
@@ -69,6 +73,8 @@ namespace Repository.Repositories.ProfileRepositories
                                    .Include("GroupUsers")
                                    .Include("GroupUsers.Group")
                                    .Include("Comments")
+                                   .Include("UserData")
+                                   .Include("UserSocial")
                                    .Include(u => u.Posts)
                                    .FirstOrDefault(u => u.Username == username);
         }

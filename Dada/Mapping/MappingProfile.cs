@@ -2,6 +2,7 @@
 using Dada.Models;
 using Dada.Models.Account;
 using Dada.Models.Profile;
+using Dada.Models.Userdata;
 using Repository.Models;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,9 @@ namespace Dada.Mapping
             CreateMap<Comment, CommentViewModel>();
 
             CreateMap<RegisterViewModel, User>();
+
+            CreateMap<UserData, UserDataViewModel>();
+            CreateMap<UserSocial, UserSocialViewModel>();
         }
     }
 }

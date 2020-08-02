@@ -22,5 +22,21 @@ namespace Dada.Controllers
         {
             return View();
         }
+
+
+        public IActionResult Clubs()
+        {
+            return View();
+        }
+
+        public IActionResult CreateClub()
+        {
+            return View();
+        }
+
+        public IActionResult ManageGroup()
+        {
+            return View();
+        }
     }
 }

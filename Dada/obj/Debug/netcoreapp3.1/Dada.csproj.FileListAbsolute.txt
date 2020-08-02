@@ -156,3 +156,6 @@ C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Sha
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Setting\Profile.cshtml.g.cs
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Setting\Social.cshtml.g.cs
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Setting\ChangePassword.cshtml.g.cs
+C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Setting\Clubs.cshtml.g.cs
+C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Setting\CreateClub.cshtml.g.cs
+C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Setting\ManageGroup.cshtml.g.cs

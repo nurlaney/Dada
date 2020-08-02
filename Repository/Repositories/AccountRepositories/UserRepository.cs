@@ -16,6 +16,21 @@ namespace Repository.Repositories.AccountRepositories
             _context = context;
         }
 
+        public UserData AddUserData(UserData model)
+        {
+            _context.Add(model);
+            _context.SaveChanges();
+
+            return model;
+        }
+
+        public UserSocial AddUserSocial(UserSocial model)
+        {
+            _context.Add(model);
+
+            return model;
+        }
+
         public User CheckByToken(string token)
         {
             return _context.Users.FirstOrDefault(a => a.Token == token);

@@ -1,4 +1,5 @@
 ﻿@model ProfileViewModel
+
 <!-- CONTENT GRID -->
 <div class="content-grid">
     <!-- PROFILE HEADER -->
@@ -366,9 +367,66 @@
                 <!-- /WIDGET BOX TITLE -->
                 <!-- WIDGET BOX CONTENT -->
                 <div class="widget-box-content">
-                    <!-- PARAGRAPH -->
-                    <p class="paragraph">haqqimda</p>
-                    <!-- /PARAGRAPH -->
+                    @if (Model.User.UserData.AboutMe != null)
+                    {
+                        <!-- PARAGRAPH -->
+                        <p class="paragraph">@Model.User.UserData.AboutMe</p>
+                        <!-- /PARAGRAPH -->
+                    }
+                    else
+                    {
+                        <p class="paragraph">*[Hələki boşdur]*</p>
+                    }
+                    <div class="information-line-list">
+                        <!-- INFORMATION LINE -->
+                        <div class="information-line">
+                            <!-- INFORMATION LINE TITLE -->
+                            <p style="margin-right:5px" class="information-line-title">Qatılma tarixi</p>
+                            <!-- /INFORMATION LINE TITLE -->
+                            <!-- INFORMATION LINE TEXT -->
+                            <p class="information-line-text">@Model.User.JoinDate.ToString("MM/yyyy")</p>
+                            <!-- /INFORMATION LINE TEXT -->
+                        </div>
+                        <!-- /INFORMATION LINE -->
+                        <!-- INFORMATION LINE -->
+                        <div class="information-line">
+                            <!-- INFORMATION LINE TITLE -->
+                            <p style="margin-right:5px" class="information-line-title">Şəhər</p>
+                            <!-- /INFORMATION LINE TITLE -->
+                            @if (Model.User.UserData.City != null)
+                            {
+                                <!-- INFORMATION LINE TEXT -->
+                                <p class="information-line-text">@Model.User.UserData.City</p>
+                                <!-- /INFORMATION LINE TEXT -->
+                            }
+                            else
+                            {
+                                <!-- INFORMATION LINE TEXT -->
+                                <p style="font-size:12px" class="information-line-text">*[Hələki qeyd edilməyib]*</p>
+                                <!-- /INFORMATION LINE TEXT -->
+                            }
+                        </div>
+                        <!-- /INFORMATION LINE -->
+                        <!-- INFORMATION LINE -->
+                        <div class="information-line">
+                            <!-- INFORMATION LINE TITLE -->
+                            <p style="margin-right:5px" class="information-line-title">Doğum günü</p>
+                            <!-- /INFORMATION LINE TITLE -->
+                            @if (Model.User.UserData.Birthday.ToString("dd/MM/yyyy") != "01/01/0001")
+                            {
+                                <!-- INFORMATION LINE TEXT -->
+                                <p class="information-line-text">@Model.User.UserData.Birthday.ToString("dd/MM/yyyy")</p>
+                                <!-- /INFORMATION LINE TEXT -->
+                            }
+                            else
+                            {
+                                <!-- INFORMATION LINE TEXT -->
+                                <p style="font-size:12px" class="information-line-text">*[Hələki qeyd edilməyib]*</p>
+                                <!-- /INFORMATION LINE TEXT -->
+                            }
+                        </div>
+                        <!-- /INFORMATION LINE -->
+                    </div>
                 </div>
                 <!-- /WIDGET BOX CONTENT -->
             </div>
@@ -418,7 +476,7 @@
                 <!-- /QUICK POST -->
             }
 
-            @foreach (var item in Model.User.Posts)
+            @foreach (var item in Model.User.Posts.OrderByDescending(p=>p.AddedDate))
             {
 
 

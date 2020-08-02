@@ -1,0 +1,78 @@
+﻿
+@{
+    Layout = "_SettingsLayout";
+}
+
+<!-- GRID COLUMN -->
+<div class="account-hub-content">
+    <!-- SECTION HEADER -->
+    <div class="section-header">
+        <!-- SECTION HEADER INFO -->
+        <div class="section-header-info">
+            <!-- SECTION PRETITLE -->
+            <p class="section-pretitle">Klublar</p>
+            <!-- /SECTION PRETITLE -->
+            <!-- SECTION TITLE -->
+            <h2 class="section-title">Klublarını idarə et</h2>
+            <!-- /SECTION TITLE -->
+        </div>
+        <!-- /SECTION HEADER INFO -->
+    </div>
+    <!-- /SECTION HEADER -->
+    <!-- GRID -->
+    <div class="grid grid-3-3-3 centered-on-mobile">
+        <!-- CREATE ENTITY BOX -->
+        <div class="create-entity-box">
+            <!-- CREATE ENTITY BOX COVER -->
+            <div class="create-entity-box-cover"></div>
+            <!-- /CREATE ENTITY BOX COVER -->
+            <!-- CREATE ENTITY BOX AVATAR -->
+            <div class="create-entity-box-avatar">
+                <!-- CREATE ENTITY BOX AVATAR ICON -->
+                <svg class="create-entity-box-avatar-icon icon-group">
+                    <use xlink:href="#svg-group"></use>
+                </svg>
+                <!-- /CREATE ENTITY BOX AVATAR ICON -->
+            </div>
+            <!-- /CREATE ENTITY BOX AVATAR -->
+            <!-- CREATE ENTITY BOX INFO -->
+            <div class="create-entity-box-info">
+                <!-- CREATE ENTITY BOX TITLE -->
+                <p class="create-entity-box-title">Yeni klub yarat</p>
+                <!-- /CREATE ENTITY BOX TITLE -->
+                <!-- CREATE ENTITY BOX TEXT -->
+                <p class="create-entity-box-text">İstəyini başqalarıyla paylaş !</p>
+                <!-- /CREATE ENTITY BOX TEXT -->
+                <!-- BUTTON -->
+                <a asp-controller="setting" asp-action="createclub" class="button secondary full popup-create-group-trigger">Yaratmağa başla !</a>
+                <!-- /BUTTON -->
+            </div>
+            <!-- /CREATE ENTITY BOX INFO -->
+        </div>
+        <!-- /CREATE ENTITY BOX -->
+        <!-- USER PREVIEW -->
+        <div class="user-preview small fixed-height-medium">
+            
+            <!-- USER PREVIEW INFO -->
+            <div class="user-preview-info">
+                <!-- USER SHORT DESCRIPTION -->
+                <div class="user-short-description small">
+                    <!-- USER SHORT DESCRIPTION TITLE -->
+                    <p class="user-short-description-title small"><a href="group-timeline.html">Cosplayers of the World</a></p>
+                    <!-- /USER SHORT DESCRIPTION TITLE -->
+                    <!-- USER SHORT DESCRIPTION TEXT -->
+                    <p class="user-short-description-text regular">Group Organizer</p>
+                    <!-- /USER SHORT DESCRIPTION TEXT -->
+                </div>
+                <!-- /USER SHORT DESCRIPTION -->
+                <!-- BUTTON -->
+                <a asp-controller="setting" asp-action="managegroup" class="button white full popup-manage-group-trigger">Klubu idarə et</a>
+                <!-- /BUTTON -->
+            </div>
+            <!-- /USER PREVIEW INFO -->
+        </div>
+        <!-- /USER PREVIEW -->
+    </div>
+    <!-- /GRID -->
+</div>
+<!-- /GRID COLUMN -->

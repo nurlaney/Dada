@@ -40,8 +40,15 @@ using Dada.Models.Account;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\DostTech\source\repos\Dada\Dada\Views\_ViewImports.cshtml"
+using Dada.Models.Userdata;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cf581bd3b6bf33aa4ae06d8726c0e250d344b0ae", @"/Views/Post/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"86ac85f7da9d649678e95c57b5bf9a186ed39845", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5df8d91f3053575989349cd954876bfedd45bcfc", @"/Views/_ViewImports.cshtml")]
     public class Views_Post_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PostViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "deletecomment", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -327,7 +334,7 @@ using Dada.Models.Account;
                                             <!-- /SIMPLE DROPDOWN LINK -->
                                             <!-- SIMPLE DROPDOWN LINK -->
                                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf581bd3b6bf33aa4ae06d8726c0e250d344b0ae20359", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf581bd3b6bf33aa4ae06d8726c0e250d344b0ae20535", async() => {
                 WriteLiteral("<i class=\"fas fa-trash-alt mr-2\"></i>Əminsinizmi ?");
             }
             );
@@ -489,7 +496,7 @@ using Dada.Models.Account;
                         <div class=""quick-post-body"">
                             <!-- FORM -->
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf581bd3b6bf33aa4ae06d8726c0e250d344b0ae29319", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf581bd3b6bf33aa4ae06d8726c0e250d344b0ae29495", async() => {
                 WriteLiteral(@"
                                 <!-- FORM ROW -->
                                 <div class=""form-row"">
@@ -498,7 +505,7 @@ using Dada.Models.Account;
                                         <!-- FORM TEXTAREA -->
                                         <div class=""form-textarea"">
                                             ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("textarea", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf581bd3b6bf33aa4ae06d8726c0e250d344b0ae29984", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("textarea", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf581bd3b6bf33aa4ae06d8726c0e250d344b0ae30160", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.TextAreaTagHelper>();
@@ -582,7 +589,7 @@ AddHtmlAttributeValue("", 16593, ViewBag.user.Username, 16593, 22, false);
 #line hidden
 #nullable disable
                 WriteLiteral("                                            <!-- BUTTON -->\r\n                                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf581bd3b6bf33aa4ae06d8726c0e250d344b0ae34990", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf581bd3b6bf33aa4ae06d8726c0e250d344b0ae35166", async() => {
                     WriteLiteral("Göndər");
                 }
                 );
@@ -650,7 +657,7 @@ AddHtmlAttributeValue("", 16593, ViewBag.user.Username, 16593, 22, false);
 #line hidden
 #nullable disable
             WriteLiteral("                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf581bd3b6bf33aa4ae06d8726c0e250d344b0ae39636", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf581bd3b6bf33aa4ae06d8726c0e250d344b0ae39812", async() => {
                 WriteLiteral("fikrini paylaşmaq üçün Qeydiyyatdan keç / Daxil ol");
             }
             );

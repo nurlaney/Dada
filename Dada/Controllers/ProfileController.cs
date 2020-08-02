@@ -28,25 +28,13 @@ namespace Dada.Controllers
 
             ViewBag.token = token;
 
-            var myprofile = _profileRepository.GetUserByToken(token); 
-
             var profile = _profileRepository.GetUserByUserName(username);
 
             if (profile == null) return NotFound();
 
-            if (token != profile.Token)
-            {
-                var other = new ProfileViewModel
-                {
-                    User = _mapper.Map<User, UserViewModel>(profile),
-                };
-
-                return View(other);
-            }
-
             var model = new ProfileViewModel
             {
-                User = _mapper.Map<User, UserViewModel>(myprofile),
+                User = _mapper.Map<User, UserViewModel>(profile),
             };
 
             return View(model);
