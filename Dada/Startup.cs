@@ -17,6 +17,7 @@ using Repository.Repositories.MainRepositories;
 using Repository.Repositories.PostRepositories;
 using Repository.Repositories.ProfileRepositories;
 using Repository.Repositories.SearchRepositories;
+using Repository.Repositories.SettingsRepositories;
 
 namespace Dada
 {
@@ -42,6 +43,7 @@ namespace Dada
             services.AddTransient<IGroupRepository, GroupRepository>();
             services.AddTransient<IMainRepositories, MainRepositories>();
             services.AddTransient<ISearchRepository, SearchRepository>();
+            services.AddTransient<ISettingRepository, SettingRepository>();
 
             services.AddDbContext<DadaDbContext>(options =>
                   options.UseSqlServer(Configuration.GetConnectionString("Default"),

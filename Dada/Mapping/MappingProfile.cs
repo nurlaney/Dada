@@ -16,7 +16,7 @@ namespace Dada.Mapping
         public MappingProfile()
         {
             CreateMap<User, UserViewModel>();
-
+            CreateMap<UserViewModel, User>();
 
             CreateMap<Group, GroupViewModel>();
 

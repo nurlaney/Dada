@@ -2,15 +2,76 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using Dada.Filters;
+using Dada.Models.Profile;
 using Microsoft.AspNetCore.Mvc;
+using Repository.Models;
+using Repository.Repositories.AccountRepositories;
+using Repository.Repositories.SettingsRepositories;
 
 namespace Dada.Controllers
 {
+    [TypeFilter(typeof(Auth))]
     public class SettingController : Controller
     {
+        private Repository.Models.User _user => RouteData.Values["User"] as Repository.Models.User;
+        private readonly IMapper _mapper;
+        private readonly ISettingRepository _settingRepository;
+        private readonly IUserRepository _userRepository;
+
+        public SettingController(IMapper mapper,
+                                 ISettingRepository settingRepository,
+                                 IUserRepository userRepository)
+        {
+            _mapper = mapper;
+            _settingRepository = settingRepository;
+            _userRepository = userRepository;
+        }
         public IActionResult Profile()
         {
-            return View();
+            var model = _mapper.Map<User, UserViewModel>(_user);
+            model.Username = model.Username.Substring(2);
+
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Profile(UserViewModel model)
+        {
+
+            bool CheckUsername = _settingRepository.CheckUserName(_user.Id,"d/"+model.Username);
+
+            if (CheckUsername)
+            {
+                ModelState.AddModelError("Username", "Bu istifadəçi adı artıq mövcuddur");
+            }
+            bool CheckEmail = _settingRepository.CheckEmail(_user.Id, model.Email);
+
+            if (CheckEmail)
+            {
+                ModelState.AddModelError("Email", "Bu Email artıq mövcuddur");
+            }
+
+            if (ModelState.IsValid)
+            {
+                var user = _mapper.Map<UserViewModel, User>(model);
+
+                var userToUpdate = _user;
+
+                _settingRepository.UpdateUser(user, userToUpdate);
+
+                
+
+                return RedirectToAction("profile");
+            }
+
+            
+
+
+            return View(model);
         }
 
         public IActionResult Social()

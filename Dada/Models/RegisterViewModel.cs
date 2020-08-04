@@ -8,13 +8,15 @@ namespace Dada.Models
 {
     public class RegisterViewModel
     {
-        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$",
-        ErrorMessage = "Dəstəklənməyən xarakter")]
         [Required(ErrorMessage = "Adınızı daxil edin...")]
+        [MaxLength(55,ErrorMessage ="maksimum 55 xarakter yaza bilərsən, bağışla")]
+        [MinLength(4,ErrorMessage ="minimum 4 xarakter yazmalısan,dostum,bağışla")]
         public string FullName { get; set; }
-        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$",
+        [RegularExpression(@"^[a-zA-Z''-']{1,40}$",
         ErrorMessage = "Dəstəklənməyən xarakter")]
         [Required(ErrorMessage = "İstifadəçi adınızı daxil edin...")]
+        [MaxLength(55, ErrorMessage = "maksimum 55 xarakter yaza bilərsən, bağışla")]
+        [MinLength(4, ErrorMessage = "minimum 4 xarakter yazmalısan,dostum,bağışla")]
         public string Username { get; set; }
         [Required(ErrorMessage = "E-mail daxil edin...")]
         [MaxLength(50, ErrorMessage = "Email maximum 50 xarakter ola bilər")]

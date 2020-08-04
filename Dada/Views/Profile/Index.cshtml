@@ -21,89 +21,119 @@
             <div class="profile-header-social-links-wrap">
                 <!-- PROFILE HEADER SOCIAL LINKS -->
                 <div id="profile-header-social-links-slider" class="profile-header-social-links">
-                    <div class="profile-header-social-link">
-                        <!-- SOCIAL LINK -->
-                        <a class="social-link facebook" href="#">
-                            <!-- ICON FACEBOOK -->
-                            <svg class="icon-facebook">
-                                <use xlink:href="#svg-facebook"></use>
-                            </svg>
-                            <!-- /ICON FACEBOOK -->
-                        </a>
-                        <!-- /SOCIAL LINK -->
-                    </div>
+                    @if (Model.User.UserSocial.FbLink != null)
+                    {
+                        <div class="profile-header-social-link">
+                            <!-- SOCIAL LINK -->
+                            <a class="social-link facebook" href="#">
+                                <!-- ICON FACEBOOK -->
+                                <svg class="icon-facebook">
+                                    <use xlink:href="#svg-facebook"></use>
+                                </svg>
+                                <!-- /ICON FACEBOOK -->
+                            </a>
+                            <!-- /SOCIAL LINK -->
+                        </div>
 
-                    <div class="profile-header-social-link">
-                        <!-- SOCIAL LINK -->
-                        <a class="social-link twitter" href="#">
-                            <!-- ICON TWITTER -->
-                            <svg class="icon-twitter">
-                                <use xlink:href="#svg-twitter"></use>
-                            </svg>
-                            <!-- /ICON TWITTER -->
-                        </a>
-                        <!-- /SOCIAL LINK -->
-                    </div>
-
-                    <div class="profile-header-social-link">
-                        <!-- SOCIAL LINK -->
-                        <a class="social-link instagram" href="#">
-                            <!-- ICON INSTAGRAM -->
-                            <svg class="icon-instagram">
-                                <use xlink:href="#svg-instagram"></use>
-                            </svg>
-                            <!-- /ICON INSTAGRAM -->
-                        </a>
-                        <!-- /SOCIAL LINK -->
-                    </div>
-
-                    <div class="profile-header-social-link">
-                        <!-- SOCIAL LINK -->
-                        <a class="social-link twitch" href="#">
-                            <!-- ICON TWITCH -->
-                            <svg class="icon-twitch">
-                                <use xlink:href="#svg-twitch"></use>
-                            </svg>
-                            <!-- /ICON TWITCH -->
-                        </a>
-                        <!-- /SOCIAL LINK -->
-                    </div>
-
-                    <div class="profile-header-social-link">
-                        <!-- SOCIAL LINK -->
-                        <a class="social-link youtube" href="#">
-                            <!-- ICON YOUTUBE -->
-                            <svg class="icon-youtube">
-                                <use xlink:href="#svg-youtube"></use>
-                            </svg>
-                            <!-- /ICON YOUTUBE -->
-                        </a>
-                        <!-- /SOCIAL LINK -->
-                    </div>
-
-                    <div class="profile-header-social-link">
-                        <!-- SOCIAL LINK -->
-                        <a class="social-link patreon" href="#">
-                            <!-- ICON PATREON -->
-                            <svg class="icon-patreon">
-                                <use xlink:href="#svg-patreon"></use>
-                            </svg>
-                            <!-- /ICON PATREON -->
-                        </a>
-                        <!-- /SOCIAL LINK -->
-                    </div>
-
-                    <div class="profile-header-social-link">
-                        <!-- SOCIAL LINK -->
-                        <a class="social-link discord" href="#">
-                            <!-- ICON DISCORD -->
-                            <svg class="icon-discord">
-                                <use xlink:href="#svg-discord"></use>
-                            </svg>
-                            <!-- /ICON DISCORD -->
-                        </a>
-                        <!-- /SOCIAL LINK -->
-                    </div>
+                    }
+                    @if (Model.User.UserSocial.TwitLink != null)
+                    {
+                        <div class="profile-header-social-link">
+                            <!-- SOCIAL LINK -->
+                            <a class="social-link twitter" href="#">
+                                <!-- ICON TWITTER -->
+                                <svg class="icon-twitter">
+                                    <use xlink:href="#svg-twitter"></use>
+                                </svg>
+                                <!-- /ICON TWITTER -->
+                            </a>
+                            <!-- /SOCIAL LINK -->
+                        </div>
+                    }
+                    @if (Model.User.UserSocial.InstaLink != null)
+                    {
+                        <div class="profile-header-social-link">
+                            <!-- SOCIAL LINK -->
+                            <a class="social-link instagram" href="#">
+                                <!-- ICON INSTAGRAM -->
+                                <svg class="icon-instagram">
+                                    <use xlink:href="#svg-instagram"></use>
+                                </svg>
+                                <!-- /ICON INSTAGRAM -->
+                            </a>
+                            <!-- /SOCIAL LINK -->
+                        </div>
+                    }
+                    @if (Model.User.UserSocial.GoogleLink != null)
+                    {
+                        <div class="profile-header-social-link">
+                            <!-- SOCIAL LINK -->
+                            <a class="social-link google" href="#">
+                                <!-- ICON FACEBOOK -->
+                                <svg class="icon-google">
+                                    <use xlink:href="#svg-google"></use>
+                                </svg>
+                                <!-- /ICON FACEBOOK -->
+                            </a>
+                            <!-- /SOCIAL LINK -->
+                        </div>
+                    }
+                    @if (Model.User.UserSocial.TwitchLink != null)
+                    {
+                        <div class="profile-header-social-link">
+                            <!-- SOCIAL LINK -->
+                            <a class="social-link twitch" href="#">
+                                <!-- ICON TWITCH -->
+                                <svg class="icon-twitch">
+                                    <use xlink:href="#svg-twitch"></use>
+                                </svg>
+                                <!-- /ICON TWITCH -->
+                            </a>
+                            <!-- /SOCIAL LINK -->
+                        </div>
+                    }
+                    @if (Model.User.UserSocial.YoutubeLink != null)
+                    {
+                        <div class="profile-header-social-link">
+                            <!-- SOCIAL LINK -->
+                            <a class="social-link youtube" href="#">
+                                <!-- ICON YOUTUBE -->
+                                <svg class="icon-youtube">
+                                    <use xlink:href="#svg-youtube"></use>
+                                </svg>
+                                <!-- /ICON YOUTUBE -->
+                            </a>
+                            <!-- /SOCIAL LINK -->
+                        </div>
+                    }
+                    @if (Model.User.UserSocial.PatreonLink != null)
+                    {
+                        <div class="profile-header-social-link">
+                            <!-- SOCIAL LINK -->
+                            <a class="social-link patreon" href="#">
+                                <!-- ICON PATREON -->
+                                <svg class="icon-patreon">
+                                    <use xlink:href="#svg-patreon"></use>
+                                </svg>
+                                <!-- /ICON PATREON -->
+                            </a>
+                            <!-- /SOCIAL LINK -->
+                        </div>
+                    }
+                    @if (Model.User.UserSocial.DiscordLink != null)
+                    {
+                        <div class="profile-header-social-link">
+                            <!-- SOCIAL LINK -->
+                            <a class="social-link discord" href="#">
+                                <!-- ICON DISCORD -->
+                                <svg class="icon-discord">
+                                    <use xlink:href="#svg-discord"></use>
+                                </svg>
+                                <!-- /ICON DISCORD -->
+                            </a>
+                            <!-- /SOCIAL LINK -->
+                        </div>
+                    }
                 </div>
                 <!-- /PROFILE HEADER SOCIAL LINKS -->
                 <!-- SLIDER CONTROLS -->
@@ -375,7 +405,10 @@
                     }
                     else
                     {
-                        <p class="paragraph">*[Hələki boşdur]*</p>
+                        <div class="emtyness" style="text-align:center;margin-bottom:13px">
+                            <img style="width:72px;" src="~/img/broke.svg" />
+                            <p class="paragraph">*[Hələki boşdur]*</p>
+                        </div>
                     }
                     <div class="information-line-list">
                         <!-- INFORMATION LINE -->
