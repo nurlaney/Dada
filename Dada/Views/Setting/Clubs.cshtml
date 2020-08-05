@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<GroupViewModel>
 @{
     Layout = "_SettingsLayout";
 }
@@ -50,28 +50,31 @@
             <!-- /CREATE ENTITY BOX INFO -->
         </div>
         <!-- /CREATE ENTITY BOX -->
-        <!-- USER PREVIEW -->
-        <div class="user-preview small fixed-height-medium">
-            
-            <!-- USER PREVIEW INFO -->
-            <div class="user-preview-info">
-                <!-- USER SHORT DESCRIPTION -->
-                <div class="user-short-description small">
-                    <!-- USER SHORT DESCRIPTION TITLE -->
-                    <p class="user-short-description-title small"><a href="group-timeline.html">Cosplayers of the World</a></p>
-                    <!-- /USER SHORT DESCRIPTION TITLE -->
-                    <!-- USER SHORT DESCRIPTION TEXT -->
-                    <p class="user-short-description-text regular">Group Organizer</p>
-                    <!-- /USER SHORT DESCRIPTION TEXT -->
+        @foreach (var item in Model)
+        {
+            <!-- USER PREVIEW -->
+            <div class="user-preview small fixed-height-medium">
+
+                <!-- USER PREVIEW INFO -->
+                <div class="user-preview-info">
+                    <!-- USER SHORT DESCRIPTION -->
+                    <div class="user-short-description small">
+                        <!-- USER SHORT DESCRIPTION TITLE -->
+                        <p class="user-short-description-title small"><a href="group-timeline.html">@item.Name</a></p>
+                        <!-- /USER SHORT DESCRIPTION TITLE -->
+                        <!-- USER SHORT DESCRIPTION TEXT -->
+                        <p class="user-short-description-text regular">Group Organizer</p>
+                        <!-- /USER SHORT DESCRIPTION TEXT -->
+                    </div>
+                    <!-- /USER SHORT DESCRIPTION -->
+                    <!-- BUTTON -->
+                    <a asp-controller="setting" asp-action="managegroup" class="button white full popup-manage-group-trigger">Klubu idarə et</a>
+                    <!-- /BUTTON -->
                 </div>
-                <!-- /USER SHORT DESCRIPTION -->
-                <!-- BUTTON -->
-                <a asp-controller="setting" asp-action="managegroup" class="button white full popup-manage-group-trigger">Klubu idarə et</a>
-                <!-- /BUTTON -->
+                <!-- /USER PREVIEW INFO -->
             </div>
-            <!-- /USER PREVIEW INFO -->
-        </div>
-        <!-- /USER PREVIEW -->
+            <!-- /USER PREVIEW -->
+        }
     </div>
     <!-- /GRID -->
 </div>

@@ -1136,7 +1136,7 @@ textarea::placeholder {
 }
 .grid.grid-3-3-3,
 .grid.grid-3-3-3-3 {
-    grid-template-columns: repeat(auto-fit, 284px);
+    grid-template-columns: repeat(auto-fit, 269px);
 }
 .grid.grid-2-2-2-2-2-2 {
     grid-template-columns: repeat(auto-fit, 184px);

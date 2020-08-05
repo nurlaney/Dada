@@ -14,5 +14,6 @@ namespace Repository.Repositories.SettingsRepositories
         public UserData GetUserDatas(int id);
         public void UpdateSocialMedia(UserSocial userSocial, UserSocial updateToSocial);
         public void UpdateUserDatas(UserData userData, UserData updateData);
+        public List<Group> GetGroups(int userId);
     }
 }

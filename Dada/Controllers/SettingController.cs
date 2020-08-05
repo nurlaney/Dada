@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Dada.Filters;
+using Dada.Models.Account;
 using Dada.Models.Profile;
 using Dada.Models.Userdata;
 using Microsoft.AspNetCore.Mvc;
@@ -133,7 +134,10 @@ namespace Dada.Controllers
 
         public IActionResult Clubs()
         {
-            return View();
+            var groups = _settingRepository.GetGroups(_user.Id);
+            var model = _mapper.Map<IEnumerable<Group>, IEnumerable<GroupViewModel>>(groups);
+
+            return View(model);
         }
 
         public IActionResult CreateClub()

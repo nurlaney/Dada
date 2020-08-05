@@ -26,6 +26,11 @@ namespace Repository.Repositories.SettingsRepositories
             return _context.Users.Where(u => u.Id != id).Any(u => u.Username == username);
         }
 
+        public List<Group> GetGroups(int userId)
+        {
+            return _context.GroupUsers.Where(g => g.UserId == userId && g.RoleId == 1).Select(g => g.Group).ToList();
+        }
+
         public UserSocial GetSocials(int id)
         {
             return _context.UserSocials.FirstOrDefault(u => u.UserId == id);
