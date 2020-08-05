@@ -123,7 +123,6 @@ C:\Users\DostTech\source\repos\Dada\Dada\bin\Debug\netcoreapp3.1\Repository.pdb
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Dada.csprojAssemblyReference.cache
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\staticwebassets\Dada.StaticWebAssets.Manifest.cache
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\staticwebassets\Dada.StaticWebAssets.xml
-C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Dada.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Dada.RazorAssemblyInfo.cache
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Dada.RazorAssemblyInfo.cs
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Dada.AssemblyInfoInputs.cache
@@ -159,3 +158,5 @@ C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Set
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Setting\Clubs.cshtml.g.cs
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Setting\CreateClub.cshtml.g.cs
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Setting\ManageGroup.cshtml.g.cs
+C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Setting\UserInfo.cshtml.g.cs
+C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Dada.MvcApplicationPartsAssemblyInfo.cache

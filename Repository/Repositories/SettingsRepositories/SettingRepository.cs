@@ -31,6 +31,11 @@ namespace Repository.Repositories.SettingsRepositories
             return _context.UserSocials.FirstOrDefault(u => u.UserId == id);
         }
 
+        public UserData GetUserDatas(int id)
+        {
+            return _context.UserDatas.FirstOrDefault(u => u.UserId == id);
+        }
+
         public void UpdateSocialMedia(UserSocial userSocial, UserSocial updateToSocial)
         {
             updateToSocial.FbLink =  userSocial.FbLink;
@@ -50,6 +55,15 @@ namespace Repository.Repositories.SettingsRepositories
             userToUpdate.Email = user.Email;
             userToUpdate.FullName = user.FullName;
             userToUpdate.Username = "d/" + user.Username;
+
+            _context.SaveChanges();
+        }
+
+        public void UpdateUserDatas(UserData userData, UserData updateData)
+        {
+            updateData.AboutMe = userData.AboutMe;
+            updateData.Birthday = userData.Birthday;
+            updateData.City = userData.City;
 
             _context.SaveChanges();
         }

@@ -67,6 +67,9 @@
                                 <!-- SIDEBAR MENU LINK -->
                                 <a class="sidebar-menu-link" asp-controller="setting" asp-action="social">Sosial media</a>
                                 <!-- /SIDEBAR MENU LINK -->
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" asp-controller="setting" asp-action="userinfo">Əlavə məlumatlar</a>
+                                <!-- /SIDEBAR MENU LINK -->
                                 <!-- /SIDEBAR MENU BODY -->
                             </div>
                             <!-- /SIDEBAR MENU ITEM -->
@@ -170,7 +173,10 @@
     </div>
 
 
+    @RenderSection("Scripts", required: false)
+
+
 </body>
 
-@RenderSection("Scripts", required: false)
+
 </html>

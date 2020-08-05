@@ -1,0 +1,105 @@
+﻿@model UserDataViewModel
+@{
+    Layout = "_SettingsLayout";
+}
+
+<!-- GRID COLUMN -->
+<div class="account-hub-content">
+    <!-- SECTION HEADER -->
+    <div class="section-header">
+        <!-- SECTION HEADER INFO -->
+        <div class="section-header-info">
+            <!-- SECTION PRETITLE -->
+            <p class="section-pretitle">Profilim</p>
+            <!-- /SECTION PRETITLE -->
+            <!-- SECTION TITLE -->
+            <h2 class="section-title">Əlavə məlumatlar</h2>
+            <!-- /SECTION TITLE -->
+        </div>
+        <!-- /SECTION HEADER INFO -->
+    </div>
+    <!-- /SECTION HEADER -->
+    <!-- GRID COLUMN -->
+    <div class="grid-column">
+        <!-- WIDGET BOX -->
+        <div class="widget-box">
+            <!-- WIDGET BOX CONTENT -->
+            <div class="widget-box-content">
+                <!-- FORM -->
+                <form class="form" method="post">
+                    <!-- FORM ROW -->
+                    <div class="form-row split">
+                        <!-- FORM ITEM -->
+                        <div class="form-item">
+                            <!-- FORM INPUT -->
+                            <div class="form-input small active">
+                                <label for="profile-name">Şəhər</label>
+                                <input type="text" asp-for="City" >
+                            </div>
+                            <!-- /FORM INPUT -->
+                        </div>
+                        <!-- /FORM ITEM -->
+                        <!-- FORM ITEM -->
+                        <div class="form-item">
+                            <div class="form-input-decorated">
+                                <!-- FORM INPUT -->
+                                <div class="form-input small active">
+                                    <label for="profile-name">Doğum gününü seç</label>
+                                    <input asp-for="Birthday" type="text" id='datepicker'>
+                                </div>
+                                <!-- /FORM INPUT -->
+                                <svg class="form-input-icon icon-events">
+                                    <use xlink:href="#svg-events"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <!-- /FORM ITEM -->
+                    </div>
+                    <!-- /FORM ROW -->
+                    <!-- FORM ROW -->
+                    <div class="form-row split">
+                        <!-- FORM ITEM -->
+                        <div class="form-item">
+                            <!-- FORM INPUT -->
+                            <div class="form-input small full">
+                                <textarea asp-for="AboutMe" style="min-height:200px !important;" placeholder="Haqqımda .."></textarea>
+                            </div>
+                            <!-- /FORM INPUT -->
+                        </div>
+                        <!-- /FORM ITEM -->
+                    </div>
+                    <div style="text-align:end">
+                        <button style="width:86px; margin-top:25px;" type="submit" class="button small secondary">Paylaş</button>
+                    </div>
+                </form>
+                <!-- /FORM -->
+            </div>
+            <!-- WIDGET BOX CONTENT -->
+        </div>
+    </div>
+    <!-- /GRID COLUMN -->
+</div>
+<!-- /GRID COLUMN -->
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy-mm-dd",
+                dayNamesMin: ["Bz", "BzE", "ÇA", "Çə", "CüA", "Cü", "Şə"],
+                monthNames: ["Yanvar", "Fevral", "Mart", "Aprel", "Mart", "İyun", "İyul", "Avqust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr"],
+                monthNamesShort: ["Yan", "Fev", "Mar", "Apr", "May", "İyun", "İyul", "Avq", "Sen", "Okt", "Noy", "Dek"],
+                yearRange: "1945:2020"
+
+            });
+        });
+    </script>
+
+}
+
+

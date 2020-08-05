@@ -12301,3 +12301,35 @@ figure > img {
     ============================================================================================
     ==============
 */
+
+.ui-datepicker {
+    background-color: #615dfa;
+    padding: 20px;
+    border-radius: 10px;
+}
+ .ui-datepicker .ui-datepicker-title select {
+        background-color: #615dfa;
+        padding-left: 10px;
+        padding-top: 2px;
+        border: 2px solid #f8f8fb;
+        border-radius: 8px;
+        margin-top:13px;
+ }
+.ui-datepicker .ui-datepicker-title select option{
+    color:white;
+    font-size:15px;
+}
+    .ui-datepicker .ui-datepicker-calendar th {
+        padding-right: 9px;
+        padding-left: 9px;
+        color: white;
+    }
+.ui-datepicker-calendar a{
+    color: white;
+}
+.ui-datepicker-prev{
+    display:none;
+}
+.ui-datepicker-next{
+    display:none;
+}

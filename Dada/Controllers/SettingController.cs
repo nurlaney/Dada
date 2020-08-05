@@ -75,6 +75,30 @@ namespace Dada.Controllers
             return View(model);
         }
 
+        public IActionResult UserInfo()
+        {
+            var UserDatas = _settingRepository.GetUserDatas(_user.Id);
+            var model = _mapper.Map<UserData, UserDataViewModel>(UserDatas);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult UserInfo(UserDataViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var userData = _mapper.Map<UserDataViewModel, UserData>(model);
+                var dataToUpdate = _settingRepository.GetUserDatas(_user.Id);
+                if (dataToUpdate == null) return NotFound();
+
+                _settingRepository.UpdateUserDatas(userData, dataToUpdate);
+            }
+
+            return View(model);
+        }
+
         public IActionResult Social()
         {
             var socialAccount = _settingRepository.GetSocials(_user.Id);
