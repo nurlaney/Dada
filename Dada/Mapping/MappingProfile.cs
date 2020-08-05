@@ -29,6 +29,8 @@ namespace Dada.Mapping
 
             CreateMap<UserData, UserDataViewModel>();
             CreateMap<UserSocial, UserSocialViewModel>();
+            CreateMap<UserSocialViewModel, UserSocial>();
+            CreateMap<UserDataViewModel, UserData>();
         }
     }
 }

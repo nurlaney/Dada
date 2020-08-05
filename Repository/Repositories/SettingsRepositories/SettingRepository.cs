@@ -26,6 +26,25 @@ namespace Repository.Repositories.SettingsRepositories
             return _context.Users.Where(u => u.Id != id).Any(u => u.Username == username);
         }
 
+        public UserSocial GetSocials(int id)
+        {
+            return _context.UserSocials.FirstOrDefault(u => u.UserId == id);
+        }
+
+        public void UpdateSocialMedia(UserSocial userSocial, UserSocial updateToSocial)
+        {
+            updateToSocial.FbLink =  userSocial.FbLink;
+            updateToSocial.GoogleLink = userSocial.GoogleLink;
+            updateToSocial.InstaLink = userSocial.InstaLink;
+            updateToSocial.PatreonLink = userSocial.PatreonLink;
+            updateToSocial.TwitchLink = userSocial.TwitchLink;
+            updateToSocial.TwitLink = userSocial.TwitLink;
+            updateToSocial.YoutubeLink = userSocial.YoutubeLink;
+            updateToSocial.DiscordLink = userSocial.DiscordLink;
+
+            _context.SaveChanges();
+        }
+
         public void UpdateUser(User user, User userToUpdate)
         {
             userToUpdate.Email = user.Email;

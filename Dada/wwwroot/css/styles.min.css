@@ -42,6 +42,7 @@ ul {
 button,
 input[type="password"],
 input[type="text"],
+input[type="email"],
 label,
 select,
 textarea {
@@ -56,6 +57,7 @@ label {
 button,
 input[type="password"],
 input[type="text"],
+input[type="email"],
 select,
 textarea {
     width: 100%;
@@ -65,6 +67,7 @@ textarea {
 }
 input[type="password"],
 input[type="text"],
+input[type="email"],
 select,
 textarea {
     background-color: #fff;
@@ -74,45 +77,53 @@ textarea {
 }
 input[type="password"]:focus,
 input[type="text"]:focus,
+input[type="email"]:focus,
 select:focus,
 textarea:focus {
     border-color: #615dfa;
 }
 input[type="password"],
-input[type="text"] {
+input[type="text"],
+input[type="email"]
+{
     height: 54px;
     padding: 0 18px;
 }
-input[type="password"]::-webkit-input-placeholder,
-input[type="text"]::-webkit-input-placeholder {
-    color: #adafca;
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-input[type="password"]::-moz-placeholder,
-input[type="text"]::-moz-placeholder {
-    color: #adafca;
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-input[type="password"]:-ms-input-placeholder,
-input[type="text"]:-ms-input-placeholder {
-    color: #adafca;
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-input[type="password"]::-ms-input-placeholder,
-input[type="text"]::-ms-input-placeholder {
-    color: #adafca;
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-input[type="password"]::placeholder,
-input[type="text"]::placeholder {
-    color: #adafca;
-    font-size: 0.875rem;
-    font-weight: 500;
-}
+    input[type="password"]::-webkit-input-placeholder,
+    input[type="text"]::-webkit-input-placeholder,
+    input[type="email"]::-webkit-input-placeholder {
+        color: #adafca;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+    input[type="password"]::-moz-placeholder,
+    input[type="text"]::-moz-placeholder,
+    input[type="email"]::-moz-placeholder {
+        color: #adafca;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+    input[type="password"]:-ms-input-placeholder,
+    input[type="text"]:-ms-input-placeholder,
+    input[type="email"]:-ms-input-placeholder {
+        color: #adafca;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+    input[type="password"]::-ms-input-placeholder,
+    input[type="text"]::-ms-input-placeholder,
+    input[type="email"]::-ms-input-placeholder {
+        color: #adafca;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+    input[type="password"]::placeholder,
+    input[type="text"]::placeholder,
+    input[type="email"]::placeholder {
+        color: #adafca;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
 textarea {
     padding: 14px 18px;
     resize: none;

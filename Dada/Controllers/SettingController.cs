@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Dada.Filters;
 using Dada.Models.Profile;
+using Dada.Models.Userdata;
 using Microsoft.AspNetCore.Mvc;
 using Repository.Models;
 using Repository.Repositories.AccountRepositories;
@@ -76,7 +77,28 @@ namespace Dada.Controllers
 
         public IActionResult Social()
         {
-            return View();
+            var socialAccount = _settingRepository.GetSocials(_user.Id);
+            var model = _mapper.Map<UserSocial, UserSocialViewModel>(socialAccount);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Social(UserSocialViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var socialAccount = _mapper.Map<UserSocialViewModel, UserSocial>(model);
+                var socialToUpdate = _settingRepository.GetSocials(_user.Id);
+                if (socialToUpdate == null) return NotFound();
+
+                _settingRepository.UpdateSocialMedia(socialAccount, socialToUpdate);
+
+                return RedirectToAction("social");
+            }
+
+            return Ok(model);
         }
 
         public IActionResult ChangePassword()

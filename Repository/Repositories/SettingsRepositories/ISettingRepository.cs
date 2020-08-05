@@ -10,5 +10,7 @@ namespace Repository.Repositories.SettingsRepositories
         public void UpdateUser(User user,User userToUpdate);
         public bool CheckUserName(int id, string username);
         public bool CheckEmail(int id, string email);
+        public UserSocial GetSocials(int id);
+        public void UpdateSocialMedia(UserSocial userSocial, UserSocial updateToSocial);
     }
 }

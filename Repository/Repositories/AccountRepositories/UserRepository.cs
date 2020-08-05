@@ -1,4 +1,5 @@
-﻿using Repository.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Repository.Data;
 using Repository.Models;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,10 @@ namespace Repository.Repositories.AccountRepositories
 
         public User CheckByToken(string token)
         {
-            return _context.Users.FirstOrDefault(a => a.Token == token);
+            return _context.Users
+                                 .Include(u=>u.UserData)
+                                 .Include(u=>u.UserSocial)
+                                 .FirstOrDefault(a => a.Token == token);
         }
 
         public bool CheckEmail(string email)
