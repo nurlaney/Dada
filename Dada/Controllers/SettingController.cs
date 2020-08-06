@@ -135,6 +135,7 @@ namespace Dada.Controllers
         public IActionResult Clubs()
         {
             var groups = _settingRepository.GetGroups(_user.Id);
+
             var model = _mapper.Map<IEnumerable<Group>, IEnumerable<GroupViewModel>>(groups);
 
             return View(model);
@@ -145,9 +146,62 @@ namespace Dada.Controllers
             return View();
         }
 
-        public IActionResult ManageGroup()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateClub(GroupViewModel model)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                var group = _mapper.Map<GroupViewModel, Group>(model);
+
+                group.Name = "k/" + group.Name;
+
+                _settingRepository.CreateGroup(group);
+
+                GroupUser groupUser = new GroupUser
+                {
+                    UserId = _user.Id,
+                    GroupId = group.Id,
+                    RoleId = 1
+                };
+
+                _settingRepository.AddGroupUser(groupUser);
+
+                return RedirectToAction("clubs");
+            }
+
+
+            return Ok(model);
+        }
+
+        public IActionResult ManageGroup(int id)
+        {
+            var group = _settingRepository.GetGroupById(id);
+            var model = _mapper.Map<Group, GroupViewModel>(group);
+
+            if (group == null) return NotFound();
+
+            model.Name = model.Name.Substring(2);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ManageGroup(GroupViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var group = _mapper.Map<GroupViewModel, Group>(model);
+                var updateToGroup = _settingRepository.GetGroupById(model.Id);
+
+                _settingRepository.UpdateGroup(group, updateToGroup);
+
+                return RedirectToAction("managegroup");
+            }
+
+
+            return Ok(model);
         }
     }
 }

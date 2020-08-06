@@ -60,7 +60,7 @@
                     <!-- USER SHORT DESCRIPTION -->
                     <div class="user-short-description small">
                         <!-- USER SHORT DESCRIPTION TITLE -->
-                        <p class="user-short-description-title small"><a href="group-timeline.html">@item.Name</a></p>
+                        <p class="user-short-description-title small"><a asp-controller="setting" asp-action="managegroup" asp-route-id="@item.Id">@item.Name</a></p>
                         <!-- /USER SHORT DESCRIPTION TITLE -->
                         <!-- USER SHORT DESCRIPTION TEXT -->
                         <p class="user-short-description-text regular">Group Organizer</p>
@@ -68,7 +68,7 @@
                     </div>
                     <!-- /USER SHORT DESCRIPTION -->
                     <!-- BUTTON -->
-                    <a asp-controller="setting" asp-action="managegroup" class="button white full popup-manage-group-trigger">Klubu idarə et</a>
+                    <a asp-controller="setting" asp-action="managegroup" asp-route-id="@item.Id" class="button white full popup-manage-group-trigger">Klubu idarə et</a>
                     <!-- /BUTTON -->
                 </div>
                 <!-- /USER PREVIEW INFO -->

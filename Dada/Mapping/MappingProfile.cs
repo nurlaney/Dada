@@ -19,6 +19,7 @@ namespace Dada.Mapping
             CreateMap<UserViewModel, User>();
 
             CreateMap<Group, GroupViewModel>();
+            CreateMap<GroupViewModel, Group>();
 
 
             CreateMap<Post, PostViewModel>();

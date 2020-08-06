@@ -1,4 +1,4 @@
-﻿
+﻿@model GroupViewModel
 @{
     Layout = "_SettingsLayout";
 }
@@ -29,7 +29,7 @@
             <!-- WIDGET BOX CONTENT -->
             <div class="widget-box-content">
                 <!-- FORM -->
-                <form class="form">
+                <form class="form" method="post">
                     <!-- FORM ROW -->
                     <div class="form-row split">
                         <!-- FORM ITEM -->
@@ -37,7 +37,7 @@
                             <!-- FORM INPUT -->
                             <div class="form-input small active">
                                 <label for="profile-name">Klub adı</label>
-                                <input type="text" id="profile-name" name="profile_name">
+                                <input asp-for="Name" type="text">
                             </div>
                             <!-- /FORM INPUT -->
                         </div>
@@ -47,7 +47,7 @@
                             <!-- FORM INPUT -->
                             <div class="form-input small active">
                                 <label for="profile-tagline">Klub alt başlığı</label>
-                                <input type="text" id="profile-tagline" name="profile_tagline">
+                                <input asp-for="Subtitle" type="text">
                             </div>
                             <!-- /FORM INPUT -->
                         </div>
@@ -60,7 +60,7 @@
                         <div class="form-item">
                             <!-- FORM INPUT -->
                             <div class="form-input small full">
-                                <textarea style="min-height:200px !important;" id="profile-description" name="profile_description" placeholder="Klub haqqında.."></textarea>
+                                <textarea asp-for="Info" style="min-height:200px !important;" placeholder="Klub haqqında.."></textarea>
                             </div>
                             <!-- /FORM INPUT -->
                         </div>
@@ -69,11 +69,14 @@
                         <div class="form-item">
                             <!-- FORM INPUT -->
                             <div class="form-input small full">
-                                <textarea style="min-height:200px !important;" id="profile-description" name="profile_description" placeholder="Klubun qaydalarını oxunaqlı şəkildə yazın.."></textarea>
+                                <textarea asp-for="Rules" style="min-height:200px !important;" placeholder="Klubun qaydalarını oxunaqlı şəkildə yazın.."></textarea>
                             </div>
                             <!-- /FORM INPUT -->
                         </div>
                         <!-- /FORM ITEM -->
+                    </div>
+                    <div style="text-align:end">
+                        <button style="width:86px; margin-top:25px;" type="submit" class="button small secondary">Paylaş</button>
                     </div>
                 </form>
                 <!-- /FORM -->

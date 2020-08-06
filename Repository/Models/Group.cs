@@ -8,6 +8,7 @@ namespace Repository.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Subtitle { get; set; }
         public string Info { get; set; }
         public string Rules { get; set; }
         public ICollection<GroupUser> GroupUsers { get; set; }

@@ -16,6 +16,14 @@ namespace Repository.Repositories.SettingsRepositories
             _context = context;
         }
 
+        public GroupUser AddGroupUser(GroupUser groupUser)
+        {
+            _context.Add(groupUser);
+            _context.SaveChanges();
+
+            return groupUser;
+        }
+
         public bool CheckEmail(int id, string email)
         {
             return _context.Users.Where(u => u.Id != id).Any(u => u.Email == email);
@@ -24,6 +32,17 @@ namespace Repository.Repositories.SettingsRepositories
         public bool CheckUserName(int id, string username)
         {
             return _context.Users.Where(u => u.Id != id).Any(u => u.Username == username);
+        }
+
+        public void CreateGroup(Group group)
+        {
+            _context.Add(group);
+            _context.SaveChanges();
+        }
+
+        public Group GetGroupById(int id)
+        {
+            return _context.Groups.FirstOrDefault(g => g.Id == id);
         }
 
         public List<Group> GetGroups(int userId)
@@ -39,6 +58,16 @@ namespace Repository.Repositories.SettingsRepositories
         public UserData GetUserDatas(int id)
         {
             return _context.UserDatas.FirstOrDefault(u => u.UserId == id);
+        }
+
+        public void UpdateGroup(Group group, Group groupToUpdate)
+        {
+            groupToUpdate.Info = group.Info;
+            groupToUpdate.Name = "k/" + group.Name;
+            groupToUpdate.Rules = group.Rules;
+            groupToUpdate.Subtitle = group.Subtitle;
+
+            _context.SaveChanges();
         }
 
         public void UpdateSocialMedia(UserSocial userSocial, UserSocial updateToSocial)
