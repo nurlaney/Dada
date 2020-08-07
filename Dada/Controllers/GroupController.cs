@@ -43,6 +43,10 @@ namespace Dada.Controllers
 
             ViewBag.gadmins = groupAdmins;
 
+            var admin = groupAdmins.Any(g => g.Token == token);
+
+            ViewBag.admin = admin;
+
 
             if(user != null)
             {
