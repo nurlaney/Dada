@@ -24,8 +24,8 @@ namespace Dada.Controllers
             string term = HttpContext.Request.Query["term"].ToString();
 
             var users = _searchRepository.GetMembers(term).Select(u => u.Username).ToList();
-            var groups = _searchRepository.GetGroups(term).Select(g => g.Name).ToList();
-            var posts = _searchRepository.GetPostTitles(term).Select(p => p.Title).ToList();
+            var groups = _searchRepository.GetGroups(term).Select(g => g.Id + "*" + g.Name).ToList();
+            var posts = _searchRepository.GetPostTitles(term).Select(p => p.Id + "*" + p.Title).ToList();
 
             Search search = new Search
             {
@@ -33,6 +33,7 @@ namespace Dada.Controllers
                 Clubs = groups,
                 Titles = posts
             };
+
 
             return Ok(search);
         }
