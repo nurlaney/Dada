@@ -159,4 +159,6 @@ C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Set
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Setting\CreateClub.cshtml.g.cs
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Setting\ManageGroup.cshtml.g.cs
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Razor\Views\Setting\UserInfo.cshtml.g.cs
+C:\Users\DostTech\source\repos\Dada\Dada\bin\Debug\netcoreapp3.1\SendGrid.dll
+C:\Users\DostTech\source\repos\Dada\Dada\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll
 C:\Users\DostTech\source\repos\Dada\Dada\obj\Debug\netcoreapp3.1\Dada.MvcApplicationPartsAssemblyInfo.cache

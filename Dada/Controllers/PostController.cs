@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using Repository.Models;
 using Repository.Repositories.PostRepositories;
 using Repository.Repositories.ProfileRepositories;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 
 namespace Dada.Controllers
 {
@@ -80,6 +82,20 @@ namespace Dada.Controllers
             }
 
             return RedirectToAction("index", new { id = comment.PostId });
+        }
+
+        public async Task<IActionResult> Main()
+        {
+            var client = new SendGridClient("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");
+            var from = new EmailAddress("no-reply.dada@yandex.com", "Example User");
+            var subject = "Sending with Twilio SendGrid is Fun";
+            var to = new EmailAddress("nurlanyusifli10@gmail.com", "Example User");
+            var plainTextContent = "and easy to do anywhere, even with C#";
+            var htmlContent = "<strong>and easy to do anywhere, even with C#</strong>";
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var response = await client.SendEmailAsync(msg).ConfigureAwait(false);
+
+            return Ok(response);
         }
     }
 }
