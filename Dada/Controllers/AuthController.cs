@@ -92,12 +92,19 @@ namespace Dada.Controllers
 
                 _userRepository.Register(user);
 
-                _emailSender.Send(user.Email, user.FullName, new SendGrid.Helpers.Mail.SendGridMessage
+                     _emailSender.Send(user.Email, user.FullName, "d-e0fa4ccef93c430d98a0ca0bf6c4e7d1", new
                 {
-                    Subject = "Email təsdiqi!",
-                    PlainTextContent = "yeni",
-                    HtmlContent = "<a>Kliklə</a>"
-                });
+                    Subject = "Email təsdiqi",
+                    Title = "Dadaya xoş gəlmisən !",
+                    Subtitle = "Dadanın tam imkanlarından yararlanmaq üçün emailini aşağıdakı düyməyə klik edərək təsdiqləsən yaxşı olar,dostum",
+                    Topbtn = "düyməyə 2 gün ərzində klikləməsən qüvvədən düşəcək",
+                    btn = new
+                    {
+                        active = true,
+                        text = "Təsdiqlə",
+                        url = $"{ this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}"
+                    }
+                }) ;
 
 
                 UserData userData = new UserData

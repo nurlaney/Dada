@@ -8,6 +8,6 @@ namespace Dada.Services.EmailServices
 {
     public interface IEmailSender
     {
-        public void Send(string emailAddress,string userFullname ,SendGridMessage message);
+        public Task Send(string emailAddress,string userFullname,string templateId,object data);
     }
 }

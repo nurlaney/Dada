@@ -8,16 +8,18 @@ namespace Dada.Services.EmailServices
 {
     public class EmailSender : IEmailSender
     {
-        public void Send(string emailAddress, string userFullname, SendGridMessage message)
+
+        public async Task Send(string emailAddress, string userFullname, string templateId, object data)
         {
             var client = new SendGridClient("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");
-            var from = new EmailAddress("dada.no-reply@yandex.com", "Dada");
-            var subject = message.Subject;
-            var to = new EmailAddress(emailAddress, userFullname);
-            var plainTextContent = message.PlainTextContent;
-            var htmlContent = message.HtmlContent;
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            var response =  client.SendEmailAsync(msg).ConfigureAwait(false);
+            var SendGridMessage = new SendGridMessage();
+            SendGridMessage.SetFrom("dada.no-reply@yandex.com","Dada");
+            SendGridMessage.AddTo(emailAddress, userFullname);
+            SendGridMessage.SetTemplateId(templateId);
+            SendGridMessage.SetTemplateData(data);
+
+           var response = await client.SendEmailAsync(SendGridMessage);
+
         }
     }
 }
