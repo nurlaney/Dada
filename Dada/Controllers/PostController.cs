@@ -84,18 +84,5 @@ namespace Dada.Controllers
             return RedirectToAction("index", new { id = comment.PostId });
         }
 
-        public async Task<IActionResult> Main()
-        {
-            var client = new SendGridClient("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");
-            var from = new EmailAddress("dada.no-reply@yandex.com", "Dada");
-            var subject = "Sending with Twilio SendGrid is Fun";
-            var to = new EmailAddress("nurlanyusifli10@gmail.com", "Example User");
-            var plainTextContent = "and easy to do anywhere, even with C#";
-            var htmlContent = "<strong>and easy to do anywhere, even with C#</strong>";
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            var response = await client.SendEmailAsync(msg).ConfigureAwait(false);
-
-            return Ok(response);
-        }
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Dada.Models;
+using Dada.Services.EmailServices;
 using Microsoft.AspNetCore.Mvc;
 using Repository.Models;
 using Repository.Repositories.AccountRepositories;
@@ -15,11 +16,14 @@ namespace Dada.Controllers
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
+        private readonly IEmailSender _emailSender;
         public AuthController(IUserRepository userRepository,
-                              IMapper mapper)
+                              IMapper mapper,
+                              IEmailSender emailSender)
         {
             _mapper = mapper;
             _userRepository = userRepository;
+            _emailSender = emailSender;
         }
         public IActionResult Index()
         {
@@ -88,6 +92,14 @@ namespace Dada.Controllers
 
                 _userRepository.Register(user);
 
+                _emailSender.Send(user.Email, user.FullName, new SendGrid.Helpers.Mail.SendGridMessage
+                {
+                    Subject = "Email təsdiqi!",
+                    PlainTextContent = "yeni",
+                    HtmlContent = "<a>Kliklə</a>"
+                });
+
+
                 UserData userData = new UserData
                 {
                     UserId = user.Id,
@@ -112,6 +124,8 @@ namespace Dada.Controllers
                 });
 
                 return RedirectToAction("index", "home");
+
+                
             }
 
 
