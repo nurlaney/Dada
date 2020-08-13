@@ -25,6 +25,8 @@ namespace Dada.Models.Profile
         [Required(ErrorMessage = "E-mail daxil edin...")]
         [MaxLength(50, ErrorMessage = "Email maximum 50 xarakter ola bilər")]
         [DataType(DataType.EmailAddress, ErrorMessage = "Duzgun email daxil edin")]
+        public string ConfirmToken { get; set; }
+        public bool EmailConfirmed { get; set; }
         public string Email { get; set; }
         public DateTime JoinDate { get; set; }
         public ICollection<GroupUser> GroupUsers { get; set; }

@@ -80,8 +80,10 @@ namespace Dada.Controllers
                 var user = _mapper.Map<RegisterViewModel, User>(model);
 
                 user.Token = Guid.NewGuid().ToString();
+                user.ConfirmToken = Guid.NewGuid().ToString();
                 user.Username = "d/" + model.Username;
                 user.JoinDate = DateTime.Now;
+                user.EmailConfirmed = false;
 
 
                 _userRepository.Register(user);
@@ -99,6 +101,11 @@ namespace Dada.Controllers
                 _userRepository.AddUserData(userData);
 
                 Response.Cookies.Append("user-token", user.Token, new Microsoft.AspNetCore.Http.CookieOptions
+                {
+                    HttpOnly = true,
+                    Expires = DateTime.Now.AddYears(1)
+                });
+                Response.Cookies.Append("confirm-token", user.ConfirmToken, new Microsoft.AspNetCore.Http.CookieOptions
                 {
                     HttpOnly = true,
                     Expires = DateTime.Now.AddYears(1)
