@@ -146,7 +146,6 @@ namespace Dada.Controllers
 
             if (user == null && user.ConfirmToken == null) return NotFound();
 
-            user.Token = Guid.NewGuid().ToString();
             user.ConfirmToken = null;
 
             _userRepository.ConfirmUser(user);
