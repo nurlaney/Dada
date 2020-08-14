@@ -12350,3 +12350,18 @@ figure > img {
         padding-bottom: 4px;
         border-bottom: 1px solid #f8f8fb;
     }
+.emailinfo {
+    width: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 13px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+    .emailinfo i {
+        position: absolute;
+        right: 6px;
+        top: 5px;
+        font-size: 14px;
+        color: #f8f8fb;
+    }

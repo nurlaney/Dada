@@ -97,12 +97,11 @@ namespace Dada.Controllers
                     Subject = "Email təsdiqi",
                     Title = "Dadaya xoş gəlmisən !",
                     Subtitle = "Dadanın tam imkanlarından yararlanmaq üçün emailini aşağıdakı düyməyə klik edərək təsdiqləsən yaxşı olar,dostum",
-                    Topbtn = "düyməyə 2 gün ərzində klikləməsən qüvvədən düşəcək",
                     btn = new
                     {
                         active = true,
-                        text = "Təsdiqlə",
-                        url = $"{ this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}"
+                        text = "Emaili təsdiqlə",
+                        url = $"{ this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}/auth/confirm?token={user.ConfirmToken}"
                     }
                 }) ;
 
@@ -137,6 +136,23 @@ namespace Dada.Controllers
 
 
             return View(model);
+        }
+
+        public IActionResult Confirm(string token)
+        {
+            if (string.IsNullOrEmpty(token)) return NotFound();
+
+            User user = _userRepository.GetUserByConfirmToken(token);
+
+            if (user == null && user.ConfirmToken == null) return NotFound();
+
+            user.Token = Guid.NewGuid().ToString();
+            user.ConfirmToken = null;
+
+            _userRepository.ConfirmUser(user);
+
+
+            return RedirectToAction("index", "home");
         }
 
         public IActionResult Logout()

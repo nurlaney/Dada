@@ -16,5 +16,7 @@ namespace Repository.Repositories.AccountRepositories
         public User Register(User user);
         public UserData AddUserData(UserData model);
         public UserSocial AddUserSocial(UserSocial model);
+        public User GetUserByConfirmToken(string token);
+        public void ConfirmUser(User user);
     }
 }

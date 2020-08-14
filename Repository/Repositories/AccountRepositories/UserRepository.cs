@@ -50,6 +50,19 @@ namespace Repository.Repositories.AccountRepositories
             return _context.Users.Any(u => u.Username == username);
         }
 
+        public void ConfirmUser(User user)
+        {
+            user.EmailConfirmed = true;
+
+            _context.SaveChanges();
+        }
+
+        public User GetUserByConfirmToken(string token)
+        {
+            return _context.Users.FirstOrDefault(u => u.ConfirmToken == token);
+
+        }
+
         public User Login(string username, string password)
         {
             User user = _context.Users.FirstOrDefault(a => a.Username == username);
