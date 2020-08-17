@@ -16,6 +16,8 @@ namespace Dada.Controllers
 {
     public class HomeController : Controller
     {
+        private Repository.Models.User _user => RouteData.Values["User"] as Repository.Models.User;
+
         private readonly IMapper _mapper;
         private readonly IMainRepositories _mainRepositories;
         private readonly IProfileRepository _profileRepository;
