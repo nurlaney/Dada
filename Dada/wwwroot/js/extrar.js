@@ -6,6 +6,18 @@
 
 
 
+    $(".confirmd").click(function () {
+        $(".confirmd").removeClass("d-block").addClass("d-none");
+        $(".confirmed").removeClass("d-none").addClass("d-block");
+    });
+
+    $(".confirmed").mouseout(function () {
+        $(".confirmd").removeClass("d-none").addClass("d-block");
+        $(".confirmed").removeClass("d-block").addClass("d-none");
+    });
+
+
+
     // search engine
         $("#search-main").autocomplete({
             source: function (request, response) {

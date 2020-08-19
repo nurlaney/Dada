@@ -1,4 +1,5 @@
-﻿using Repository.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Repository.Data;
 using Repository.Models;
 using System;
 using System.Collections.Generic;
@@ -40,9 +41,17 @@ namespace Repository.Repositories.SettingsRepositories
             _context.SaveChanges();
         }
 
+        public Group DeleteGroup(Group group)
+        {
+            _context.Remove(group);
+            _context.SaveChanges();
+
+            return group;
+        }
+
         public Group GetGroupById(int id)
         {
-            return _context.Groups.FirstOrDefault(g => g.Id == id);
+            return _context.Groups.Include(g=>g.Posts).FirstOrDefault(g => g.Id == id);
         }
 
         public List<Group> GetGroups(int userId)

@@ -70,6 +70,10 @@
                     <!-- BUTTON -->
                     <a asp-controller="setting" asp-action="managegroup" asp-route-id="@item.Id" class="button white full popup-manage-group-trigger">Klubu idarə et</a>
                     <!-- /BUTTON -->
+                    <!-- BUTTON -->
+                    <a class="button white full  mt-3 text-danger confirmd d-block">Klubu sil</a>
+                    <a asp-controller="setting" asp-action="deletegroup" asp-route-id="@item.Id" class="button white full mt-3 text-warning confirmed d-none">Əminsinizmi ?</a>
+                    <!-- /BUTTON -->
                 </div>
                 <!-- /USER PREVIEW INFO -->
             </div>

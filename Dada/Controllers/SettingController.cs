@@ -203,5 +203,14 @@ namespace Dada.Controllers
 
             return Ok(model);
         }
+
+        public IActionResult DeleteGroup(int id)
+        {
+            var group = _settingRepository.GetGroupById(id);
+
+            _settingRepository.DeleteGroup(group);
+
+            return RedirectToAction("clubs");
+        }
     }
 }

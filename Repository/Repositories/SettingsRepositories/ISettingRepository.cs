@@ -19,5 +19,6 @@ namespace Repository.Repositories.SettingsRepositories
         public void UpdateGroup(Group group, Group groupToUpdate);
         public void CreateGroup(Group group);
         public GroupUser AddGroupUser(GroupUser groupUser);
+        public Group DeleteGroup(Group group);
     }
 }
