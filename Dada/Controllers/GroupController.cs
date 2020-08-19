@@ -111,7 +111,6 @@ namespace Dada.Controllers
             var user = _profileRepository.GetUserByToken(token);
 
 
-
             if (ModelState.IsValid)
             {
                 Post post = new Post

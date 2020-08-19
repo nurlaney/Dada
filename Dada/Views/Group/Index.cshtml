@@ -82,7 +82,7 @@
                 {
                     @if (ViewBag.joined == false)
                     {
-                        <a class="profile-header-info-action button secondary" asp-action="joingroup" asp-route-id="@Model.Id">
+                        <a class="profile-header-info-action button secondary" @*id="joining"*@ asp-action="joingroup" asp-route-id="@Model.Id">
                             <!-- ICON JOIN GROUP -->
                             <i class="fas fa-user-plus" style="font-size:22px; margin-top:13px;"></i>
                             <!-- /ICON JOIN GROUP -->
@@ -97,6 +97,8 @@
                         </a>
                     }
                 }
+
+                <div id="messagesList"></div>
 
                 <a class="profile-header-info-action button">
                     <!-- ICON MORE DOTS -->
