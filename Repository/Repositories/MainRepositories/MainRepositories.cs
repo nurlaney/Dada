@@ -17,9 +17,7 @@ namespace Repository.Repositories.MainRepositories
 
         public ICollection<Group> GetGroups()
         {
-            return _context.Groups
-                                    .Include(p=>p.GroupUsers)
-                                    .ToList();
+            return _context.Groups.ToList();
         }
 
         public ICollection<Post> GetPosts()

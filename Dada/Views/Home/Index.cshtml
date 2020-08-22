@@ -76,9 +76,6 @@
                                 <!-- POST PEEK TEXT -->
                                 <p class="post-peek-text">@item.AddedDate.ToString("dd.MM.yyyy")</p>
                                 <!-- /POST PEEK TEXT -->
-                                <!-- POST PEEK TEXT -->
-                                <a href="#" class="post-peek-text">@item.User.Username</a>
-                                <!-- /POST PEEK TEXT -->
                             </div>
                             <!-- /POST PEEK -->
                         }
@@ -366,21 +363,8 @@
                                 <p class="user-status-title"><a class="bold" asp-controller="group" asp-action="index" asp-route-id="@item.Id">@item.Name</a></p>
                                 <!-- /USER STATUS TITLE -->
                                 <!-- USER STATUS TEXT -->
-                                <p class="user-status-text small">265 üzv</p>
+                                <p class="user-status-text small">@item.Subtitle</p>
                                 <!-- /USER STATUS TEXT -->
-                                <!-- ACTION REQUEST LIST -->
-                                <div class="action-request-list">
-                                    <!-- ACTION REQUEST -->
-                                    <div class="action-request accept">
-                                        <!-- ACTION REQUEST ICON -->
-                                        <svg class="action-request-icon icon-join-group">
-                                            <use xlink:href="#svg-join-group"></use>
-                                        </svg>
-                                        <!-- /ACTION REQUEST ICON -->
-                                    </div>
-                                    <!-- /ACTION REQUEST -->
-                                </div>
-                                <!-- ACTION REQUEST LIST -->
                             </div>
                             <!-- /USER STATUS -->
                         }
@@ -440,19 +424,6 @@
                                 <!-- USER STATUS TEXT -->
                                 <p class="user-status-text small">Dada skoru 245</p>
                                 <!-- /USER STATUS TEXT -->
-                                <!-- ACTION REQUEST LIST -->
-                                <div class="action-request-list">
-                                    <!-- ACTION REQUEST -->
-                                    <div class="action-request accept">
-                                        <!-- ACTION REQUEST ICON -->
-                                        <svg class="action-request-icon icon-add-friend">
-                                            <use xlink:href="#svg-add-friend"></use>
-                                        </svg>
-                                        <!-- /ACTION REQUEST ICON -->
-                                    </div>
-                                    <!-- /ACTION REQUEST -->
-                                </div>
-                                <!-- ACTION REQUEST LIST -->
                             </div>
                             <!-- /USER STATUS -->
                         }
@@ -468,20 +439,3 @@
     <!-- /GRID -->
 </div>
 <!-- /CONTENT GRID -->
-@section Scripts{
-
-    <script>
-        $(".confirmd").click(function () {
-            $(".confirmd").removeClass("d-block").addClass("d-none");
-            $(".confirmed").removeClass("d-none").addClass("d-block");
-        });
-
-        $(".confirmed").mouseout(function () {
-            $(".confirmd").removeClass("d-none").addClass("d-block");
-            $(".confirmed").removeClass("d-block").addClass("d-none");
-        });
-
-    </script>
-
-
-}
