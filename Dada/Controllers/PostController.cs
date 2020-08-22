@@ -6,6 +6,7 @@ using AutoMapper;
 using Dada.Models.Profile;
 using Microsoft.AspNetCore.Mvc;
 using Repository.Models;
+using Repository.Repositories.MainRepositories;
 using Repository.Repositories.PostRepositories;
 using Repository.Repositories.ProfileRepositories;
 using SendGrid;
@@ -18,13 +19,16 @@ namespace Dada.Controllers
         private readonly IPostRepository _postRepository;
         private readonly IMapper _mapper;
         private readonly IProfileRepository _profileRepository;
+        private readonly IMainRepositories _mainRepositories;
         public PostController(IPostRepository postRepository,
                               IMapper mapper,
-                              IProfileRepository profileRepository)
+                              IProfileRepository profileRepository,
+                              IMainRepositories mainRepositories)
         {
             _postRepository = postRepository;
             _mapper = mapper;
             _profileRepository = profileRepository;
+            _mainRepositories = mainRepositories;
         }
 
         public IActionResult Index(int id)
@@ -32,6 +36,13 @@ namespace Dada.Controllers
             var token = HttpContext.Request.Cookies["user-token"];
 
             var myprofile = _profileRepository.GetUserByToken(token);
+
+            var groups = _mainRepositories.GetGroups();
+            var titles = _mainRepositories.GetPosts();
+
+            ViewBag.groups = groups;
+
+            ViewBag.titles = titles;
 
             ViewBag.token = token;
 

@@ -1,10 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Repository.Data;
 using Repository.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Repository.Repositories.MainRepositories
 {
@@ -19,13 +17,16 @@ namespace Repository.Repositories.MainRepositories
 
         public ICollection<Group> GetGroups()
         {
-            return _context.Groups.ToList();
+            return _context.Groups
+                                    .Include(p=>p.GroupUsers)
+                                    .ToList();
         }
 
         public ICollection<Post> GetPosts()
         {
             return _context.Posts
                                  .Include("Comments")
+                                 .Include("User")
                                  .OrderByDescending(p=>p.AddedDate).ToList();
         }
 

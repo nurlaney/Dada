@@ -43,6 +43,7 @@ namespace Repository.Repositories.PostRepositories
             return _context.Posts
                                  .Include(p=>p.Group)
                                  .Include(p => p.Comments)
+                                 .Include("User")
                                  .Include("Comments.User")
                                  .FirstOrDefault(p => p.Id == id);
         }   

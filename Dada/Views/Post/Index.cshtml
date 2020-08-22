@@ -9,7 +9,7 @@
         @if (Model.GroupId != null)
         {
             <!-- SECTION BANNER TITLE -->
-            <a class="section-banner-title" href="#">@Model.Group.Name</a>
+            <a class="section-banner-title" asp-controller="group" asp-action="index" asp-route-id="@Model.Group.Id">@Model.Group.Name</a>
             <!-- /SECTION BANNER TITLE -->
         }
         <!-- SECTION BANNER TEXT -->
@@ -49,21 +49,24 @@
                                 <!-- /POST SETTINGS -->
                                 <!-- SIMPLE DROPDOWN -->
                                 <div class="simple-dropdown widget-box-post-settings-dropdown">
-                                    <!-- SIMPLE DROPDOWN LINK -->
-                                    <p class="simple-dropdown-link">Edit Post</p>
-                                    <!-- /SIMPLE DROPDOWN LINK -->
-                                    <!-- SIMPLE DROPDOWN LINK -->
-                                    <p class="simple-dropdown-link">Delete Post</p>
-                                    <!-- /SIMPLE DROPDOWN LINK -->
-                                    <!-- SIMPLE DROPDOWN LINK -->
-                                    <p class="simple-dropdown-link">Make it Featured</p>
-                                    <!-- /SIMPLE DROPDOWN LINK -->
-                                    <!-- SIMPLE DROPDOWN LINK -->
-                                    <p class="simple-dropdown-link">Report Post</p>
-                                    <!-- /SIMPLE DROPDOWN LINK -->
-                                    <!-- SIMPLE DROPDOWN LINK -->
-                                    <p class="simple-dropdown-link">Report Author</p>
-                                    <!-- /SIMPLE DROPDOWN LINK -->
+                                    @if (Model.User.Token == ViewBag.token)
+                                    {
+                                        <!-- SIMPLE DROPDOWN LINK -->
+                                        <a class="simple-dropdown-link highlighted text-danger confirmd d-block"><i class="fas fa-trash-alt mr-2"></i>Sil</a>
+                                        <!-- /SIMPLE DROPDOWN LINK -->
+                                        <!-- SIMPLE DROPDOWN LINK -->
+                                        <a asp-action="deletecomment" asp-route-id="@Model.Id" class="simple-dropdown-link highlighted text-danger d-none confirmed"><i class="fas fa-trash-alt mr-2"></i>Əminsinizmi ?</a>
+                                        <!-- /SIMPLE DROPDOWN LINK -->
+                                    }
+                                    else
+                                    {
+                                        <!-- SIMPLE DROPDOWN LINK -->
+                                        <p class="simple-dropdown-link"><i class="fas fa-bug mr-2"></i>Şikayət et</p>
+                                        <!-- /SIMPLE DROPDOWN LINK -->
+                                        <!-- SIMPLE DROPDOWN LINK -->
+                                        <p class="simple-dropdown-link highlighted text-danger"><i class="fas fa-ban mr-2"></i>Blokla</p>
+                                        <!-- /SIMPLE DROPDOWN LINK -->
+                                    }
                                 </div>
                                 <!-- /SIMPLE DROPDOWN -->
                             </div>
@@ -121,14 +124,14 @@
                                         <!-- META LINE -->
                                         <div class="meta-line">
                                             <!-- META LINE LINK -->
-                                            <p class="meta-line-link">d/yusiflinurlan</p>
+                                            <p class="meta-line-link">@Model.User.Username</p>
                                             <!-- /META LINE LINK -->
                                         </div>
                                         <!-- /META LINE -->
                                         <!-- META LINE -->
                                         <div class="meta-line">
                                             <!-- META LINE TEXT -->
-                                            <p class="meta-line-text">45 şərh</p>
+                                            <p class="meta-line-text">@Model.Comments.Count() Şərh</p>
                                             <!-- /META LINE TEXT -->
                                         </div>
                                         <!-- /META LINE -->
@@ -237,7 +240,7 @@
                                             <!-- META LINE -->
                                             <div class="meta-line">
                                                 <!-- META LINE LINK -->
-                                                <p class="meta-line-link">d/@item.User.Username</p>
+                                                <p class="meta-line-link">@item.User.Username</p>
                                                 <!-- /META LINE LINK -->
                                             </div>
                                             <!-- /META LINE -->
@@ -363,67 +366,19 @@
                 <div class="widget-box-content">
                     <!-- POST PEEK LIST -->
                     <div class="post-peek-list">
-                        <!-- POST PEEK -->
-                        <div class="post-peek">
-                            <!-- POST PEEK TITLE -->
-                            <p class="post-peek-title"><a href="profile-post.html">Here's the how and why did I became a full time Gaming Streamer</a><span class="badge badge-secondary ml-2">54</span></p>
-                            <!-- /POST PEEK TITLE -->
-                            <!-- POST PEEK TEXT -->
-                            <p class="post-peek-text">10 may 2020</p>
-                            <!-- /POST PEEK TEXT -->
-                            <!-- POST PEEK TEXT -->
-                            <a href="#" class="post-peek-text">d/yusiflinurlan</a>
-                            <!-- /POST PEEK TEXT -->
-                        </div>
-                        <!-- /POST PEEK -->
-                        <!-- POST PEEK -->
-                        <div class="post-peek">
-                            <!-- POST PEEK TITLE -->
-                            <p class="post-peek-title"><a href="profile-post.html">Here's the how and why did I became a full time Gaming Streamer</a><span class="badge badge-secondary ml-2">54</span></p>
-                            <!-- /POST PEEK TITLE -->
-                            <!-- POST PEEK TEXT -->
-                            <p class="post-peek-text">10 may 2020</p>
-                            <!-- /POST PEEK TEXT -->
-                        </div>
-                        <!-- /POST PEEK -->
-                        <!-- POST PEEK -->
-                        <div class="post-peek">
-                            <!-- POST PEEK TITLE -->
-                            <p class="post-peek-title"><a href="profile-post.html">Here's the how and why did I became a full time Gaming Streamer</a><span class="badge badge-secondary ml-2">54</span></p>
-                            <!-- /POST PEEK TITLE -->
-                            <!-- POST PEEK TEXT -->
-                            <p class="post-peek-text">10 may 2020</p>
-                            <!-- /POST PEEK TEXT -->
-                        </div>
-                        <!-- POST PEEK -->
-                        <div class="post-peek">
-                            <!-- POST PEEK TITLE -->
-                            <p class="post-peek-title"><a href="profile-post.html">Here's the how and why did I became a full time Gaming Streamer</a><span class="badge badge-secondary ml-2">54</span></p>
-                            <!-- /POST PEEK TITLE -->
-                            <!-- POST PEEK TEXT -->
-                            <p class="post-peek-text">10 may 2020</p>
-                            <!-- /POST PEEK TEXT -->
-                        </div>
-                        <!-- POST PEEK -->
-                        <div class="post-peek">
-                            <!-- POST PEEK TITLE -->
-                            <p class="post-peek-title"><a href="profile-post.html">Here's the how and why did I became a full time Gaming Streamer</a><span class="badge badge-secondary ml-2">54</span></p>
-                            <!-- /POST PEEK TITLE -->
-                            <!-- POST PEEK TEXT -->
-                            <p class="post-peek-text">10 may 2020</p>
-                            <!-- /POST PEEK TEXT -->
-                        </div>
-                        <!-- /POST PEEK -->
-                        <!-- POST PEEK -->
-                        <div class="post-peek">
-                            <!-- POST PEEK TITLE -->
-                            <p class="post-peek-title"><a href="profile-post.html">Here's the how and why did I became a full time Gaming Streamer</a><span class="badge badge-secondary ml-2">54</span></p>
-                            <!-- /POST PEEK TITLE -->
-                            <!-- POST PEEK TEXT -->
-                            <p class="post-peek-text">10 may 2020</p>
-                            <!-- /POST PEEK TEXT -->
-                        </div>
-                        <!-- /POST PEEK -->
+                        @foreach (var item in ViewBag.titles)
+                        {
+                            <!-- POST PEEK -->
+                            <div class="post-peek">
+                                <!-- POST PEEK TITLE -->
+                                <p class="post-peek-title"><a asp-controller="post" asp-action="index" asp-route-id="@item.Id">@item.Title</a><span class="badge badge-secondary ml-2">@item.Comments.Count</span></p>
+                                <!-- /POST PEEK TITLE -->
+                                <!-- POST PEEK TEXT -->
+                                <p class="post-peek-text">@item.AddedDate.ToString("dd.MM.yyyy")</p>
+                                <!-- /POST PEEK TEXT -->
+                            </div>
+                            <!-- /POST PEEK -->
+                        }
                     </div>
                     <!-- /POST PEEK LIST -->
                 </div>
@@ -470,126 +425,20 @@
                     <!-- /FILTERS -->
                     <!-- USER STATUS LIST -->
                     <div class="user-status-list">
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
+                        @foreach (var item in ViewBag.groups)
+                        {
+                            <!-- USER STATUS -->
+                            <div class="user-status request-small">
 
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="group-timeline.html">Twitch Streamers</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">265 üzv</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-join-group">
-                                        <use xlink:href="#svg-join-group"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
+                                <!-- USER STATUS TITLE -->
+                                <p class="user-status-title"><a class="bold" asp-controller="group" asp-action="index" asp-route-id="@item.Id">@item.Name</a></p>
+                                <!-- /USER STATUS TITLE -->
+                                <!-- USER STATUS TEXT -->
+                                <p class="user-status-text small">@item.Subtitle</p>
+                                <!-- /USER STATUS TEXT -->
                             </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS AVATAR -->
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="group-timeline.html">Cosplayers of the World</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">139 üzv</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-join-group">
-                                        <use xlink:href="#svg-join-group"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
-                            </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS AVATAR -->
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="group-timeline.html">Stream Designers</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">466 üzv</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-join-group">
-                                        <use xlink:href="#svg-join-group"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
-                            </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS AVATAR -->
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="group-timeline.html">Street Artists</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">951 üzv</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request decline">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-leave-group">
-                                        <use xlink:href="#svg-leave-group"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
-                            </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS AVATAR -->
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="group-timeline.html">Gaming Watchtower</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">2.365 üzv</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-join-group">
-                                        <use xlink:href="#svg-join-group"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
-                            </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
+                            <!-- /USER STATUS -->
+                        }
                     </div>
                     <!-- /USER STATUS LIST -->
                 </div>
@@ -601,22 +450,3 @@
         <!-- /CONTENT GRID -->
     </div>
 </div>
-
-@section Scripts{
-
-    <script>
-
-        $(".confirmd").click(function () {
-            $(".confirmd").removeClass("d-block").addClass("d-none");
-            $(".confirmed").removeClass("d-none").addClass("d-block");
-        });
-
-        $(".confirmed").mouseout(function () {
-            $(".confirmd").removeClass("d-none").addClass("d-block");
-            $(".confirmed").removeClass("d-block").addClass("d-none");
-        });
-
-    </script>
-
-
-}
