@@ -11976,8 +11976,9 @@ figure > img {
     min-height: 160px;
     padding: 52px 60px 0 200px;
     border-radius: 12px;
-    background: url(../img/banner/banner-bg.png) no-repeat 50%;
+    background: url(../img/unamed0.jpg) no-repeat 50%;
     position: relative;
+    background-size:100%;
 }
 .section-banner .section-banner-icon {
     position: absolute;
