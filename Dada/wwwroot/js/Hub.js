@@ -3,12 +3,12 @@
 var connection = new signalR.HubConnectionBuilder().withUrl("/NotificationHub").build();
 
 
-connection.on("ReceiveMessage", function (user, message) {
-    var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    var encodedMsg = user + " says " + msg;
+connection.on("RecieveMessage", function (message) {
+    var msg = message;
+    var encodedMsg = " says " + msg;
     var li = document.createElement("li");
     li.textContent = encodedMsg;
-    document.getElementById("messagesList").appendChild(li);
+    document.getElementById("messagelist").appendChild(li);
 });
 
 connection.start().then(function () {
@@ -16,11 +16,13 @@ connection.start().then(function () {
     return console.error(err.toString());
 });
 
-document.getElementById("joining").addEventListener("click", function (event) {
-    var user = "d/stendhal";
+document.getElementById("upvote").addEventListener("click", function (event) {
     var message = "groupa uzv oldu";
-    connection.invoke("GroupNotify", user, message).catch(function (err) {
+    var connectionid = document.getElementById("conn").innerText;
+    console.log(connectionid);
+    connection.invoke("SendMessage", message, connectionid).catch(function (err) {
         return console.error(err.toString());
     });
+
     event.preventDefault();
 });

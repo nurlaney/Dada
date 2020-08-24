@@ -29,6 +29,7 @@ namespace Dada.Models.Profile
         public bool EmailConfirmed { get; set; }
         public string Email { get; set; }
         public DateTime JoinDate { get; set; }
+        public string ConectionId { get; set; }
         public ICollection<GroupUser> GroupUsers { get; set; }
         public ICollection<PostViewModel> Posts { get; set; }
         public ICollection<CommentViewModel> Comments { get; set; }
