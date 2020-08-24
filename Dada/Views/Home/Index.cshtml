@@ -14,13 +14,13 @@
     <!-- SECTION BANNER -->
     <div class="section-banner">
         <!-- SECTION BANNER ICON -->
-        <img class="section-banner-icon" src="~/img/unnamed.png" style="width:18%" alt="newsfeed-icon">
+        <img class="section-banner-icon" src="~/img/unnamed.png" style="width:16%" alt="newsfeed-icon">
         <!-- /SECTION BANNER ICON -->
         <!-- SECTION BANNER TITLE -->
         <p class="section-banner-title">Post axışı</p>
         <!-- /SECTION BANNER TITLE -->
         <!-- SECTION BANNER TEXT -->
-        <p class="section-banner-text">Ümumi paylaşılan postlar</p>
+        <p class="section-banner-text"style="background-color: #0000009c;display:inline-block">Ümumi paylaşılan postlar</p>
         <!-- /SECTION BANNER TEXT -->
     </div>
     <!-- /SECTION BANNER -->
@@ -97,27 +97,24 @@
                     <!-- QUICK POST BODY -->
                     <div class="quick-post-body">
                         <!-- FORM -->
-                        <form class="form" method="post">
+                        <form class="form" method="post" style="text-align:end">
                             <!-- FORM ROW -->
                             <div class="form-row">
                                 <!-- FORM ITEM -->
                                 <div class="form-item">
                                     <!-- QUICK POST HEADER -->
-                                    <input asp-for="@Model.Post.Title" type="text" placeholder="başlığı bura.." />
+                                    <input asp-for="@Model.Post.Title" type="text" style="border-top:none;border-left:none;border-right:none;border-radius:0;" placeholder="başlığı bura.." />
                                     <!-- /QUICK POST HEADER -->
                                     <!-- FORM TEXTAREA -->
                                     <div class="form-textarea">
                                         <textarea asp-for="@Model.Post.Text" placeholder="şərhini bura yaz.."></textarea>
-                                        <!-- FORM TEXTAREA LIMIT TEXT -->
-                                        <p class="form-textarea-limit-text">998/1000</p>
-                                        <!-- /FORM TEXTAREA LIMIT TEXT -->
                                     </div>
                                     <!-- /FORM TEXTAREA -->
                                 </div>
                                 <!-- /FORM ITEM -->
                             </div>
                             <!-- /FORM ROW -->
-                            <button type="submit" asp-action="compose" class="button small secondary">Paylaş</button>
+                            <button type="submit" style="width:17%" asp-action="compose" class="button small secondary">Paylaş</button>
 
                         </form>
                         <!-- /FORM -->
@@ -127,45 +124,6 @@
                 <!-- /QUICK POST -->
             }
 
-            <!-- SIMPLE TAB ITEMS -->
-            <div class="simple-tab-items">
-                <!-- FORM -->
-                <form class="form">
-                    <!-- FORM SELECT -->
-                    <div class="form-select">
-                        <select id="newsfeed-filter-category" name="newsfeed_filter_category">
-                            <option value="0">All Updates</option>
-                            <option value="1">Mentions</option>
-                            <option value="2">Friends</option>
-                            <option value="3">Groups</option>
-                            <option value="4">Blog Posts</option>
-                        </select>
-                        <!-- FORM SELECT ICON -->
-                        <svg class="form-select-icon icon-small-arrow">
-                            <use xlink:href="#svg-small-arrow"></use>
-                        </svg>
-                        <!-- /FORM SELECT ICON -->
-                    </div>
-                    <!-- /FORM SELECT -->
-                </form>
-                <!-- /FORM -->
-                <!-- SIMPLE TAB ITEM -->
-                <p class="simple-tab-item active">All Updates</p>
-                <!-- /SIMPLE TAB ITEM -->
-                <!-- SIMPLE TAB ITEM -->
-                <p class="simple-tab-item">Mentions</p>
-                <!-- /SIMPLE TAB ITEM -->
-                <!-- SIMPLE TAB ITEM -->
-                <p class="simple-tab-item">Friends</p>
-                <!-- /SIMPLE TAB ITEM -->
-                <!-- SIMPLE TAB ITEM -->
-                <p class="simple-tab-item">Groups</p>
-                <!-- /SIMPLE TAB ITEM -->
-                <!-- SIMPLE TAB ITEM -->
-                <p class="simple-tab-item">Blog Posts</p>
-                <!-- /SIMPLE TAB ITEM -->
-            </div>
-            <!-- /SIMPLE TAB ITEMS -->
             <!-- merkez content hissesi -->
             @foreach (var item in Model.Posts)
             {

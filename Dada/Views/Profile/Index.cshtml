@@ -479,13 +479,13 @@
                     <!-- QUICK POST BODY -->
                     <div class="quick-post-body">
                         <!-- FORM -->
-                        <form class="form" method="post">
+                        <form class="form" method="post" style="text-align:end;">
                             <!-- FORM ROW -->
                             <div class="form-row">
                                 <!-- FORM ITEM -->
                                 <div class="form-item">
                                     <!-- QUICK POST HEADER -->
-                                    <input asp-for="@Model.Post.Title" type="text" placeholder="başlığı bura.." />
+                                    <input asp-for="@Model.Post.Title" style="border-top:none;border-left:none;border-right:none;border-radius:0;" type="text" placeholder="başlığı bura.." />
                                     <!-- /QUICK POST HEADER -->
                                     <!-- FORM TEXTAREA -->
                                     <div class="form-textarea">
@@ -499,7 +499,7 @@
                                 <!-- /FORM ITEM -->
                             </div>
                             <!-- /FORM ROW -->
-                            <button type="submit" asp-action="compose" class="button small secondary">Paylaş</button>
+                            <button type="submit" style="width:17%" asp-action="compose" class="button small secondary">Paylaş</button>
 
                         </form>
                         <!-- /FORM -->
