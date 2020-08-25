@@ -12,6 +12,78 @@
 
         @if (Model != null)
         {
+            <!-- ACTION LIST -->
+            <div class="action-list dark">
+
+                <!-- ACTION LIST ITEM WRAP -->
+                <div class="action-list-item-wrap">
+                    <!-- ACTION LIST ITEM -->
+                    <div class="action-list-item unread header-dropdown-trigger">
+                        <!-- ACTION LIST ITEM ICON -->
+                        <svg class="action-list-item-icon icon-notification">
+                            <use xlink:href="#svg-notification"></use>
+                        </svg>
+                        <!-- /ACTION LIST ITEM ICON -->
+                    </div>
+                    <!-- /ACTION LIST ITEM -->
+                    <!-- DROPDOWN BOX -->
+                    <div class="dropdown-box header-dropdown">
+                        <!-- DROPDOWN BOX HEADER -->
+                        <div class="dropdown-box-header">
+                            <!-- DROPDOWN BOX HEADER TITLE -->
+                            <p class="dropdown-box-header-title">Bildirişlər</p>
+                            <!-- /DROPDOWN BOX HEADER TITLE -->
+                            <!-- DROPDOWN BOX HEADER ACTIONS -->
+                            <div class="dropdown-box-header-actions">
+                                <!-- DROPDOWN BOX HEADER ACTION -->
+                                <p class="dropdown-box-header-action">Mark all as Read</p>
+                                <!-- /DROPDOWN BOX HEADER ACTION -->
+                                <!-- DROPDOWN BOX HEADER ACTION -->
+                                <p class="dropdown-box-header-action">Settings</p>
+                                <!-- /DROPDOWN BOX HEADER ACTION -->
+                            </div>
+                            <!-- /DROPDOWN BOX HEADER ACTIONS -->
+                        </div>
+                        <!-- /DROPDOWN BOX HEADER -->
+                        <!-- DROPDOWN BOX LIST -->
+                        <div class="dropdown-box-list" id="wole">
+                            @foreach (var item in Model.Notifications)
+                            {
+                                <!-- DROPDOWN BOX LIST ITEM -->
+                                <div class="dropdown-box-list-item @(item.IsRead ==false?"notreaden":" ")">
+                                    <!-- USER STATUS -->
+                                    <div class="user-status notification" id="testt">
+                                        <!-- USER STATUS TITLE -->
+                                        <a href="@item.Url" class="user-status-title"><a class="bold" href="profile-timeline.html">@item.SenderName</a><a class="highlighted" href="profile-timeline.html">@item.Text</a></a>
+                                        <!-- /USER STATUS TITLE -->
+                                        <!-- USER STATUS TIMESTAMP -->
+                                        <p class="user-status-timestamp">2 minutes ago</p>
+                                        <!-- /USER STATUS TIMESTAMP -->
+                                        <!-- USER STATUS ICON -->
+                                        <div class="user-status-icon">
+                                            <!-- ICON COMMENT -->
+                                            <svg class="icon-comment">
+                                                <use xlink:href="#svg-comment"></use>
+                                            </svg>
+                                            <!-- /ICON COMMENT -->
+                                        </div>
+                                        <!-- /USER STATUS ICON -->
+                                    </div>
+                                    <!-- /USER STATUS -->
+                                </div>
+                                <!-- /DROPDOWN BOX LIST ITEM -->
+                            }
+                        </div>
+                        <!-- /DROPDOWN BOX LIST -->
+                        <!-- DROPDOWN BOX BUTTON -->
+                        <a class="dropdown-box-button secondary" href="hub-profile-notifications.html">View all Notifications</a>
+                        <!-- /DROPDOWN BOX BUTTON -->
+                    </div>
+                    <!-- /DROPDOWN BOX -->
+                </div>
+                <!-- /ACTION LIST ITEM WRAP -->
+            </div>
+            <!-- /ACTION LIST -->
             <!-- ACTION ITEM WRAP -->
             <div class="action-item-wrap">
                 <!-- ACTION ITEM -->
@@ -32,7 +104,7 @@
                             <!-- USER STATUS AVATAR -->
                             <!-- /USER STATUS AVATAR -->
                             <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><span class="bold">@Model.FullName</span></p>
+                            <p class="user-status-title"><span class="bold" id="sendername">@Model.FullName</span></p>
                             <!-- /USER STATUS TITLE -->
                             <!-- USER STATUS TEXT -->
                             <a asp-controller="profile" asp-action="index" asp-route-username="@Model.Username">@Model.Username</a>

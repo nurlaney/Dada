@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Dada.Models;
 using Dada.Models.Account;
+using Dada.Models.Notification;
 using Dada.Models.Profile;
 using Dada.Models.Userdata;
 using Repository.Models;
@@ -32,6 +33,8 @@ namespace Dada.Mapping
             CreateMap<UserSocial, UserSocialViewModel>();
             CreateMap<UserSocialViewModel, UserSocial>();
             CreateMap<UserDataViewModel, UserData>();
+
+            CreateMap<Notification, NotificationViewModel>();
         }
     }
 }

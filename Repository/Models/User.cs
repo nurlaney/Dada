@@ -19,6 +19,7 @@ namespace Repository.Models
         public ICollection<GroupUser> GroupUsers { get; set; }
         public ICollection<Post> Posts { get; set; }
         public ICollection<Comment> Comments { get; set; }
+        public ICollection<Notification> Notifications { get; set; }
         public UserData UserData { get; set; }
         public UserSocial UserSocial { get; set; }
     }

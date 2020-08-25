@@ -64,6 +64,7 @@ namespace Repository.Repositories.ProfileRepositories
                                     .Include("UserData")
                                     .Include("UserSocial")
                                     .Include("GroupUsers.Group")
+                                    .Include(u=>u.Notifications)
                                     .FirstOrDefault(u => u.Token == token);
         }
 

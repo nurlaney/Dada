@@ -1,4 +1,5 @@
-﻿using Dada.Models.Userdata;
+﻿using Dada.Models.Notification;
+using Dada.Models.Userdata;
 using Repository.Models;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ namespace Dada.Models.Profile
         public ICollection<GroupUser> GroupUsers { get; set; }
         public ICollection<PostViewModel> Posts { get; set; }
         public ICollection<CommentViewModel> Comments { get; set; }
+        public ICollection<NotificationViewModel> Notifications { get; set; }
         public UserDataViewModel UserData { get; set; }
         public UserSocialViewModel UserSocial { get; set; }
     }

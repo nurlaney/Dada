@@ -13,6 +13,7 @@ namespace Repository.Data
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Group > Groups { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
         public DbSet<UserData> UserDatas { get; set; }
         public DbSet<UserSocial> UserSocials { get; set; }
         public DbSet<GroupUser> GroupUsers { get; set; }

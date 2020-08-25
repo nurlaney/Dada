@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.SignalR;
 using Repository.Data;
 using Repository.Models;
 using Repository.Repositories.ProfileRepositories;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -32,14 +31,27 @@ namespace Dada.Hubs
             _context.SaveChanges();
 
         }
-        public async Task SendMessage(string message,string connectionid)
+        public async Task SendMessage(string text,string connectionid,string url,string senderName)
         {
+            
             var httpContext = this.Context.GetHttpContext();
 
             var token = httpContext.Request.Cookies["user-token"];
             var myprofile = _profileRepository.GetUserByToken(token);
 
-            await Clients.Client(connectionid).SendAsync("RecieveMessage", message);
+            var recipient = _context.Users.FirstOrDefault(u => u.ConectionId == connectionid);
+
+            Notification notification = new Notification
+            {
+                IsRead = false,
+                Url = url,
+                SenderName = senderName,
+                SendDate = DateTime.Now,
+                UserId = recipient.Id,
+                Text = text
+            };
+
+            await Clients.Client(connectionid).SendAsync("RecieveMessage", text,url,senderName);
         }
     }
 }
