@@ -18,5 +18,7 @@ namespace Repository.Repositories.ProfileRepositories
         public Post CreatePost(Post model);
         public Post GetPostById(int id);
         public Post DeletePost(Post post);
+        public ICollection<Notification> GetNotificationsById(int id);
+        public void SetNotifyRead(ICollection<Notification> notifications);
     }
 }

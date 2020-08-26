@@ -73,4 +73,22 @@
                 .append($("<a>").attr("href", "post/index/" + item.value.slice(0, item.value.indexOf("*"))).append(item.value.slice(item.value.indexOf("*") + 1)))
                 .appendTo(ul);
         }
+
+    $("#readnotify").click(function (el) {
+
+        $.ajax({
+            url: '/Home/Setnotifytoread',
+            type: 'GET',
+            success: function ()
+            {
+                var notilist = document.querySelectorAll("#notilist");
+                notilist.forEach(function (elem) {
+
+                    setTimeout(function () {
+                        elem.classList.remove("notreaden");
+                    }, 1000);
+                });
+            }
+        })
+    })
  });

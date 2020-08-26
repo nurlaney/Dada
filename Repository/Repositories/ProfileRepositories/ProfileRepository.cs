@@ -33,6 +33,11 @@ namespace Repository.Repositories.ProfileRepositories
             return post;
         }
 
+        public ICollection<Notification> GetNotificationsById(int id)
+        {
+            return _context.Notifications.Where(n => n.UserId == id && n.IsRead == false).ToList();
+        }
+
         public Post GetPostById(int id)
         {
            return _context.Posts.Include(p=>p.Comments).FirstOrDefault(p => p.Id == id);
@@ -78,6 +83,15 @@ namespace Repository.Repositories.ProfileRepositories
                                    .Include("UserSocial")
                                    .Include(u => u.Posts)
                                    .FirstOrDefault(u => u.Username == username);
+        }
+
+        public void SetNotifyRead(ICollection<Notification> notifications)
+        {
+            foreach (var item in notifications)
+            {
+                item.IsRead = true;
+            }
+            _context.SaveChanges();
         }
     }
 }

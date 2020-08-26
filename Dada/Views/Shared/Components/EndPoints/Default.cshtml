@@ -18,7 +18,7 @@
                 <!-- ACTION LIST ITEM WRAP -->
                 <div class="action-list-item-wrap">
                     <!-- ACTION LIST ITEM -->
-                    <div class="action-list-item unread header-dropdown-trigger">
+                    <div id="readnotify" class="action-list-item unread header-dropdown-trigger">
                         <!-- ACTION LIST ITEM ICON -->
                         <svg class="action-list-item-icon icon-notification">
                             <use xlink:href="#svg-notification"></use>
@@ -33,24 +33,14 @@
                             <!-- DROPDOWN BOX HEADER TITLE -->
                             <p class="dropdown-box-header-title">Bildirişlər</p>
                             <!-- /DROPDOWN BOX HEADER TITLE -->
-                            <!-- DROPDOWN BOX HEADER ACTIONS -->
-                            <div class="dropdown-box-header-actions">
-                                <!-- DROPDOWN BOX HEADER ACTION -->
-                                <p class="dropdown-box-header-action">Mark all as Read</p>
-                                <!-- /DROPDOWN BOX HEADER ACTION -->
-                                <!-- DROPDOWN BOX HEADER ACTION -->
-                                <p class="dropdown-box-header-action">Settings</p>
-                                <!-- /DROPDOWN BOX HEADER ACTION -->
-                            </div>
-                            <!-- /DROPDOWN BOX HEADER ACTIONS -->
                         </div>
                         <!-- /DROPDOWN BOX HEADER -->
                         <!-- DROPDOWN BOX LIST -->
                         <div class="dropdown-box-list" id="wole">
-                            @foreach (var item in Model.Notifications)
+                            @foreach (var item in Model.Notifications.OrderByDescending(n=>n.IsRead == false))
                             {
                                 <!-- DROPDOWN BOX LIST ITEM -->
-                                <div class="dropdown-box-list-item @(item.IsRead ==false?"notreaden":" ")">
+                                <div id="notilist" class="dropdown-box-list-item @(item.IsRead ==false?"notreaden":" ")">
                                     <!-- USER STATUS -->
                                     <div class="user-status notification" id="testt">
                                         <!-- USER STATUS TITLE -->

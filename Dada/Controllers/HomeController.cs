@@ -99,6 +99,17 @@ namespace Dada.Controllers
         }
 
 
+        public void SetNotifytoRead()
+        {
+            var token = HttpContext.Request.Cookies["user-token"];
+
+            var myprofile = _profileRepository.GetUserByToken(token);
+
+            var specNotify = _profileRepository.GetNotificationsById(myprofile.Id);
+
+            _profileRepository.SetNotifyRead(specNotify);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

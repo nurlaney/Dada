@@ -32,8 +32,7 @@ upvotes.forEach(function (el) {
     el.addEventListener("click", function (event) {
         var text = "postunu yüksəltdi";
         var connectionid = el.childNodes[3].innerHTML;
-        console.log(connectionid);
-        var url = document.getElementById("url").href;
+        var url = el.parentNode.parentNode.parentNode.parentNode.firstElementChild.firstElementChild.firstElementChild.href;
         var senderName = document.getElementById("sendername").innerHTML;
         connection.invoke("SendMessage", text, connectionid, url, senderName).catch(function (err) {
             return console.error(err.toString());
