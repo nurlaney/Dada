@@ -1,37 +1,136 @@
 ﻿@model MainViewModel
 <!-- CONTENT GRID -->
 
-    
-    <div class="content-grid">
-        @if (ViewBag.user != null)
-        {
-            @if (!ViewBag.user.EmailConfirmed)
-            {
 
-                <a class="btn btn-warning emailinfo">
-                    <i class="fas fa-times eemailinfo"></i>Sənə təsdiqləmə emaili göndərmişik ! Mailini nəzərdən keçirdib profilini təsdiqlə !
-                </a>
-            }
+<div class="content-grid">
+    @if (ViewBag.user != null)
+    {
+        @if (!ViewBag.user.EmailConfirmed)
+        {
+
+            <a class="btn btn-warning emailinfo">
+                <i class="fas fa-times eemailinfo"></i>Sənə təsdiqləmə emaili göndərmişik ! Mailini nəzərdən keçirdib profilini təsdiqlə !
+            </a>
         }
-        <!-- SECTION BANNER -->
-        <div class="section-banner">
-            <!-- SECTION BANNER ICON -->
-            <img class="section-banner-icon" src="~/img/unnamed.png" style="width:16%" alt="newsfeed-icon">
-            <!-- /SECTION BANNER ICON -->
-            <!-- SECTION BANNER TITLE -->
-            <p class="section-banner-title">Post axışı</p>
-            <!-- /SECTION BANNER TITLE -->
-            <!-- SECTION BANNER TEXT -->
-            <p class="section-banner-text" style="background-color: #0000009c;display:inline-block">Ümumi paylaşılan postlar</p>
-            <!-- /SECTION BANNER TEXT -->
+    }
+    <!-- SECTION BANNER -->
+    <div class="section-banner">
+        <!-- SECTION BANNER ICON -->
+        <img class="section-banner-icon" src="~/img/unnamed.png" style="width:16%" alt="newsfeed-icon">
+        <!-- /SECTION BANNER ICON -->
+        <!-- SECTION BANNER TITLE -->
+        <p class="section-banner-title">Post axışı</p>
+        <!-- /SECTION BANNER TITLE -->
+        <!-- SECTION BANNER TEXT -->
+        <p class="section-banner-text" style="background-color: #0000009c;display:inline-block">Ümumi paylaşılan postlar</p>
+        <!-- /SECTION BANNER TEXT -->
+    </div>
+    <!-- /SECTION BANNER -->
+    <!-- GRID -->
+    <div class="grid grid-3-6-3 mobile-prefer-content">
+        <!-- GRID COLUMN -->
+        <div class="grid-column">
+            <!-- WIDGET BOX -->
+            <div class="widget-box">
+                <!-- WIDGET BOX SETTINGS -->
+                <div class="widget-box-settings">
+                    <!-- POST SETTINGS WRAP -->
+                    <div class="post-settings-wrap">
+                        <!-- POST SETTINGS -->
+                        <div class="post-settings widget-box-post-settings-dropdown-trigger">
+                            <!-- POST SETTINGS ICON -->
+                            <svg class="post-settings-icon icon-more-dots">
+                                <use xlink:href="#svg-more-dots"></use>
+                            </svg>
+                            <!-- /POST SETTINGS ICON -->
+                        </div>
+                        <!-- /POST SETTINGS -->
+                        <!-- SIMPLE DROPDOWN -->
+                        <div class="simple-dropdown widget-box-post-settings-dropdown">
+                            <!-- SIMPLE DROPDOWN LINK -->
+                            <p class="simple-dropdown-link">Widget Settings</p>
+                            <!-- /SIMPLE DROPDOWN LINK -->
+                        </div>
+                        <!-- /SIMPLE DROPDOWN -->
+                    </div>
+                    <!-- /POST SETTINGS WRAP -->
+                </div>
+                <!-- /WIDGET BOX SETTINGS -->
+                <!-- WIDGET BOX TITLE -->
+                <p class="widget-box-title">Başlıqlar</p>
+                <!-- /WIDGET BOX TITLE -->
+                <!-- WIDGET BOX CONTENT -->
+                <div class="widget-box-content">
+                    <!-- POST PEEK LIST -->
+                    <div class="post-peek-list">
+
+                        @foreach (var item in Model.Posts)
+                        {
+                            <!-- POST PEEK -->
+                            <div class="post-peek">
+                                <!-- POST PEEK TITLE -->
+                                <p class="post-peek-title">
+                                    <a asp-controller="post" asp-action="index" asp-route-id="@item.Id">
+                                        @item.Title
+                                    </a><span class="badge badge-secondary ml-2">@item.Comments.Count()</span>
+                                </p>
+                                <!-- /POST PEEK TITLE -->
+                                <!-- POST PEEK TEXT -->
+                                <p class="post-peek-text">@item.AddedDate.ToString("dd.MM.yyyy")</p>
+                                <!-- /POST PEEK TEXT -->
+                            </div>
+                            <!-- /POST PEEK -->
+                        }
+                    </div>
+                    <!-- /POST PEEK LIST -->
+                </div>
+                <!-- /WIDGET BOX CONTENT -->
+            </div>
+            <!-- /WIDGET BOX -->
         </div>
-        <!-- /SECTION BANNER -->
-        <!-- GRID -->
-        <div class="grid grid-3-6-3 mobile-prefer-content">
-            <!-- GRID COLUMN -->
-            <div class="grid-column">
+        <!-- /GRID COLUMN -->
+        <!-- GRID COLUMN -->
+        <div class="grid-column">
+            @if (ViewBag.user != null)
+            {
+                <!-- QUICK POST -->
+                <div class="quick-post">
+
+                    <!-- QUICK POST BODY -->
+                    <div class="quick-post-body">
+                        <!-- FORM -->
+                        <form class="form" method="post" style="text-align:end">
+                            <!-- FORM ROW -->
+                            <div class="form-row">
+                                <!-- FORM ITEM -->
+                                <div class="form-item">
+                                    <!-- QUICK POST HEADER -->
+                                    <input asp-for="@Model.Post.Title" type="text" style="border-top:none;border-left:none;border-right:none;border-radius:0;" placeholder="başlığı bura.." />
+                                    <!-- /QUICK POST HEADER -->
+                                    <!-- FORM TEXTAREA -->
+                                    <div class="form-textarea">
+                                        <textarea asp-for="@Model.Post.Text" placeholder="şərhini bura yaz.."></textarea>
+                                    </div>
+                                    <!-- /FORM TEXTAREA -->
+                                </div>
+                                <!-- /FORM ITEM -->
+                            </div>
+                            <!-- /FORM ROW -->
+                            <button type="submit" style="width:17%" asp-action="compose" class="button small secondary">Paylaş</button>
+
+                        </form>
+                        <!-- /FORM -->
+                    </div>
+                    <!-- /QUICK POST BODY -->
+                </div>
+                <!-- /QUICK POST -->
+            }
+
+            <!-- merkez content hissesi -->
+            @foreach (var item in Model.Posts)
+            {
                 <!-- WIDGET BOX -->
-                <div class="widget-box">
+                <div class="widget-box no-padding">
                     <!-- WIDGET BOX SETTINGS -->
                     <div class="widget-box-settings">
                         <!-- POST SETTINGS WRAP -->
@@ -47,361 +146,264 @@
                             <!-- /POST SETTINGS -->
                             <!-- SIMPLE DROPDOWN -->
                             <div class="simple-dropdown widget-box-post-settings-dropdown">
-                                <!-- SIMPLE DROPDOWN LINK -->
-                                <p class="simple-dropdown-link">Widget Settings</p>
-                                <!-- /SIMPLE DROPDOWN LINK -->
+                                @if (ViewBag.token == item.User.Token)
+                                {
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <a class="simple-dropdown-link text-danger confirmd" style="display:block;"><i class="fas fa-trash mr-2"></i>Sil</a>
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <a class="simple-dropdown-link text-danger confirmed" asp-action="deletepost" asp-route-id="@item.Id" style="display:none;"><i class="fas fa-trash mr-2"></i>Əminsinizmi ?</a>
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+                                }
+                                else
+                                {
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <p class="simple-dropdown-link"><i class="fas fa-bug mr-2"></i>Şikayət et</p>
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <p class="simple-dropdown-link highlighted text-danger"><i class="fas fa-ban mr-2"></i>Blokla</p>
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+                                }
                             </div>
                             <!-- /SIMPLE DROPDOWN -->
                         </div>
                         <!-- /POST SETTINGS WRAP -->
                     </div>
                     <!-- /WIDGET BOX SETTINGS -->
-                    <!-- WIDGET BOX TITLE -->
-                    <p class="widget-box-title">Başlıqlar</p>
-                    <!-- /WIDGET BOX TITLE -->
-                    <!-- WIDGET BOX CONTENT -->
-                    <div class="widget-box-content">
-                        <!-- POST PEEK LIST -->
-                        <div class="post-peek-list">
-
-                            @foreach (var item in Model.Posts)
-                            {
-                                <!-- POST PEEK -->
-                                <div class="post-peek">
-                                    <!-- POST PEEK TITLE -->
-                                    <p class="post-peek-title">
-                                        <a asp-controller="post" asp-action="index" asp-route-id="@item.Id">
-                                            @item.Title
-                                        </a><span class="badge badge-secondary ml-2">@item.Comments.Count()</span>
-                                    </p>
-                                    <!-- /POST PEEK TITLE -->
-                                    <!-- POST PEEK TEXT -->
-                                    <p class="post-peek-text">@item.AddedDate.ToString("dd.MM.yyyy")</p>
-                                    <!-- /POST PEEK TEXT -->
-                                </div>
-                                <!-- /POST PEEK -->
-                            }
-                        </div>
-                        <!-- /POST PEEK LIST -->
-                    </div>
-                    <!-- /WIDGET BOX CONTENT -->
-                </div>
-                <!-- /WIDGET BOX -->
-            </div>
-            <!-- /GRID COLUMN -->
-            <!-- GRID COLUMN -->
-            <div class="grid-column">
-                @if (ViewBag.user != null)
-                {
-                    <!-- QUICK POST -->
-                    <div class="quick-post">
-
-                        <!-- QUICK POST BODY -->
-                        <div class="quick-post-body">
-                            <!-- FORM -->
-                            <form class="form" method="post" style="text-align:end">
-                                <!-- FORM ROW -->
-                                <div class="form-row">
-                                    <!-- FORM ITEM -->
-                                    <div class="form-item">
-                                        <!-- QUICK POST HEADER -->
-                                        <input asp-for="@Model.Post.Title" type="text" style="border-top:none;border-left:none;border-right:none;border-radius:0;" placeholder="başlığı bura.." />
-                                        <!-- /QUICK POST HEADER -->
-                                        <!-- FORM TEXTAREA -->
-                                        <div class="form-textarea">
-                                            <textarea asp-for="@Model.Post.Text" placeholder="şərhini bura yaz.."></textarea>
-                                        </div>
-                                        <!-- /FORM TEXTAREA -->
-                                    </div>
-                                    <!-- /FORM ITEM -->
-                                </div>
-                                <!-- /FORM ROW -->
-                                <button type="submit" style="width:17%" asp-action="compose" class="button small secondary">Paylaş</button>
-
-                            </form>
-                            <!-- /FORM -->
-                        </div>
-                        <!-- /QUICK POST BODY -->
-                    </div>
-                    <!-- /QUICK POST -->
-                }
-
-                <!-- merkez content hissesi -->
-                @foreach (var item in Model.Posts)
-                {
-                    <!-- WIDGET BOX -->
-                    <div class="widget-box no-padding">
-                        <!-- WIDGET BOX SETTINGS -->
-                        <div class="widget-box-settings">
-                            <!-- POST SETTINGS WRAP -->
-                            <div class="post-settings-wrap">
-                                <!-- POST SETTINGS -->
-                                <div class="post-settings widget-box-post-settings-dropdown-trigger">
-                                    <!-- POST SETTINGS ICON -->
-                                    <svg class="post-settings-icon icon-more-dots">
-                                        <use xlink:href="#svg-more-dots"></use>
-                                    </svg>
-                                    <!-- /POST SETTINGS ICON -->
-                                </div>
-                                <!-- /POST SETTINGS -->
-                                <!-- SIMPLE DROPDOWN -->
-                                <div class="simple-dropdown widget-box-post-settings-dropdown">
-                                    @if (ViewBag.token == item.User.Token)
-                                    {
-                                        <!-- SIMPLE DROPDOWN LINK -->
-                                        <a class="simple-dropdown-link text-danger confirmd" style="display:block;"><i class="fas fa-trash mr-2"></i>Sil</a>
-                                        <!-- /SIMPLE DROPDOWN LINK -->
-                                        <!-- SIMPLE DROPDOWN LINK -->
-                                        <a class="simple-dropdown-link text-danger confirmed" asp-action="deletepost" asp-route-id="@item.Id" style="display:none;"><i class="fas fa-trash mr-2"></i>Əminsinizmi ?</a>
-                                        <!-- /SIMPLE DROPDOWN LINK -->
-                                    }
-                                    else
-                                    {
-                                        <!-- SIMPLE DROPDOWN LINK -->
-                                        <p class="simple-dropdown-link"><i class="fas fa-bug mr-2"></i>Şikayət et</p>
-                                        <!-- /SIMPLE DROPDOWN LINK -->
-                                        <!-- SIMPLE DROPDOWN LINK -->
-                                        <p class="simple-dropdown-link highlighted text-danger"><i class="fas fa-ban mr-2"></i>Blokla</p>
-                                        <!-- /SIMPLE DROPDOWN LINK -->
-                                    }
-                                </div>
-                                <!-- /SIMPLE DROPDOWN -->
-                            </div>
-                            <!-- /POST SETTINGS WRAP -->
-                        </div>
-                        <!-- /WIDGET BOX SETTINGS -->
-                        <!-- WIDGET BOX STATUS -->
-                        <div class="widget-box-status">
-                            <!-- WIDGET BOX STATUS CONTENT -->
-                            <div class="widget-box-status-content">
-                                <!-- USER STATUS -->
-                                <div class="user-status">
-                                    <!-- USER STATUS TITLE -->
-                                    <p class="user-status-title medium">
-                                        <a class="bold" id="url" asp-controller="post" asp-action="index" asp-route-id="@item.Id">
-                                            @item.Title
-                                        </a>
-                                    </p>
-                                    <!-- /USER STATUS TITLE -->
-                                </div>
-                                <!-- /USER STATUS -->
-                                <!-- WIDGET BOX STATUS TEXT -->
-                                <p class="widget-box-status-text">
-                                    @item.Text
+                    <!-- WIDGET BOX STATUS -->
+                    <div class="widget-box-status">
+                        <!-- WIDGET BOX STATUS CONTENT -->
+                        <div class="widget-box-status-content">
+                            <!-- USER STATUS -->
+                            <div class="user-status">
+                                <!-- USER STATUS TITLE -->
+                                <p class="user-status-title medium">
+                                    <a class="bold" id="url" asp-controller="post" asp-action="index" asp-route-id="@item.Id">
+                                        @item.Title
+                                    </a>
                                 </p>
-                                <!-- /WIDGET BOX STATUS TEXT -->
-                                <!-- CONTENT ACTIONS -->
-                                <div class="content-actions">
-                                    <!-- CONTENT ACTION -->
-                                    <div class="content-action">
-                                        <!-- META LINE -->
-                                        <div class="meta-line">
-                                            <!-- META LINE LINK -->
-                                            <a id="upvote"><i class="fab fa-fly"></i></a>
-                                            <!-- /META LINE LINK -->
-                                            <div id="messagelist"></div>
+                                <!-- /USER STATUS TITLE -->
+                            </div>
+                            <!-- /USER STATUS -->
+                            <!-- WIDGET BOX STATUS TEXT -->
+                            <p class="widget-box-status-text">
+                                @item.Text
+                            </p>
+                            <!-- /WIDGET BOX STATUS TEXT -->
+                            <!-- CONTENT ACTIONS -->
+                            <div class="content-actions">
+                                <!-- CONTENT ACTION -->
+                                <div class="content-action">
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE LINK -->
+                                        <a id="upvote">
+                                            <i class="fab fa-fly"></i> 
                                             @if (item.User.ConectionId != null)
                                             {
                                                 <p class="d-none" id="conn">@item.User.ConectionId</p>
 
                                             }
-                                        </div>
-                                        <!-- /META LINE -->
-                                        <!-- META LINE -->
-                                        <div class="meta-line">
-                                            <!-- META LINE TEXT -->
-                                            <a><i class="fas fa-chevron-down"></i> </a>
-                                            <!-- /META LINE TEXT -->
-                                        </div>
-                                        <!-- META LINE -->
-                                        <div class="meta-line">
-                                            <!-- META LINE TEXT -->
-                                            <a><i class="fas fa-share"></i></a>
-                                            <!-- /META LINE TEXT -->
-                                        </div>
-                                        <!-- /META LINE -->
+                                        </a>
+                                        <!-- /META LINE LINK -->
+
                                     </div>
-                                    <!-- /CONTENT ACTION -->
-                                    <!-- CONTENT ACTION -->
-                                    <div class="content-action">
-                                        @if (item.Group != null)
-                                        {
-                                            <div class="meta-line">
-                                                <!-- META LINE LINK -->
-                                                <a asp-controller="group" asp-action="index" asp-route-id="@item.GroupId" class="meta-line-link">@item.Group.Name</a>
-                                                <!-- /META LINE LINK -->
-                                            </div>
-                                        }
-                                        <!-- META LINE -->
+                                    <!-- /META LINE -->
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE TEXT -->
+                                        <a><i class="fas fa-chevron-down"></i> </a>
+                                        <!-- /META LINE TEXT -->
+                                    </div>
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE TEXT -->
+                                        <a><i class="fas fa-share"></i></a>
+                                        <!-- /META LINE TEXT -->
+                                    </div>
+                                    <!-- /META LINE -->
+                                </div>
+                                <!-- /CONTENT ACTION -->
+                                <!-- CONTENT ACTION -->
+                                <div class="content-action">
+                                    @if (item.Group != null)
+                                    {
                                         <div class="meta-line">
                                             <!-- META LINE LINK -->
-                                            <a class="meta-line-text" asp-controller="profile" asp-action="index" asp-route-username="@item.User.Username">@item.User.Username</a>
+                                            <a asp-controller="group" asp-action="index" asp-route-id="@item.GroupId" class="meta-line-link">@item.Group.Name</a>
                                             <!-- /META LINE LINK -->
                                         </div>
-                                        <!-- /META LINE -->
-                                        <!-- META LINE -->
-                                        <div class="meta-line">
-                                            <!-- META LINE TEXT -->
-                                            <p class="meta-line-text">@item.Comments.Count() şərh</p>
-                                            <!-- /META LINE TEXT -->
-                                        </div>
-                                        <!-- /META LINE -->
-                                        <!-- META LINE -->
-                                        <div class="meta-line">
-                                            <!-- META LINE TEXT -->
-                                            <a asp-controller="post" asp-action="index" asp-route-id="@item.Id" class="meta-line-text">Başlığa get</a>
-                                            <!-- /META LINE TEXT -->
-                                        </div>
-                                        <!-- /META LINE -->
+                                    }
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE LINK -->
+                                        <a class="meta-line-text" asp-controller="profile" asp-action="index" asp-route-username="@item.User.Username">@item.User.Username</a>
+                                        <!-- /META LINE LINK -->
                                     </div>
-                                    <!-- /CONTENT ACTION -->
+                                    <!-- /META LINE -->
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE TEXT -->
+                                        <p class="meta-line-text">@item.Comments.Count() şərh</p>
+                                        <!-- /META LINE TEXT -->
+                                    </div>
+                                    <!-- /META LINE -->
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE TEXT -->
+                                        <a asp-controller="post" asp-action="index" asp-route-id="@item.Id" class="meta-line-text">Başlığa get</a>
+                                        <!-- /META LINE TEXT -->
+                                    </div>
+                                    <!-- /META LINE -->
                                 </div>
-                                <!-- /CONTENT ACTIONS -->
+                                <!-- /CONTENT ACTION -->
                             </div>
-                            <!-- /WIDGET BOX STATUS CONTENT -->
+                            <!-- /CONTENT ACTIONS -->
                         </div>
-                        <!-- /WIDGET BOX STATUS -->
+                        <!-- /WIDGET BOX STATUS CONTENT -->
                     </div>
-                    <!-- /WIDGET BOX -->
-                }
-                <!-- LOADER BARS -->
-                <div class="loader-bars">
-                    <div class="loader-bar"></div>
-                    <div class="loader-bar"></div>
-                    <div class="loader-bar"></div>
-                    <div class="loader-bar"></div>
-                    <div class="loader-bar"></div>
-                    <div class="loader-bar"></div>
-                    <div class="loader-bar"></div>
-                    <div class="loader-bar"></div>
-                </div>
-                <!-- /LOADER BARS -->
-            </div>
-            <!-- /GRID COLUMN -->
-            <!-- GRID COLUMN -->
-            <div class="grid-column">
-                <!-- WIDGET BOX -->
-                <div class="widget-box">
-                    <!-- WIDGET BOX SETTINGS -->
-                    <div class="widget-box-settings">
-                        <!-- POST SETTINGS WRAP -->
-                        <div class="post-settings-wrap">
-                            <!-- POST SETTINGS -->
-                            <div class="post-settings widget-box-post-settings-dropdown-trigger">
-                                <!-- POST SETTINGS ICON -->
-                                <svg class="post-settings-icon icon-more-dots">
-                                    <use xlink:href="#svg-more-dots"></use>
-                                </svg>
-                                <!-- /POST SETTINGS ICON -->
-                            </div>
-                            <!-- /POST SETTINGS -->
-                            <!-- SIMPLE DROPDOWN -->
-                            <div class="simple-dropdown widget-box-post-settings-dropdown">
-                                <!-- SIMPLE DROPDOWN LINK -->
-                                <p class="simple-dropdown-link">Widget Settings</p>
-                                <!-- /SIMPLE DROPDOWN LINK -->
-                            </div>
-                            <!-- /SIMPLE DROPDOWN -->
-                        </div>
-                        <!-- /POST SETTINGS WRAP -->
-                    </div>
-                    <!-- /WIDGET BOX SETTINGS -->
-                    <!-- WIDGET BOX TITLE -->
-                    <p class="widget-box-title">Klublar</p>
-                    <!-- /WIDGET BOX TITLE -->
-                    <!-- WIDGET BOX CONTENT -->
-                    <div class="widget-box-content">
-                        <!-- FILTERS -->
-                        <div class="filters">
-                            <!-- FILTER -->
-                            <a href="#">Hamsını gör</a>
-                            <!-- /FILTER -->
-                        </div>
-                        <!-- /FILTERS -->
-                        <!-- USER STATUS LIST -->
-                        <div class="user-status-list">
-                            @foreach (var item in Model.Groups)
-                            {
-                                <!-- USER STATUS -->
-                                <div class="user-status request-small">
-
-                                    <!-- USER STATUS TITLE -->
-                                    <p class="user-status-title"><a class="bold" asp-controller="group" asp-action="index" asp-route-id="@item.Id">@item.Name</a></p>
-                                    <!-- /USER STATUS TITLE -->
-                                    <!-- USER STATUS TEXT -->
-                                    <p class="user-status-text small">@item.Subtitle</p>
-                                    <!-- /USER STATUS TEXT -->
-                                </div>
-                                <!-- /USER STATUS -->
-                            }
-                        </div>
-                        <!-- /USER STATUS LIST -->
-                    </div>
-                    <!-- WIDGET BOX CONTENT -->
+                    <!-- /WIDGET BOX STATUS -->
                 </div>
                 <!-- /WIDGET BOX -->
-                <!-- WIDGET BOX -->
-                <div class="widget-box">
-                    <!-- WIDGET BOX SETTINGS -->
-                    <div class="widget-box-settings">
-                        <!-- POST SETTINGS WRAP -->
-                        <div class="post-settings-wrap">
-                            <!-- POST SETTINGS -->
-                            <div class="post-settings widget-box-post-settings-dropdown-trigger">
-                                <!-- POST SETTINGS ICON -->
-                                <svg class="post-settings-icon icon-more-dots">
-                                    <use xlink:href="#svg-more-dots"></use>
-                                </svg>
-                                <!-- /POST SETTINGS ICON -->
-                            </div>
-                            <!-- /POST SETTINGS -->
-                            <!-- SIMPLE DROPDOWN -->
-                            <div class="simple-dropdown widget-box-post-settings-dropdown">
-                                <!-- SIMPLE DROPDOWN LINK -->
-                                <p class="simple-dropdown-link">Widget Settings</p>
-                                <!-- /SIMPLE DROPDOWN LINK -->
-                            </div>
-                            <!-- /SIMPLE DROPDOWN -->
-                        </div>
-                        <!-- /POST SETTINGS WRAP -->
-                    </div>
-                    <!-- /WIDGET BOX SETTINGS -->
-                    <!-- WIDGET BOX TITLE -->
-                    <p class="widget-box-title">Yazarlar</p>
-                    <!-- /WIDGET BOX TITLE -->
-                    <!-- WIDGET BOX CONTENT -->
-                    <div class="widget-box-content">
-                        <!-- FILTERS -->
-                        <div class="filters">
-                            <!-- FILTER -->
-                            <p class="filter active">Hamsını gör</p>
-                            <!-- /FILTER -->
-                        </div>
-                        <!-- /FILTERS -->
-                        <!-- USER STATUS LIST -->
-                        <div class="user-status-list">
-                            @foreach (var item in Model.Users)
-                            {
-                                <!-- USER STATUS -->
-                                <div class="user-status request-small">
-                                    <!-- USER STATUS TITLE -->
-                                    <p class="user-status-title"><a class="bold" asp-controller="profile" asp-action="index" asp-route-username="@item.Username">@item.Username</a></p>
-                                    <!-- /USER STATUS TITLE -->
-                                    <!-- USER STATUS TEXT -->
-                                    <p class="user-status-text small">Dada skoru 245</p>
-                                    <!-- /USER STATUS TEXT -->
-                                </div>
-                                <!-- /USER STATUS -->
-                            }
-                        </div>
-                        <!-- /USER STATUS LIST -->
-                    </div>
-                    <!-- WIDGET BOX CONTENT -->
-                </div>
-                <!-- /WIDGET BOX -->
+            }
+            <!-- LOADER BARS -->
+            <div class="loader-bars">
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
             </div>
-            <!-- /GRID COLUMN -->
+            <!-- /LOADER BARS -->
         </div>
-        <!-- /GRID -->
+        <!-- /GRID COLUMN -->
+        <!-- GRID COLUMN -->
+        <div class="grid-column">
+            <!-- WIDGET BOX -->
+            <div class="widget-box">
+                <!-- WIDGET BOX SETTINGS -->
+                <div class="widget-box-settings">
+                    <!-- POST SETTINGS WRAP -->
+                    <div class="post-settings-wrap">
+                        <!-- POST SETTINGS -->
+                        <div class="post-settings widget-box-post-settings-dropdown-trigger">
+                            <!-- POST SETTINGS ICON -->
+                            <svg class="post-settings-icon icon-more-dots">
+                                <use xlink:href="#svg-more-dots"></use>
+                            </svg>
+                            <!-- /POST SETTINGS ICON -->
+                        </div>
+                        <!-- /POST SETTINGS -->
+                        <!-- SIMPLE DROPDOWN -->
+                        <div class="simple-dropdown widget-box-post-settings-dropdown">
+                            <!-- SIMPLE DROPDOWN LINK -->
+                            <p class="simple-dropdown-link">Widget Settings</p>
+                            <!-- /SIMPLE DROPDOWN LINK -->
+                        </div>
+                        <!-- /SIMPLE DROPDOWN -->
+                    </div>
+                    <!-- /POST SETTINGS WRAP -->
+                </div>
+                <!-- /WIDGET BOX SETTINGS -->
+                <!-- WIDGET BOX TITLE -->
+                <p class="widget-box-title">Klublar</p>
+                <!-- /WIDGET BOX TITLE -->
+                <!-- WIDGET BOX CONTENT -->
+                <div class="widget-box-content">
+                    <!-- FILTERS -->
+                    <div class="filters">
+                        <!-- FILTER -->
+                        <a href="#">Hamsını gör</a>
+                        <!-- /FILTER -->
+                    </div>
+                    <!-- /FILTERS -->
+                    <!-- USER STATUS LIST -->
+                    <div class="user-status-list">
+                        @foreach (var item in Model.Groups)
+                        {
+                            <!-- USER STATUS -->
+                            <div class="user-status request-small">
+
+                                <!-- USER STATUS TITLE -->
+                                <p class="user-status-title"><a class="bold" asp-controller="group" asp-action="index" asp-route-id="@item.Id">@item.Name</a></p>
+                                <!-- /USER STATUS TITLE -->
+                                <!-- USER STATUS TEXT -->
+                                <p class="user-status-text small">@item.Subtitle</p>
+                                <!-- /USER STATUS TEXT -->
+                            </div>
+                            <!-- /USER STATUS -->
+                        }
+                    </div>
+                    <!-- /USER STATUS LIST -->
+                </div>
+                <!-- WIDGET BOX CONTENT -->
+            </div>
+            <!-- /WIDGET BOX -->
+            <!-- WIDGET BOX -->
+            <div class="widget-box">
+                <!-- WIDGET BOX SETTINGS -->
+                <div class="widget-box-settings">
+                    <!-- POST SETTINGS WRAP -->
+                    <div class="post-settings-wrap">
+                        <!-- POST SETTINGS -->
+                        <div class="post-settings widget-box-post-settings-dropdown-trigger">
+                            <!-- POST SETTINGS ICON -->
+                            <svg class="post-settings-icon icon-more-dots">
+                                <use xlink:href="#svg-more-dots"></use>
+                            </svg>
+                            <!-- /POST SETTINGS ICON -->
+                        </div>
+                        <!-- /POST SETTINGS -->
+                        <!-- SIMPLE DROPDOWN -->
+                        <div class="simple-dropdown widget-box-post-settings-dropdown">
+                            <!-- SIMPLE DROPDOWN LINK -->
+                            <p class="simple-dropdown-link">Widget Settings</p>
+                            <!-- /SIMPLE DROPDOWN LINK -->
+                        </div>
+                        <!-- /SIMPLE DROPDOWN -->
+                    </div>
+                    <!-- /POST SETTINGS WRAP -->
+                </div>
+                <!-- /WIDGET BOX SETTINGS -->
+                <!-- WIDGET BOX TITLE -->
+                <p class="widget-box-title">Yazarlar</p>
+                <!-- /WIDGET BOX TITLE -->
+                <!-- WIDGET BOX CONTENT -->
+                <div class="widget-box-content">
+                    <!-- FILTERS -->
+                    <div class="filters">
+                        <!-- FILTER -->
+                        <p class="filter active">Hamsını gör</p>
+                        <!-- /FILTER -->
+                    </div>
+                    <!-- /FILTERS -->
+                    <!-- USER STATUS LIST -->
+                    <div class="user-status-list">
+                        @foreach (var item in Model.Users)
+                        {
+                            <!-- USER STATUS -->
+                            <div class="user-status request-small">
+                                <!-- USER STATUS TITLE -->
+                                <p class="user-status-title"><a class="bold" asp-controller="profile" asp-action="index" asp-route-username="@item.Username">@item.Username</a></p>
+                                <!-- /USER STATUS TITLE -->
+                                <!-- USER STATUS TEXT -->
+                                <p class="user-status-text small">Dada skoru 245</p>
+                                <!-- /USER STATUS TEXT -->
+                            </div>
+                            <!-- /USER STATUS -->
+                        }
+                    </div>
+                    <!-- /USER STATUS LIST -->
+                </div>
+                <!-- WIDGET BOX CONTENT -->
+            </div>
+            <!-- /WIDGET BOX -->
+        </div>
+        <!-- /GRID COLUMN -->
     </div>
+    <!-- /GRID -->
+</div>
 <!-- /CONTENT GRID -->

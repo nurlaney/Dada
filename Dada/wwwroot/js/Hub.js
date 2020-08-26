@@ -27,13 +27,14 @@ connection.start().then(function () {
 });
 
 const upvotes = document.querySelectorAll("#upvote");
+
 upvotes.forEach(function (el) {
     el.addEventListener("click", function (event) {
         var text = "postunu yüksəltdi";
-        var connectionid = document.getElementById("conn").textContent;
+        var connectionid = el.childNodes[3].innerHTML;
+        console.log(connectionid);
         var url = document.getElementById("url").href;
         var senderName = document.getElementById("sendername").innerHTML;
-        console.log(senderName, url, connectionid);
         connection.invoke("SendMessage", text, connectionid, url, senderName).catch(function (err) {
             return console.error(err.toString());
         });
