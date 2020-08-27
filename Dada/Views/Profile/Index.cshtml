@@ -585,13 +585,20 @@
                                     <!-- META LINE -->
                                     <div class="meta-line">
                                         <!-- META LINE LINK -->
-                                        <i class="fab fa-fly"></i>
+                                        <a id="upvote">
+                                            <i class="fab fa-fly"></i>
+                                            @if (item.User.ConectionId != null)
+                                            {
+                                                <p class="d-none" id="conn">@item.User.ConectionId</p>
+
+                                            }
+                                        </a>
                                         <!-- /META LINE LINK -->
                                     </div>
                                     <!-- /META LINE -->
                                     <!-- META LINE -->
                                     <div class="meta-line">
-                                        <!-- META LINE TEXT -->
+                                        <!-- META LINE TEXT --> 
                                         <i class="fas fa-chevron-down"></i>
                                         <!-- /META LINE TEXT -->
                                     </div>

@@ -20,6 +20,8 @@ namespace Repository.Models
         public ICollection<Post> Posts { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Notification> Notifications { get; set; }
+        public ICollection<Reaction> Reactions { get; set; }
+        public ICollection<CommentReaction> CommentReactions { get; set; }
         public UserData UserData { get; set; }
         public UserSocial UserSocial { get; set; }
     }

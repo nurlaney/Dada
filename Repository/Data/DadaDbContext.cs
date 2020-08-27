@@ -19,5 +19,7 @@ namespace Repository.Data
         public DbSet<GroupUser> GroupUsers { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<Reaction> Reactions { get; set; }
+        public DbSet<CommentReaction> CommentReactions { get; set; }
     }
 }

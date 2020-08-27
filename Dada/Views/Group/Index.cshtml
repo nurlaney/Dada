@@ -784,7 +784,7 @@
                             <div class="user-status">
                                 <!-- USER STATUS TITLE -->
                                 <p class="user-status-title medium">
-                                    <a class="bold">
+                                    <a asp-controller="post" asp-action="index" asp-route-id="@item.Id" class="bold">
                                         @item.Title
                                     </a>
                                 </p>
@@ -803,7 +803,14 @@
                                     <!-- META LINE -->
                                     <div class="meta-line">
                                         <!-- META LINE LINK -->
-                                        <i class="fab fa-fly"></i>
+                                        <a id="upvote">
+                                            <i class="fab fa-fly"></i>
+                                            @if (item.User.ConectionId != null)
+                                            {
+                                                <p class="d-none" id="conn">@item.User.ConectionId</p>
+
+                                            }
+                                        </a>
                                         <!-- /META LINE LINK -->
                                     </div>
                                     <!-- /META LINE -->
@@ -845,9 +852,13 @@
                                     <!-- /META LINE -->
                                     <!-- META LINE -->
                                     <div class="meta-line">
-                                        <!-- META LINE TEXT -->
-                                        <a asp-controller="post" asp-action="index" asp-route-id="@item.Id">Başlığa get</a>
-                                        <!-- /META LINE TEXT -->
+                                        <!-- META LINE -->
+                                        <div class="meta-line">
+                                            <!-- META LINE TEXT -->
+                                            <a asp-controller="post" asp-action="index" asp-route-id="@item.Id" class="meta-line-text">Başlığa get</a>
+                                            <!-- /META LINE TEXT -->
+                                        </div>
+                                        <!-- /META LINE -->
                                     </div>
                                     <!-- /META LINE -->
                                 </div>
