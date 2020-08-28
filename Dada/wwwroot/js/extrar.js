@@ -82,6 +82,7 @@
             success: function ()
             {
                 var notilist = document.querySelectorAll("#notilist");
+
                 notilist.forEach(function (elem) {
 
                     setTimeout(function () {

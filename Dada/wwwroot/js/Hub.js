@@ -17,6 +17,7 @@ connection.on("RecieveMessage", function (text, url, senderName) {
     userstatus.appendChild(atext);
     var wholediv = document.createElement("div");
     wholediv.classList.add("dropdown-box-list-item", "notreaden");
+    wholediv.id = "notilist";
     wholediv.appendChild(userstatus);
     document.getElementById("wole").insertBefore(wholediv, document.getElementById("wole").firstChild);
 });
