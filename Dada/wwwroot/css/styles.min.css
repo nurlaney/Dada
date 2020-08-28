@@ -12373,3 +12373,7 @@ figure > img {
     color: #3fe2d3 !important;
     transition: all 0.8s;
 }
+.downvoted {
+    color: #f14949 !important;
+    transition: all 0.8s;
+}

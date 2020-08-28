@@ -58,5 +58,20 @@ namespace Dada.Controllers
 
             return Ok(notifyToDelete);
         }
+
+        public void DownvotePost(int id)
+        {
+            var token = HttpContext.Request.Cookies["user-token"];
+
+            var myprofile = _profileRepository.GetUserByToken(token);
+            Reaction reaction = new Reaction
+            {
+                UserId = myprofile.Id,
+                PostId = id,
+                Upvote = false,
+                AddedDate = DateTime.Now
+            };
+            _reactionRepository.AddReaction(reaction);
+        }
     }
 }

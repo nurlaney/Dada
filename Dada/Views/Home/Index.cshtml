@@ -196,7 +196,7 @@
                                     <!-- META LINE -->
                                     <div class="meta-line">
                                         <!-- META LINE LINK -->
-                                        <a class="@(ViewBag.user != null && item.Reactions.Any(r => r.UserId == ViewBag.user.Id && r.PostId == item.Id) ? "liked" : " ")" id="upvote">
+                                        <a class="@(ViewBag.user != null && item.Reactions.Any(r => r.UserId == ViewBag.user.Id && r.PostId == item.Id && r.Upvote == true) ? "liked" : " ")" id="upvote">
                                             <i class="fab fa-fly"></i>
                                             @if (item.User.ConectionId != null)
                                             {
@@ -210,7 +210,14 @@
                                     <!-- META LINE -->
                                     <div class="meta-line">
                                         <!-- META LINE TEXT -->
-                                        <a><i class="fas fa-chevron-down"></i> </a>
+                                        <a class="@(ViewBag.user != null && item.Reactions.Any(r => r.UserId == ViewBag.user.Id && r.PostId == item.Id && r.Upvote == false) ? "downvoted" : " ")" id="downvote">
+                                            <i class="fas fa-chevron-down"></i>
+                                            @if (item.User.ConectionId != null)
+                                            {
+                                                <p class="d-none" id="conn">@item.User.ConectionId</p>
+
+                                            }
+                                        </a>
                                         <!-- /META LINE TEXT -->
                                     </div>
                                     <!-- META LINE -->
