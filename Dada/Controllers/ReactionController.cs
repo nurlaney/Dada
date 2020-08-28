@@ -37,7 +37,7 @@ namespace Dada.Controllers
             _reactionRepository.AddReaction(reaction);
         }
 
-        public void RemoveUpvote(int id)
+        public IActionResult RemoveUpvote(int id)
         {
             var token = HttpContext.Request.Cookies["user-token"];
 
@@ -46,6 +46,16 @@ namespace Dada.Controllers
             var reaction = _reactionRepository.FindReaction(myprofile.Id, id);
 
             _reactionRepository.RemoveReaction(reaction);
+
+
+            var notifyToDelete = _reactionRepository.GetNotificationByReaction($"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}/post/index/"+id,myprofile.FullName);
+
+            if (notifyToDelete == null) return Ok();
+
+            _reactionRepository.RemoveNotify(notifyToDelete);
+
+
+            return Ok(notifyToDelete);
         }
     }
 }

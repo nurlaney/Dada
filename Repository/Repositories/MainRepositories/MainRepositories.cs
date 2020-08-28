@@ -25,6 +25,7 @@ namespace Repository.Repositories.MainRepositories
             return _context.Posts
                                  .Include("Comments")
                                  .Include("User")
+                                 .Include("Reactions")
                                  .OrderByDescending(p=>p.AddedDate).ToList();
         }
 

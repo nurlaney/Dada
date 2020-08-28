@@ -51,6 +51,9 @@ namespace Dada.Hubs
                 Text = text
             };
 
+            _context.Add(notification);
+            _context.SaveChanges();
+
             await Clients.Client(connectionid).SendAsync("RecieveMessage", text,url,senderName);
         }
     }

@@ -10,5 +10,7 @@ namespace Repository.Repositories.ReactionRepositories
         public void AddReaction(Reaction reaction);
         public Reaction FindReaction(int userId,int postId);
         public void RemoveReaction(Reaction reaction);
+        public Notification GetNotificationByReaction(string url, string sendername);
+        public void RemoveNotify(Notification notification);
     }
 }

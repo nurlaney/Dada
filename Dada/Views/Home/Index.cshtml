@@ -1,7 +1,6 @@
 ﻿@model MainViewModel
 <!-- CONTENT GRID -->
 
-
 <div class="content-grid">
     @if (ViewBag.user != null)
     {
@@ -197,7 +196,7 @@
                                     <!-- META LINE -->
                                     <div class="meta-line">
                                         <!-- META LINE LINK -->
-                                        <a id="upvote">
+                                        <a class="@(ViewBag.user != null && item.Reactions.Any(r => r.UserId == ViewBag.user.Id && r.PostId == item.Id) ? "liked" : " ")" id="upvote">
                                             <i class="fab fa-fly"></i>
                                             @if (item.User.ConectionId != null)
                                             {

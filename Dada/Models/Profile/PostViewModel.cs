@@ -1,4 +1,5 @@
 ﻿using Dada.Models.Account;
+using Repository.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace Dada.Models.Profile
         public DateTime AddedDate { get; set; }
         public int UserId { get; set; }
         public int? GroupId { get; set; }
+        public ICollection<Reaction> Reactions { get; set; }
         public UserViewModel User { get; set; }
         public GroupViewModel Group { get; set; }
         public ICollection<CommentViewModel> Comments { get; set; }

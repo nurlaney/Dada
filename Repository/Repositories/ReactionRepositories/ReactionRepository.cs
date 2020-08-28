@@ -25,6 +25,17 @@ namespace Repository.Repositories.ReactionRepositories
             return _context.Reactions.FirstOrDefault(r => r.UserId == userId && r.PostId == postId);
         }
 
+        public Notification GetNotificationByReaction(string url, string sendername)
+        {
+            return _context.Notifications.FirstOrDefault(n => n.Url == url && n.SenderName == sendername);
+        }
+
+        public void RemoveNotify(Notification notification)
+        {
+            _context.Remove(notification);
+            _context.SaveChanges();
+        }
+
         public void RemoveReaction(Reaction reaction)
         {
             _context.Remove(reaction);
