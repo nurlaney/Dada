@@ -38,7 +38,7 @@ upvotes.forEach(function (el) {
 
         if (el.classList.contains("liked")) {
             $.ajax({
-                url: 'reaction/removeupvote/' + url.substr(35),
+                url: '../../reaction/removeupvote/' + url.substr(35),
                 type: 'GET',
                 success: function () {
                     el.classList.remove("liked");
@@ -51,7 +51,7 @@ upvotes.forEach(function (el) {
             });
 
             $.ajax({
-                url: 'reaction/upvotepost/' + url.substr(35),
+                url: '../../reaction/upvotepost/' + url.substr(35),
                 type: 'GET',
                 success: function () {
                     el.classList.add("liked");

@@ -509,11 +509,8 @@
                 <!-- /QUICK POST -->
             }
 
-            @foreach (var item in Model.User.Posts.OrderByDescending(p=>p.AddedDate))
-            {
-
-
-                <!-- WIDGET BOX -->
+            @foreach (var item in Model.User.Posts.OrderByDescending(p => p.AddedDate))
+            {<!-- WIDGET BOX -->
                 <div class="widget-box no-padding">
                     <!-- WIDGET BOX SETTINGS -->
                     <div class="widget-box-settings">
@@ -530,17 +527,13 @@
                             <!-- /POST SETTINGS -->
                             <!-- SIMPLE DROPDOWN -->
                             <div class="simple-dropdown widget-box-post-settings-dropdown">
-                                @if (item.User.Token == ViewBag.token)
+                                @if (ViewBag.token == item.User.Token)
                                 {
                                     <!-- SIMPLE DROPDOWN LINK -->
                                     <a class="simple-dropdown-link text-danger confirmd" style="display:block;"><i class="fas fa-trash mr-2"></i>Sil</a>
                                     <!-- /SIMPLE DROPDOWN LINK -->
                                     <!-- SIMPLE DROPDOWN LINK -->
                                     <a class="simple-dropdown-link text-danger confirmed" asp-action="deletepost" asp-route-id="@item.Id" style="display:none;"><i class="fas fa-trash mr-2"></i>Əminsinizmi ?</a>
-                                    <!-- /SIMPLE DROPDOWN LINK -->
-
-                                    <!-- SIMPLE DROPDOWN LINK -->
-                                    <a class="simple-dropdown-link" style="display:block;"><i class="fas fa-thumbtack mr-2"></i>Profilinə sabitlə</a>
                                     <!-- /SIMPLE DROPDOWN LINK -->
                                 }
                                 else
@@ -565,8 +558,8 @@
                             <!-- USER STATUS -->
                             <div class="user-status">
                                 <!-- USER STATUS TITLE -->
-                                <p class="user-status-title medium">
-                                    <a class="bold" asp-controller="post" asp-action="index" asp-route-id="@item.Id">
+                                <p class="user-status-title medium postid">
+                                    <a class="bold" id="url" asp-controller="post" asp-action="index" asp-route-id="@item.Id">
                                         @item.Title
                                     </a>
                                 </p>
@@ -581,11 +574,11 @@
                             <!-- CONTENT ACTIONS -->
                             <div class="content-actions">
                                 <!-- CONTENT ACTION -->
-                                <div class="content-action">
+                                <div class="content-action" style="font-size:19px">
                                     <!-- META LINE -->
                                     <div class="meta-line">
                                         <!-- META LINE LINK -->
-                                        <a id="upvote">
+                                        <a class="@(ViewBag.user != null && item.Reactions.Any(r => r.UserId == ViewBag.user.Id && r.PostId == item.Id) ? "liked" : " ")" id="upvote">
                                             <i class="fab fa-fly"></i>
                                             @if (item.User.ConectionId != null)
                                             {
@@ -598,14 +591,14 @@
                                     <!-- /META LINE -->
                                     <!-- META LINE -->
                                     <div class="meta-line">
-                                        <!-- META LINE TEXT --> 
-                                        <i class="fas fa-chevron-down"></i>
+                                        <!-- META LINE TEXT -->
+                                        <a><i class="fas fa-chevron-down"></i> </a>
                                         <!-- /META LINE TEXT -->
                                     </div>
                                     <!-- META LINE -->
                                     <div class="meta-line">
                                         <!-- META LINE TEXT -->
-                                        <i class="fas fa-share"></i>
+                                        <a><i class="fas fa-share"></i></a>
                                         <!-- /META LINE TEXT -->
                                     </div>
                                     <!-- /META LINE -->
@@ -613,7 +606,6 @@
                                 <!-- /CONTENT ACTION -->
                                 <!-- CONTENT ACTION -->
                                 <div class="content-action">
-                                    <!-- META LINE -->
                                     @if (item.Group != null)
                                     {
                                         <div class="meta-line">
@@ -622,14 +614,10 @@
                                             <!-- /META LINE LINK -->
                                         </div>
                                     }
+                                    <!-- META LINE -->
                                     <div class="meta-line">
                                         <!-- META LINE LINK -->
-                                        <p class="meta-line-link">@item.User.Username</p>
-                                        <!-- /META LINE LINK -->
-                                    </div>
-                                    <div class="meta-line">
-                                        <!-- META LINE LINK -->
-                                        <p class="meta-line-link">@item.AddedDate.ToString("dd.MM.yyy")</p>
+                                        <a class="meta-line-text" asp-controller="profile" asp-action="index" asp-route-username="@item.User.Username">@item.User.Username</a>
                                         <!-- /META LINE LINK -->
                                     </div>
                                     <!-- /META LINE -->

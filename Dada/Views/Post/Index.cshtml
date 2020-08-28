@@ -49,13 +49,13 @@
                                 <!-- /POST SETTINGS -->
                                 <!-- SIMPLE DROPDOWN -->
                                 <div class="simple-dropdown widget-box-post-settings-dropdown">
-                                    @if (Model.User.Token == ViewBag.token)
+                                    @if (ViewBag.token == Model.User.Token)
                                     {
                                         <!-- SIMPLE DROPDOWN LINK -->
-                                        <a class="simple-dropdown-link highlighted text-danger confirmd d-block"><i class="fas fa-trash-alt mr-2"></i>Sil</a>
+                                        <a class="simple-dropdown-link text-danger confirmd" style="display:block;"><i class="fas fa-trash mr-2"></i>Sil</a>
                                         <!-- /SIMPLE DROPDOWN LINK -->
                                         <!-- SIMPLE DROPDOWN LINK -->
-                                        <a asp-action="deletecomment" asp-route-id="@Model.Id" class="simple-dropdown-link highlighted text-danger d-none confirmed"><i class="fas fa-trash-alt mr-2"></i>Əminsinizmi ?</a>
+                                        <a class="simple-dropdown-link text-danger confirmed" asp-action="deletepost" asp-route-id="@Model.Id" style="display:none;"><i class="fas fa-trash mr-2"></i>Əminsinizmi ?</a>
                                         <!-- /SIMPLE DROPDOWN LINK -->
                                     }
                                     else
@@ -80,8 +80,8 @@
                                 <!-- USER STATUS -->
                                 <div class="user-status">
                                     <!-- USER STATUS TITLE -->
-                                    <p class="user-status-title medium">
-                                        <a class="bold" href="#" style="font-size:20px">
+                                    <p class="user-status-title medium postid">
+                                        <a class="bold" id="url" asp-controller="post" asp-action="index" asp-route-id="@Model.Id">
                                             @Model.Title
                                         </a>
                                     </p>
@@ -96,24 +96,31 @@
                                 <!-- CONTENT ACTIONS -->
                                 <div class="content-actions">
                                     <!-- CONTENT ACTION -->
-                                    <div class="content-action">
+                                    <div class="content-action" style="font-size:19px">
                                         <!-- META LINE -->
                                         <div class="meta-line">
                                             <!-- META LINE LINK -->
-                                            <i class="fab fa-fly"></i>
+                                            <a class="@(ViewBag.user != null && Model.Reactions.Any(r => r.UserId == ViewBag.user.Id && r.PostId == Model.Id) ? "liked" : " ")" id="upvote">
+                                                <i class="fab fa-fly"></i>
+                                                @if (Model.User.ConectionId != null)
+                                                {
+                                                    <p class="d-none" id="conn">@Model.User.ConectionId</p>
+
+                                                }
+                                            </a>
                                             <!-- /META LINE LINK -->
                                         </div>
                                         <!-- /META LINE -->
                                         <!-- META LINE -->
                                         <div class="meta-line">
                                             <!-- META LINE TEXT -->
-                                            <i class="fas fa-chevron-down"></i>
+                                            <a><i class="fas fa-chevron-down"></i> </a>
                                             <!-- /META LINE TEXT -->
                                         </div>
                                         <!-- META LINE -->
                                         <div class="meta-line">
                                             <!-- META LINE TEXT -->
-                                            <i class="fas fa-share"></i>
+                                            <a><i class="fas fa-share"></i></a>
                                             <!-- /META LINE TEXT -->
                                         </div>
                                         <!-- /META LINE -->
@@ -121,30 +128,45 @@
                                     <!-- /CONTENT ACTION -->
                                     <!-- CONTENT ACTION -->
                                     <div class="content-action">
+                                        @if (Model.Group != null)
+                                        {
+                                            <div class="meta-line">
+                                                <!-- META LINE LINK -->
+                                                <a asp-controller="group" asp-action="index" asp-route-id="@Model.GroupId" class="meta-line-link">@Model.Group.Name</a>
+                                                <!-- /META LINE LINK -->
+                                            </div>
+                                        }
                                         <!-- META LINE -->
                                         <div class="meta-line">
                                             <!-- META LINE LINK -->
-                                            <p class="meta-line-link">@Model.User.Username</p>
+                                            <a class="meta-line-text" asp-controller="profile" asp-action="index" asp-route-username="@Model.User.Username">@Model.User.Username</a>
                                             <!-- /META LINE LINK -->
                                         </div>
                                         <!-- /META LINE -->
                                         <!-- META LINE -->
                                         <div class="meta-line">
                                             <!-- META LINE TEXT -->
-                                            <p class="meta-line-text">@Model.Comments.Count() Şərh</p>
+                                            <p class="meta-line-text">@Model.Comments.Count() şərh</p>
+                                            <!-- /META LINE TEXT -->
+                                        </div>
+                                        <!-- /META LINE -->
+                                        <!-- META LINE -->
+                                        <div class="meta-line">
+                                            <!-- META LINE TEXT -->
+                                            <a asp-controller="post" asp-action="index" asp-route-id="@Model.Id" class="meta-line-text">Başlığa get</a>
                                             <!-- /META LINE TEXT -->
                                         </div>
                                         <!-- /META LINE -->
                                     </div>
-                                    <!-- /META LINE -->
+                                    <!-- /CONTENT ACTION -->
                                 </div>
-                                <!-- /CONTENT ACTION -->
+                                <!-- /CONTENT ACTIONS -->
                             </div>
-                            <!-- /CONTENT ACTIONS -->
+                            <!-- /WIDGET BOX STATUS CONTENT -->
                         </div>
-                        <!-- /WIDGET BOX STATUS CONTENT -->
+                        <!-- /WIDGET BOX STATUS -->
                     </div>
-                    <!-- /WIDGET BOX STATUS -->
+                    <!-- /WIDGET BOX -->
                 </div>
                 <!-- /FORUM POST -->
                 @foreach (var item in Model.Comments)

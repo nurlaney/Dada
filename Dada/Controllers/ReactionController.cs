@@ -45,6 +45,7 @@ namespace Dada.Controllers
 
             var reaction = _reactionRepository.FindReaction(myprofile.Id, id);
 
+
             _reactionRepository.RemoveReaction(reaction);
 
 

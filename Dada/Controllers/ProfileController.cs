@@ -25,8 +25,10 @@ namespace Dada.Controllers
         public IActionResult Index(string username)
         {
             var token = HttpContext.Request.Cookies["user-token"];
+            var myprofile = _profileRepository.GetUserByToken(token);
 
             ViewBag.token = token;
+            ViewBag.user = myprofile;
 
             var profile = _profileRepository.GetUserByUserName(username);
 

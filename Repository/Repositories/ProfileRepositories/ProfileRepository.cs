@@ -40,12 +40,12 @@ namespace Repository.Repositories.ProfileRepositories
 
         public Post GetPostById(int id)
         {
-           return _context.Posts.Include(p=>p.Comments).FirstOrDefault(p => p.Id == id);
+           return _context.Posts.Include(p=>p.Comments).Include("Reactions").FirstOrDefault(p => p.Id == id);
         }
 
         public Post GetPostByUsername(string username)
         {
-            return _context.Posts.FirstOrDefault(p => p.User.Username == username);
+            return _context.Posts.Include("Reactions").FirstOrDefault(p => p.User.Username == username);
         }
 
         public User GetProfile(string username)
@@ -57,6 +57,7 @@ namespace Repository.Repositories.ProfileRepositories
                                     .Include("UserData")
                                     .Include("UserSocial")
                                     .Include("GroupUsers.Group")
+                                    .Include("Reactions")
                                     .FirstOrDefault(u => u.Username == username);
         } 
 
@@ -70,6 +71,7 @@ namespace Repository.Repositories.ProfileRepositories
                                     .Include("UserSocial")
                                     .Include("GroupUsers.Group")
                                     .Include(u=>u.Notifications)
+                                    .Include("Reactions")
                                     .FirstOrDefault(u => u.Token == token);
         }
 
@@ -82,6 +84,7 @@ namespace Repository.Repositories.ProfileRepositories
                                    .Include("UserData")
                                    .Include("UserSocial")
                                    .Include(u => u.Posts)
+                                   .Include("Reactions")
                                    .FirstOrDefault(u => u.Username == username);
         }
 
