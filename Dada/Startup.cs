@@ -13,6 +13,7 @@ using Repository.Repositories.GroupRepositories;
 using Repository.Repositories.MainRepositories;
 using Repository.Repositories.PostRepositories;
 using Repository.Repositories.ProfileRepositories;
+using Repository.Repositories.ReactionRepositories;
 using Repository.Repositories.SearchRepositories;
 using Repository.Repositories.SettingsRepositories;
 
@@ -42,6 +43,7 @@ namespace Dada
             services.AddTransient<ISearchRepository, SearchRepository>();
             services.AddTransient<ISettingRepository, SettingRepository>();
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IReactionRepository, ReactionRepository>();
 
             services.AddDbContext<DadaDbContext>(options =>
                   options.UseSqlServer(Configuration.GetConnectionString("Default"),

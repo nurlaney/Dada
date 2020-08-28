@@ -177,7 +177,7 @@
                             <!-- USER STATUS -->
                             <div class="user-status">
                                 <!-- USER STATUS TITLE -->
-                                <p class="user-status-title medium">
+                                <p class="user-status-title medium postid">
                                     <a class="bold" id="url" asp-controller="post" asp-action="index" asp-route-id="@item.Id">
                                         @item.Title
                                     </a>
@@ -193,12 +193,12 @@
                             <!-- CONTENT ACTIONS -->
                             <div class="content-actions">
                                 <!-- CONTENT ACTION -->
-                                <div class="content-action">
+                                <div class="content-action" style="font-size:19px">
                                     <!-- META LINE -->
                                     <div class="meta-line">
                                         <!-- META LINE LINK -->
                                         <a id="upvote">
-                                            <i class="fab fa-fly"></i> 
+                                            <i class="fab fa-fly"></i>
                                             @if (item.User.ConectionId != null)
                                             {
                                                 <p class="d-none" id="conn">@item.User.ConectionId</p>
@@ -206,7 +206,6 @@
                                             }
                                         </a>
                                         <!-- /META LINE LINK -->
-
                                     </div>
                                     <!-- /META LINE -->
                                     <!-- META LINE -->

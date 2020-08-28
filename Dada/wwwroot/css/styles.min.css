@@ -12369,3 +12369,7 @@ figure > img {
     .notreaden{ 
          background-color:antiquewhite;
     }
+.liked {
+    color: #3fe2d3 !important;
+    transition: all 0.8s;
+}

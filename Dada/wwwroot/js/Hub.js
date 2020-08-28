@@ -30,15 +30,35 @@ const upvotes = document.querySelectorAll("#upvote");
 
 upvotes.forEach(function (el) {
     el.addEventListener("click", function (event) {
+
+        var url = el.parentNode.parentNode.parentNode.parentNode.firstElementChild.firstElementChild.firstElementChild.href;
         var text = "postunu yüksəltdi";
         var connectionid = el.childNodes[3].innerHTML;
-        var url = el.parentNode.parentNode.parentNode.parentNode.firstElementChild.firstElementChild.firstElementChild.href;
         var senderName = document.getElementById("sendername").innerHTML;
-        console.log(url, senderName);
 
-        connection.invoke("SendMessage", text, connectionid, url, senderName).catch(function (err) {
-            return console.error(err.toString());
-        });
+        if (el.classList.contains("liked")) {
+            $.ajax({
+                url: 'reaction/removeupvote/' + url.substr(35),
+                type: 'GET',
+                success: function () {
+                    el.classList.remove("liked");
+                }
+
+            });
+        } else {
+            connection.invoke("SendMessage", text, connectionid, url, senderName).catch(function (err) {
+                return console.error(err.toString());
+            });
+
+            $.ajax({
+                url: 'reaction/upvotepost/' + url.substr(35),
+                type: 'GET',
+                success: function () {
+                    el.classList.add("liked");
+                }
+
+            });
+        }
 
         event.preventDefault();
     });
