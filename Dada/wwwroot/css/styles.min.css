@@ -12369,11 +12369,11 @@ figure > img {
     .notreaden{ 
          background-color:antiquewhite;
     }
-.liked {
+.liked, .likedc {
     color: #3fe2d3 !important;
     transition: all 0.8s;
 }
-.downvoted {
+.downvoted,.downvotedc {
     color: #f14949 !important;
     transition: all 0.8s;
 }

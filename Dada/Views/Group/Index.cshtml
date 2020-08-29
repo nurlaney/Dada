@@ -57,7 +57,7 @@
                 <!-- USER STAT -->
                 <div class="user-stat big">
                     <!-- USER STAT TITLE -->
-                    <p class="user-stat-title">7.3k</p>
+                    <p class="user-stat-title">13</p>
                     <!-- /USER STAT TITLE -->
                     <!-- USER STAT TEXT -->
                     <p class="user-stat-text">klub skoru</p>
@@ -297,390 +297,26 @@
                 </div>
                 <!-- /WIDGET BOX SETTINGS -->
                 <!-- WIDGET BOX TITLE -->
-                <p class="widget-box-title">Members</p>
+                <p class="widget-box-title">Klublar</p>
                 <!-- /WIDGET BOX TITLE -->
                 <!-- WIDGET BOX CONTENT -->
                 <div class="widget-box-content">
-                    <!-- FILTERS -->
-                    <div class="filters">
-                        <!-- FILTER -->
-                        <p class="filter">Newest</p>
-                        <!-- /FILTER -->
-                        <!-- FILTER -->
-                        <p class="filter active">Popular</p>
-                        <!-- /FILTER -->
-                        <!-- FILTER -->
-                        <p class="filter">Active</p>
-                        <!-- /FILTER -->
-                    </div>
-                    <!-- /FILTERS -->
                     <!-- USER STATUS LIST -->
                     <div class="user-status-list">
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS AVATAR -->
-                            <a class="user-status-avatar" href="profile-timeline.html">
-                                <!-- USER AVATAR -->
-                                <div class="user-avatar small no-outline">
-                                    <!-- USER AVATAR CONTENT -->
-                                    <div class="user-avatar-content">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-image-30-32" data-src="img/avatar/07.jpg"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR CONTENT -->
-                                    <!-- USER AVATAR PROGRESS -->
-                                    <div class="user-avatar-progress">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-progress-40-44"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR PROGRESS -->
-                                    <!-- USER AVATAR PROGRESS BORDER -->
-                                    <div class="user-avatar-progress-border">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-border-40-44"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR PROGRESS BORDER -->
-                                    <!-- USER AVATAR BADGE -->
-                                    <div class="user-avatar-badge">
-                                        <!-- USER AVATAR BADGE BORDER -->
-                                        <div class="user-avatar-badge-border">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-22-24"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR BADGE BORDER -->
-                                        <!-- USER AVATAR BADGE CONTENT -->
-                                        <div class="user-avatar-badge-content">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-dark-16-18"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR BADGE CONTENT -->
-                                        <!-- USER AVATAR BADGE TEXT -->
-                                        <p class="user-avatar-badge-text">26</p>
-                                        <!-- /USER AVATAR BADGE TEXT -->
-                                    </div>
-                                    <!-- /USER AVATAR BADGE -->
-                                </div>
-                                <!-- /USER AVATAR -->
-                            </a>
-                            <!-- /USER STATUS AVATAR -->
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="profile-timeline.html">Sarah Diamond</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">24.5K profile views</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-add-friend">
-                                        <use xlink:href="#svg-add-friend"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
+                        @foreach (var item in ViewBag.groups)
+                        {
+                            <!-- USER STATUS -->
+                            <div class="user-status request-small">
+
+                                <!-- USER STATUS TITLE -->
+                                <p class="user-status-title"><a class="bold" asp-controller="group" asp-action="index" asp-route-id="@item.Id">@item.Name</a></p>
+                                <!-- /USER STATUS TITLE -->
+                                <!-- USER STATUS TEXT -->
+                                <p class="user-status-text small">@item.Subtitle</p>
+                                <!-- /USER STATUS TEXT -->
                             </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS AVATAR -->
-                            <a class="user-status-avatar" href="profile-timeline.html">
-                                <!-- USER AVATAR -->
-                                <div class="user-avatar small no-outline">
-                                    <!-- USER AVATAR CONTENT -->
-                                    <div class="user-avatar-content">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-image-30-32" data-src="img/avatar/03.jpg"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR CONTENT -->
-                                    <!-- USER AVATAR PROGRESS -->
-                                    <div class="user-avatar-progress">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-progress-40-44"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR PROGRESS -->
-                                    <!-- USER AVATAR PROGRESS BORDER -->
-                                    <div class="user-avatar-progress-border">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-border-40-44"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR PROGRESS BORDER -->
-                                    <!-- USER AVATAR BADGE -->
-                                    <div class="user-avatar-badge">
-                                        <!-- USER AVATAR BADGE BORDER -->
-                                        <div class="user-avatar-badge-border">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-22-24"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR BADGE BORDER -->
-                                        <!-- USER AVATAR BADGE CONTENT -->
-                                        <div class="user-avatar-badge-content">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-dark-16-18"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR BADGE CONTENT -->
-                                        <!-- USER AVATAR BADGE TEXT -->
-                                        <p class="user-avatar-badge-text">16</p>
-                                        <!-- /USER AVATAR BADGE TEXT -->
-                                    </div>
-                                    <!-- /USER AVATAR BADGE -->
-                                </div>
-                                <!-- /USER AVATAR -->
-                            </a>
-                            <!-- /USER STATUS AVATAR -->
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="profile-timeline.html">Nick Grissom</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">20.1K profile views</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-add-friend">
-                                        <use xlink:href="#svg-add-friend"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
-                            </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS AVATAR -->
-                            <a class="user-status-avatar" href="profile-timeline.html">
-                                <!-- USER AVATAR -->
-                                <div class="user-avatar small no-outline">
-                                    <!-- USER AVATAR CONTENT -->
-                                    <div class="user-avatar-content">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-image-30-32" data-src="img/avatar/23.jpg"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR CONTENT -->
-                                    <!-- USER AVATAR PROGRESS -->
-                                    <div class="user-avatar-progress">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-progress-40-44"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR PROGRESS -->
-                                    <!-- USER AVATAR PROGRESS BORDER -->
-                                    <div class="user-avatar-progress-border">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-border-40-44"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR PROGRESS BORDER -->
-                                    <!-- USER AVATAR BADGE -->
-                                    <div class="user-avatar-badge">
-                                        <!-- USER AVATAR BADGE BORDER -->
-                                        <div class="user-avatar-badge-border">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-22-24"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR BADGE BORDER -->
-                                        <!-- USER AVATAR BADGE CONTENT -->
-                                        <div class="user-avatar-badge-content">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-dark-16-18"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR BADGE CONTENT -->
-                                        <!-- USER AVATAR BADGE TEXT -->
-                                        <p class="user-avatar-badge-text">19</p>
-                                        <!-- /USER AVATAR BADGE TEXT -->
-                                    </div>
-                                    <!-- /USER AVATAR BADGE -->
-                                </div>
-                                <!-- /USER AVATAR -->
-                            </a>
-                            <!-- /USER STATUS AVATAR -->
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="profile-timeline.html">Rosie Sakura</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">19.7K profile views</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-add-friend">
-                                        <use xlink:href="#svg-add-friend"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
-                            </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS AVATAR -->
-                            <a class="user-status-avatar" href="profile-timeline.html">
-                                <!-- USER AVATAR -->
-                                <div class="user-avatar small no-outline">
-                                    <!-- USER AVATAR CONTENT -->
-                                    <div class="user-avatar-content">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-image-30-32" data-src="img/avatar/15.jpg"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR CONTENT -->
-                                    <!-- USER AVATAR PROGRESS -->
-                                    <div class="user-avatar-progress">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-progress-40-44"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR PROGRESS -->
-                                    <!-- USER AVATAR PROGRESS BORDER -->
-                                    <div class="user-avatar-progress-border">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-border-40-44"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR PROGRESS BORDER -->
-                                    <!-- USER AVATAR BADGE -->
-                                    <div class="user-avatar-badge">
-                                        <!-- USER AVATAR BADGE BORDER -->
-                                        <div class="user-avatar-badge-border">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-22-24"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR BADGE BORDER -->
-                                        <!-- USER AVATAR BADGE CONTENT -->
-                                        <div class="user-avatar-badge-content">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-dark-16-18"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR BADGE CONTENT -->
-                                        <!-- USER AVATAR BADGE TEXT -->
-                                        <p class="user-avatar-badge-text">22</p>
-                                        <!-- /USER AVATAR BADGE TEXT -->
-                                    </div>
-                                    <!-- /USER AVATAR BADGE -->
-                                </div>
-                                <!-- /USER AVATAR -->
-                            </a>
-                            <!-- /USER STATUS AVATAR -->
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="profile-timeline.html">Peter Stark</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">16.5K profile views</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-add-friend">
-                                        <use xlink:href="#svg-add-friend"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
-                            </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
-                        <!-- USER STATUS -->
-                        <div class="user-status request-small">
-                            <!-- USER STATUS AVATAR -->
-                            <a class="user-status-avatar" href="profile-timeline.html">
-                                <!-- USER AVATAR -->
-                                <div class="user-avatar small no-outline">
-                                    <!-- USER AVATAR CONTENT -->
-                                    <div class="user-avatar-content">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-image-30-32" data-src="img/avatar/04.jpg"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR CONTENT -->
-                                    <!-- USER AVATAR PROGRESS -->
-                                    <div class="user-avatar-progress">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-progress-40-44"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR PROGRESS -->
-                                    <!-- USER AVATAR PROGRESS BORDER -->
-                                    <div class="user-avatar-progress-border">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-border-40-44"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR PROGRESS BORDER -->
-                                    <!-- USER AVATAR BADGE -->
-                                    <div class="user-avatar-badge">
-                                        <!-- USER AVATAR BADGE BORDER -->
-                                        <div class="user-avatar-badge-border">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-22-24"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR BADGE BORDER -->
-                                        <!-- USER AVATAR BADGE CONTENT -->
-                                        <div class="user-avatar-badge-content">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-dark-16-18"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR BADGE CONTENT -->
-                                        <!-- USER AVATAR BADGE TEXT -->
-                                        <p class="user-avatar-badge-text">6</p>
-                                        <!-- /USER AVATAR BADGE TEXT -->
-                                    </div>
-                                    <!-- /USER AVATAR BADGE -->
-                                </div>
-                                <!-- /USER AVATAR -->
-                            </a>
-                            <!-- /USER STATUS AVATAR -->
-                            <!-- USER STATUS TITLE -->
-                            <p class="user-status-title"><a class="bold" href="profile-timeline.html">Bearded Wonder</a></p>
-                            <!-- /USER STATUS TITLE -->
-                            <!-- USER STATUS TEXT -->
-                            <p class="user-status-text small">9.8K profile views</p>
-                            <!-- /USER STATUS TEXT -->
-                            <!-- ACTION REQUEST LIST -->
-                            <div class="action-request-list">
-                                <!-- ACTION REQUEST -->
-                                <div class="action-request accept">
-                                    <!-- ACTION REQUEST ICON -->
-                                    <svg class="action-request-icon icon-add-friend">
-                                        <use xlink:href="#svg-add-friend"></use>
-                                    </svg>
-                                    <!-- /ACTION REQUEST ICON -->
-                                </div>
-                                <!-- /ACTION REQUEST -->
-                            </div>
-                            <!-- ACTION REQUEST LIST -->
-                        </div>
-                        <!-- /USER STATUS -->
+                            <!-- /USER STATUS -->
+                        }
                     </div>
                     <!-- /USER STATUS LIST -->
                 </div>
@@ -731,7 +367,8 @@
             }
 
             @foreach (var item in Model.Posts)
-            {<!-- WIDGET BOX -->
+            {
+                <!-- WIDGET BOX -->
                 <div class="widget-box no-padding">
                     <!-- WIDGET BOX SETTINGS -->
                     <div class="widget-box-settings">
@@ -799,7 +436,7 @@
                                     <!-- META LINE -->
                                     <div class="meta-line">
                                         <!-- META LINE LINK -->
-                                        <a class="@(ViewBag.user != null && item.Reactions.Any(r => r.UserId == ViewBag.user.Id && r.PostId == item.Id) ? "liked" : " ")" id="upvote">
+                                        <a class="@(ViewBag.user != null && item.Reactions.Any(r => r.UserId == ViewBag.user.Id && r.PostId == item.Id && r.Upvote == true) ? "liked" : " ")" id="upvote">
                                             <i class="fab fa-fly"></i>
                                             @if (item.User.ConectionId != null)
                                             {
@@ -810,10 +447,20 @@
                                         <!-- /META LINE LINK -->
                                     </div>
                                     <!-- /META LINE -->
+                                    <div class="meta-line" style="margin-left:3px;">
+                                        <span style="font-size:13px" class="badge badge-info">@item.Reactions.Where(r => r.Upvote == true).Count()-@item.Reactions.Where(r => r.Upvote == false).Count()</span>
+                                    </div>
                                     <!-- META LINE -->
-                                    <div class="meta-line">
+                                    <div class="meta-line" style="margin-left:3px;">
                                         <!-- META LINE TEXT -->
-                                        <a><i class="fas fa-chevron-down"></i> </a>
+                                        <a class="@(ViewBag.user != null && item.Reactions.Any(r => r.UserId == ViewBag.user.Id && r.PostId == item.Id && r.Upvote == false) ? "downvoted" : " ")" id="downvote">
+                                            <i class="fas fa-chevron-down"></i>
+                                            @if (item.User.ConectionId != null)
+                                            {
+                                                <p class="d-none" id="conn">@item.User.ConectionId</p>
+
+                                            }
+                                        </a>
                                         <!-- /META LINE TEXT -->
                                     </div>
                                     <!-- META LINE -->
@@ -962,166 +609,29 @@
                 </div>
                 <!-- /WIDGET BOX SETTINGS -->
                 <!-- WIDGET BOX TITLE -->
-                <p class="widget-box-title">Discussions <span class="highlighted">16</span></p>
+                <p class="widget-box-title">Başlıqlar</p>
                 <!-- /WIDGET BOX TITLE -->
                 <!-- WIDGET BOX CONTENT -->
                 <div class="widget-box-content">
-                    <!-- FILTERS -->
-                    <div class="filters">
-                        <!-- FILTER -->
-                        <p class="filter">Newest</p>
-                        <!-- /FILTER -->
-                        <!-- FILTER -->
-                        <p class="filter active">Popular</p>
-                        <!-- /FILTER -->
+                    <!-- POST PEEK LIST -->
+                    <div class="post-peek-list">
+                        @foreach (var item in ViewBag.titles)
+                        {
+                            <!-- POST PEEK -->
+                            <div class="post-peek">
+                                <!-- POST PEEK TITLE -->
+                                <p class="post-peek-title"><a asp-controller="post" asp-action="index" asp-route-id="@item.Id">@item.Title</a><span class="badge badge-secondary ml-2">@item.Comments.Count</span></p>
+                                <!-- /POST PEEK TITLE -->
+                                <!-- POST PEEK TEXT -->
+                                <p class="post-peek-text">@item.AddedDate.ToString("dd.MM.yyyy")</p>
+                                <!-- /POST PEEK TEXT -->
+                            </div>
+                            <!-- /POST PEEK -->
+                        }
                     </div>
-                    <!-- /FILTERS -->
-                    <!-- POST PREVIEW LINE LIST -->
-                    <div class="post-preview-line-list">
-                        <!-- POST PREVIEW LINE -->
-                        <div class="post-preview-line">
-                            <!-- POST PREVIEW LINE TITLE -->
-                            <p class="post-preview-line-title"><a href="forums-discussion.html">In your opinion, who has the best cosplay?</a></p>
-                            <!-- /POST PREVIEW LINE TITLE -->
-                            <!-- POST PREVIEW LINE META -->
-                            <div class="post-preview-line-meta">
-                                <!-- USER AVATAR -->
-                                <a class="user-avatar micro no-border" href="profile-timeline.html">
-                                    <!-- USER AVATAR CONTENT -->
-                                    <div class="user-avatar-content">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-image-18-20" data-src="img/avatar/05.jpg"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR CONTENT -->
-                                </a>
-                                <!-- /USER AVATAR -->
-                                <!-- POST PREVIEW LINE AUTHOR -->
-                                <p class="post-preview-line-author"><a href="profile-timeline.html">By Neko Bebop</a></p>
-                                <!-- /POST PREVIEW LINE AUTHOR -->
-                                <!-- POST PREVIEW LINE TIMESTAMP -->
-                                <p class="post-preview-line-timestamp">2 weeks ago</p>
-                                <!-- /POST PREVIEW LINE TIMESTAMP -->
-                            </div>
-                            <!-- /POST PREVIEW LINE META -->
-                        </div>
-                        <!-- /POST PREVIEW LINE -->
-                        <!-- POST PREVIEW LINE -->
-                        <div class="post-preview-line">
-                            <!-- POST PREVIEW LINE TITLE -->
-                            <p class="post-preview-line-title"><a href="forums-discussion.html">Preparing everything for CosWorld 2019, show your works here!</a></p>
-                            <!-- /POST PREVIEW LINE TITLE -->
-                            <!-- POST PREVIEW LINE META -->
-                            <div class="post-preview-line-meta">
-                                <!-- USER AVATAR -->
-                                <a class="user-avatar micro no-border" href="profile-timeline.html">
-                                    <!-- USER AVATAR CONTENT -->
-                                    <div class="user-avatar-content">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-image-18-20" data-src="img/avatar/03.jpg"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR CONTENT -->
-                                </a>
-                                <!-- /USER AVATAR -->
-                                <!-- POST PREVIEW LINE AUTHOR -->
-                                <p class="post-preview-line-author"><a href="profile-timeline.html">By Nick Grissom</a></p>
-                                <!-- /POST PREVIEW LINE AUTHOR -->
-                                <!-- POST PREVIEW LINE TIMESTAMP -->
-                                <p class="post-preview-line-timestamp">13 hours ago</p>
-                                <!-- /POST PREVIEW LINE TIMESTAMP -->
-                            </div>
-                            <!-- /POST PREVIEW LINE META -->
-                        </div>
-                        <!-- /POST PREVIEW LINE -->
-                        <!-- POST PREVIEW LINE -->
-                        <div class="post-preview-line">
-                            <!-- POST PREVIEW LINE TITLE -->
-                            <p class="post-preview-line-title"><a href="forums-discussion.html">Official Topic! Let's organize the global meetups for all continents!</a></p>
-                            <!-- /POST PREVIEW LINE TITLE -->
-                            <!-- POST PREVIEW LINE META -->
-                            <div class="post-preview-line-meta">
-                                <!-- USER AVATAR -->
-                                <a class="user-avatar micro no-border" href="profile-timeline.html">
-                                    <!-- USER AVATAR CONTENT -->
-                                    <div class="user-avatar-content">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-image-18-20" data-src="img/avatar/02.jpg"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR CONTENT -->
-                                </a>
-                                <!-- /USER AVATAR -->
-                                <!-- POST PREVIEW LINE AUTHOR -->
-                                <p class="post-preview-line-author"><a href="profile-timeline.html">By Destroy Dex</a></p>
-                                <!-- /POST PREVIEW LINE AUTHOR -->
-                                <!-- POST PREVIEW LINE TIMESTAMP -->
-                                <p class="post-preview-line-timestamp">5 days ago</p>
-                                <!-- /POST PREVIEW LINE TIMESTAMP -->
-                            </div>
-                            <!-- /POST PREVIEW LINE META -->
-                        </div>
-                        <!-- /POST PREVIEW LINE -->
-                        <!-- POST PREVIEW LINE -->
-                        <div class="post-preview-line">
-                            <!-- POST PREVIEW LINE TITLE -->
-                            <p class="post-preview-line-title"><a href="forums-discussion.html">Share your cosplay tips here! Tutorials, DIY's, paints and more</a></p>
-                            <!-- /POST PREVIEW LINE TITLE -->
-                            <!-- POST PREVIEW LINE META -->
-                            <div class="post-preview-line-meta">
-                                <!-- USER AVATAR -->
-                                <a class="user-avatar micro no-border" href="profile-timeline.html">
-                                    <!-- USER AVATAR CONTENT -->
-                                    <div class="user-avatar-content">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-image-18-20" data-src="img/avatar/05.jpg"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR CONTENT -->
-                                </a>
-                                <!-- /USER AVATAR -->
-                                <!-- POST PREVIEW LINE AUTHOR -->
-                                <p class="post-preview-line-author"><a href="profile-timeline.html">By Neko Bebop</a></p>
-                                <!-- /POST PREVIEW LINE AUTHOR -->
-                                <!-- POST PREVIEW LINE TIMESTAMP -->
-                                <p class="post-preview-line-timestamp">20 hours ago</p>
-                                <!-- /POST PREVIEW LINE TIMESTAMP -->
-                            </div>
-                            <!-- /POST PREVIEW LINE META -->
-                        </div>
-                        <!-- /POST PREVIEW LINE -->
-                        <!-- POST PREVIEW LINE -->
-                        <div class="post-preview-line">
-                            <!-- POST PREVIEW LINE TITLE -->
-                            <p class="post-preview-line-title"><a href="forums-discussion.html">Check out all the pictures I took at the CosplayWonder 2018</a></p>
-                            <!-- /POST PREVIEW LINE TITLE -->
-                            <!-- POST PREVIEW LINE META -->
-                            <div class="post-preview-line-meta">
-                                <!-- USER AVATAR -->
-                                <a class="user-avatar micro no-border" href="profile-timeline.html">
-                                    <!-- USER AVATAR CONTENT -->
-                                    <div class="user-avatar-content">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-image-18-20" data-src="img/avatar/07.jpg"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR CONTENT -->
-                                </a>
-                                <!-- /USER AVATAR -->
-                                <!-- POST PREVIEW LINE AUTHOR -->
-                                <p class="post-preview-line-author"><a href="profile-timeline.html">By Sarah Diamond</a></p>
-                                <!-- /POST PREVIEW LINE AUTHOR -->
-                                <!-- POST PREVIEW LINE TIMESTAMP -->
-                                <p class="post-preview-line-timestamp">19 days ago</p>
-                                <!-- /POST PREVIEW LINE TIMESTAMP -->
-                            </div>
-                            <!-- /POST PREVIEW LINE META -->
-                        </div>
-                        <!-- /POST PREVIEW LINE -->
-                    </div>
-                    <!-- /POST PREVIEW LINE LIST -->
+                    <!-- /POST PEEK LIST -->
                 </div>
-                <!-- WIDGET BOX CONTENT -->
+                <!-- /WIDGET BOX CONTENT -->
             </div>
             <!-- /WIDGET BOX -->
         </div>

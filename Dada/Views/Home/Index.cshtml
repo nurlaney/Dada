@@ -207,8 +207,11 @@
                                         <!-- /META LINE LINK -->
                                     </div>
                                     <!-- /META LINE -->
+                                    <div class="meta-line" style="margin-left:3px;">
+                                        <span style="font-size:13px" class="badge badge-info">@item.Reactions.Where(r=>r.Upvote == true).Count()-@item.Reactions.Where(r=>r.Upvote == false).Count()</span>
+                                    </div>
                                     <!-- META LINE -->
-                                    <div class="meta-line">
+                                    <div class="meta-line"style="margin-left:3px;">
                                         <!-- META LINE TEXT -->
                                         <a class="@(ViewBag.user != null && item.Reactions.Any(r => r.UserId == ViewBag.user.Id && r.PostId == item.Id && r.Upvote == false) ? "downvoted" : " ")" id="downvote">
                                             <i class="fas fa-chevron-down"></i>
@@ -318,13 +321,6 @@
                 <!-- /WIDGET BOX TITLE -->
                 <!-- WIDGET BOX CONTENT -->
                 <div class="widget-box-content">
-                    <!-- FILTERS -->
-                    <div class="filters">
-                        <!-- FILTER -->
-                        <a href="#">Hamsını gör</a>
-                        <!-- /FILTER -->
-                    </div>
-                    <!-- /FILTERS -->
                     <!-- USER STATUS LIST -->
                     <div class="user-status-list">
                         @foreach (var item in Model.Groups)
@@ -378,13 +374,6 @@
                 <!-- /WIDGET BOX TITLE -->
                 <!-- WIDGET BOX CONTENT -->
                 <div class="widget-box-content">
-                    <!-- FILTERS -->
-                    <div class="filters">
-                        <!-- FILTER -->
-                        <p class="filter active">Hamsını gör</p>
-                        <!-- /FILTER -->
-                    </div>
-                    <!-- /FILTERS -->
                     <!-- USER STATUS LIST -->
                     <div class="user-status-list">
                         @foreach (var item in Model.Users)

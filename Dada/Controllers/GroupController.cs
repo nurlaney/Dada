@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Repository.Data;
 using Repository.Models;
 using Repository.Repositories.GroupRepositories;
+using Repository.Repositories.MainRepositories;
 using Repository.Repositories.ProfileRepositories;
 
 namespace Dada.Controllers
@@ -17,20 +18,30 @@ namespace Dada.Controllers
         private readonly IMapper _mapper;
         private readonly IGroupRepository _groupRepository;
         private readonly IProfileRepository _profileRepository;
+        private readonly IMainRepositories _mainRepositories;
 
        public GroupController(IGroupRepository groupRepository,
                               IMapper mapper,
-                              IProfileRepository profileRepository)
+                              IProfileRepository profileRepository,
+                               IMainRepositories mainRepositories)
         {
             _groupRepository = groupRepository;
             _mapper = mapper;
             _profileRepository = profileRepository;
+            _mainRepositories = mainRepositories;
         }
         public IActionResult Index(int id)
         {
             var token = HttpContext.Request.Cookies["user-token"];
 
             var user = _profileRepository.GetUserByToken(token);
+
+            var groups = _mainRepositories.GetGroups();
+            var titles = _mainRepositories.GetPosts();
+
+            ViewBag.groups = groups;
+
+            ViewBag.titles = titles;
 
             ViewBag.token = token;
             ViewBag.user = user;

@@ -73,5 +73,101 @@ namespace Dada.Controllers
             };
             _reactionRepository.AddReaction(reaction);
         }
+
+        public void DownvoteComment(int id)
+        {
+            var token = HttpContext.Request.Cookies["user-token"];
+
+            var myprofile = _profileRepository.GetUserByToken(token);
+            CommentReaction commentReaction = new CommentReaction
+            {
+                UserId = myprofile.Id,
+                CommentId = id,
+                Upvote = false,
+                AddedDate = DateTime.Now
+            };
+            _reactionRepository.AddCommentReaction(commentReaction);
+        }
+
+        public IActionResult RemoveDownvote(int id)
+        {
+            var token = HttpContext.Request.Cookies["user-token"];
+
+            var myprofile = _profileRepository.GetUserByToken(token);
+
+            var reaction = _reactionRepository.FindReactionDown(myprofile.Id, id);
+
+
+            _reactionRepository.RemoveReaction(reaction);
+
+
+            var notifyToDelete = _reactionRepository.GetNotificationByReaction($"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}/post/index/" + id, myprofile.FullName);
+
+            if (notifyToDelete == null) return Ok();
+
+            _reactionRepository.RemoveNotify(notifyToDelete);
+
+
+            return Ok(notifyToDelete);
+        }
+
+        public IActionResult RemoveDownvoteComment(int id)
+        {
+            var token = HttpContext.Request.Cookies["user-token"];
+
+            var myprofile = _profileRepository.GetUserByToken(token);
+
+            var reaction = _reactionRepository.FindCommentReactionDown(myprofile.Id, id);
+
+
+            _reactionRepository.RemoveCommentReaction(reaction);
+
+
+            var notifyToDelete = _reactionRepository.GetNotificationByReaction($"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}/post/index/" + id, myprofile.FullName);
+
+            if (notifyToDelete == null) return Ok();
+
+            _reactionRepository.RemoveNotify(notifyToDelete);
+
+
+            return Ok(notifyToDelete);
+        }
+
+        public void UpvoteComment(int id)
+        {
+            var token = HttpContext.Request.Cookies["user-token"];
+
+            var myprofile = _profileRepository.GetUserByToken(token);
+            CommentReaction commentReaction = new CommentReaction
+            {
+                UserId = myprofile.Id,
+                CommentId = id,
+                Upvote = true,
+                AddedDate = DateTime.Now
+            };
+            _reactionRepository.AddCommentReaction(commentReaction);
+        }
+
+        public IActionResult RemoveUpvoteComment(int id)
+        {
+            var token = HttpContext.Request.Cookies["user-token"];
+
+            var myprofile = _profileRepository.GetUserByToken(token);
+
+            var reaction = _reactionRepository.FindCommentReaction(myprofile.Id, id);
+
+
+            _reactionRepository.RemoveCommentReaction(reaction);
+
+
+            var notifyToDelete = _reactionRepository.GetNotificationByReaction($"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}/post/index/" + id, myprofile.FullName);
+
+            if (notifyToDelete == null) return Ok();
+
+            _reactionRepository.RemoveNotify(notifyToDelete);
+
+
+            return Ok(notifyToDelete);
+        }
     }
 }

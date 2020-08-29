@@ -35,7 +35,7 @@ namespace Repository.Repositories.PostRepositories
 
         public Comment GetCommentById(int id)
         {
-            return _context.Comments.FirstOrDefault(c => c.Id == id);
+            return _context.Comments.Include("CommentReactions").FirstOrDefault(c => c.Id == id);
         }
 
         public Post GetPostById(int id)
@@ -45,6 +45,7 @@ namespace Repository.Repositories.PostRepositories
                                  .Include(p => p.Comments)
                                  .Include("User")
                                  .Include("Comments.User")
+                                 .Include("Reactions")
                                  .FirstOrDefault(p => p.Id == id);
         }   
     }

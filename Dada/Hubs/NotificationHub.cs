@@ -82,6 +82,57 @@ namespace Dada.Hubs
 
             await Clients.Client(connectionid).SendAsync("RecieveDownNotify", text, url, senderName);
         }
+
+        public async Task Upvotec(string text, string connectionid, string url, string senderName)
+        {
+
+            var httpContext = this.Context.GetHttpContext();
+
+            var token = httpContext.Request.Cookies["user-token"];
+            var myprofile = _profileRepository.GetUserByToken(token);
+
+            var recipient = _context.Users.FirstOrDefault(u => u.ConectionId == connectionid);
+
+            Notification notification = new Notification
+            {
+                IsRead = false,
+                Url = url,
+                SenderName = senderName,
+                SendDate = DateTime.Now,
+                UserId = recipient.Id,
+                Text = text
+            };
+
+            _context.Add(notification);
+            _context.SaveChanges();
+
+            await Clients.Client(connectionid).SendAsync("RecieveUpvotec", text, url, senderName);
+        }
+        public async Task DownVotec(string text, string connectionid, string url, string senderName)
+        {
+
+            var httpContext = this.Context.GetHttpContext();
+
+            var token = httpContext.Request.Cookies["user-token"];
+            var myprofile = _profileRepository.GetUserByToken(token);
+
+            var recipient = _context.Users.FirstOrDefault(u => u.ConectionId == connectionid);
+
+            Notification notification = new Notification
+            {
+                IsRead = false,
+                Url = url,
+                SenderName = senderName,
+                SendDate = DateTime.Now,
+                UserId = recipient.Id,
+                Text = text
+            };
+
+            _context.Add(notification);
+            _context.SaveChanges();
+
+            await Clients.Client(connectionid).SendAsync("RecieveDownNotify", text, url, senderName);
+        }
     }
 }
 

@@ -13,7 +13,7 @@
             <!-- /SECTION BANNER TITLE -->
         }
         <!-- SECTION BANNER TEXT -->
-        <p class="section-banner-text" style="background-color: #0000009c;display:inline-block">Talk about anything! Gaming, music, comics and more!</p>
+        <p class="section-banner-text" style="background-color: #0000009c;display:inline-block">Başlığa uyğun nə istəyirsən danış !</p>
         <!-- /SECTION BANNER TEXT -->
     </div>
     <!-- /SECTION BANNER -->
@@ -100,7 +100,7 @@
                                         <!-- META LINE -->
                                         <div class="meta-line">
                                             <!-- META LINE LINK -->
-                                            <a class="@(ViewBag.user != null && Model.Reactions.Any(r => r.UserId == ViewBag.user.Id && r.PostId == Model.Id) ? "liked" : " ")" id="upvote">
+                                            <a class="@(ViewBag.user != null && Model.Reactions.Any(r => r.UserId == ViewBag.user.Id && r.PostId == Model.Id && r.Upvote == true) ? "liked" : " ")" id="upvote">
                                                 <i class="fab fa-fly"></i>
                                                 @if (Model.User.ConectionId != null)
                                                 {
@@ -111,10 +111,20 @@
                                             <!-- /META LINE LINK -->
                                         </div>
                                         <!-- /META LINE -->
+                                        <div class="meta-line" style="margin-left:3px;">
+                                            <span style="font-size:13px" class="badge badge-info">@Model.Reactions.Where(r => r.Upvote == true).Count()-@Model.Reactions.Where(r => r.Upvote == false).Count()</span>
+                                        </div>
                                         <!-- META LINE -->
-                                        <div class="meta-line">
+                                        <div class="meta-line" style="margin-left:3px;">
                                             <!-- META LINE TEXT -->
-                                            <a><i class="fas fa-chevron-down"></i> </a>
+                                            <a class="@(ViewBag.user != null && Model.Reactions.Any(r => r.UserId == ViewBag.user.Id && r.PostId == Model.Id && r.Upvote == false) ? "downvoted" : " ")" id="downvote">
+                                                <i class="fas fa-chevron-down"></i>
+                                                @if (Model.User.ConectionId != null)
+                                                {
+                                                    <p class="d-none" id="conn">@Model.User.ConectionId</p>
+
+                                                }
+                                            </a>
                                             <!-- /META LINE TEXT -->
                                         </div>
                                         <!-- META LINE -->
@@ -173,110 +183,127 @@
                 {
 
                     <!-- FORUM POST -->
-                    <div class="forum-post">
-                        <!-- FORUM POST META -->
-                        <div class="forum-post-meta">
-                            <!-- FORUM POST TIMESTAMP -->
-                            <p class="forum-post-timestamp">@item.AddedDate.ToString("dd.MM.yyyy")</p>
-                            <!-- /FORUM POST TIMESTAMP -->
-                        </div>
-                        <!-- /FORUM POST META -->
-                        <!-- WIDGET BOX -->
-                        <div class="widget-box no-padding">
-                            <!-- WIDGET BOX SETTINGS -->
-                            <div class="widget-box-settings">
-                                <!-- POST SETTINGS WRAP -->
-                                <div class="post-settings-wrap">
-                                    <!-- POST SETTINGS -->
-                                    <div class="post-settings widget-box-post-settings-dropdown-trigger">
-                                        <!-- POST SETTINGS ICON -->
-                                        <svg class="post-settings-icon icon-more-dots">
-                                            <use xlink:href="#svg-more-dots"></use>
-                                        </svg>
-                                        <!-- /POST SETTINGS ICON -->
-                                    </div>
-                                    <!-- /POST SETTINGS -->
-                                    <!-- SIMPLE DROPDOWN -->
-                                    <div class="simple-dropdown widget-box-post-settings-dropdown">
-                                        @if (item.User.Token == ViewBag.token)
-                                        {
-                                            <!-- SIMPLE DROPDOWN LINK -->
-                                            <a class="simple-dropdown-link highlighted text-danger confirmd d-block"><i class="fas fa-trash-alt mr-2"></i>Sil</a>
-                                            <!-- /SIMPLE DROPDOWN LINK -->
-                                            <!-- SIMPLE DROPDOWN LINK -->
-                                            <a asp-action="deletecomment" asp-route-id="@item.Id" class="simple-dropdown-link highlighted text-danger d-none confirmed"><i class="fas fa-trash-alt mr-2"></i>Əminsinizmi ?</a>
-                                            <!-- /SIMPLE DROPDOWN LINK -->
-                                        }
-                                        else
-                                        {
-                                            <!-- SIMPLE DROPDOWN LINK -->
-                                            <p class="simple-dropdown-link"><i class="fas fa-bug mr-2"></i>Şikayət et</p>
-                                            <!-- /SIMPLE DROPDOWN LINK -->
-                                            <!-- SIMPLE DROPDOWN LINK -->
-                                            <p class="simple-dropdown-link highlighted text-danger"><i class="fas fa-ban mr-2"></i>Blokla</p>
-                                            <!-- /SIMPLE DROPDOWN LINK -->
-                                        }
-                                    </div>
-                                    <!-- /SIMPLE DROPDOWN -->
-                                </div>
-                                <!-- /POST SETTINGS WRAP -->
+            <div class="forum-post">
+                <!-- FORUM POST META -->
+                <div class="forum-post-meta">
+                    <!-- FORUM POST TIMESTAMP -->
+                    <p class="forum-post-timestamp">@item.AddedDate.ToString("dd.MM.yyyy")</p>
+                    <!-- /FORUM POST TIMESTAMP -->
+                </div>
+                <!-- /FORUM POST META -->
+                <!-- WIDGET BOX -->
+                <div class="widget-box no-padding">
+                    <!-- WIDGET BOX SETTINGS -->
+                    <div class="widget-box-settings">
+                        <!-- POST SETTINGS WRAP -->
+                        <div class="post-settings-wrap">
+                            <!-- POST SETTINGS -->
+                            <div class="post-settings widget-box-post-settings-dropdown-trigger">
+                                <!-- POST SETTINGS ICON -->
+                                <svg class="post-settings-icon icon-more-dots">
+                                    <use xlink:href="#svg-more-dots"></use>
+                                </svg>
+                                <!-- /POST SETTINGS ICON -->
                             </div>
-                            <!-- /WIDGET BOX SETTINGS -->
-                            <!-- WIDGET BOX STATUS -->
-                            <div class="widget-box-status">
-                                <!-- WIDGET BOX STATUS CONTENT -->
-                                <div class="widget-box-status-content">
-                                    <!-- WIDGET BOX STATUS TEXT -->
-                                    <p class="widget-box-status-text">
-                                        @item.Text
-                                    </p>
-                                    <!-- /WIDGET BOX STATUS TEXT -->
-                                    <!-- CONTENT ACTIONS -->
-                                    <div class="content-actions">
-                                        <!-- CONTENT ACTION -->
-                                        <div class="content-action">
-                                            <!-- META LINE -->
-                                            <div class="meta-line">
-                                                <!-- META LINE LINK -->
-                                                <i class="fab fa-fly"></i>
-                                                <!-- /META LINE LINK -->
-                                            </div>
-                                            <!-- /META LINE -->
-                                            <!-- META LINE -->
-                                            <div class="meta-line">
-                                                <!-- META LINE TEXT -->
-                                                <i class="fas fa-chevron-down"></i>
-                                                <!-- /META LINE TEXT -->
-                                            </div>
-                                            <!-- META LINE -->
-                                            <div class="meta-line">
-                                                <!-- META LINE TEXT -->
-                                                <i class="fas fa-share"></i>
-                                                <!-- /META LINE TEXT -->
-                                            </div>
-                                            <!-- /META LINE -->
-                                        </div>
-                                        <!-- /CONTENT ACTION -->
-                                        <!-- CONTENT ACTION -->
-                                        <div class="content-action">
-                                            <!-- META LINE -->
-                                            <div class="meta-line">
-                                                <!-- META LINE LINK -->
-                                                <p class="meta-line-link">@item.User.Username</p>
-                                                <!-- /META LINE LINK -->
-                                            </div>
-                                            <!-- /META LINE -->
-                                        </div>
-                                        <!-- /META LINE -->
-                                    </div>
-                                    <!-- /CONTENT ACTION -->
-                                </div>
-                                <!-- /CONTENT ACTIONS -->
+                            <!-- /POST SETTINGS -->
+                            <!-- SIMPLE DROPDOWN -->
+                            <div class="simple-dropdown widget-box-post-settings-dropdown">
+                                @if (ViewBag.token == item.User.Token)
+                                {
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <a class="simple-dropdown-link text-danger confirmd" style="display:block;"><i class="fas fa-trash mr-2"></i>Sil</a>
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <a class="simple-dropdown-link text-danger confirmed" asp-action="deletepost" asp-route-id="@item.Id" style="display:none;"><i class="fas fa-trash mr-2"></i>Əminsinizmi ?</a>
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+                                }
+                                else
+                                {
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <p class="simple-dropdown-link"><i class="fas fa-bug mr-2"></i>Şikayət et</p>
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <p class="simple-dropdown-link highlighted text-danger"><i class="fas fa-ban mr-2"></i>Blokla</p>
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+                                }
                             </div>
-                            <!-- /WIDGET BOX STATUS CONTENT -->
+                            <!-- /SIMPLE DROPDOWN -->
                         </div>
-                        <!-- /WIDGET BOX STATUS -->
+                        <!-- /POST SETTINGS WRAP -->
                     </div>
+                    <!-- /WIDGET BOX SETTINGS -->
+                    <!-- WIDGET BOX STATUS -->
+                    <div class="widget-box-status">
+                        <!-- WIDGET BOX STATUS CONTENT -->
+                        <div class="widget-box-status-content">
+                            <!-- WIDGET BOX STATUS TEXT -->
+                            <p class="widget-box-status-text">
+                                @item.Text
+                            </p>
+                            <!-- /WIDGET BOX STATUS TEXT -->
+                            <!-- CONTENT ACTIONS -->
+                            <div class="content-actions">
+                                <!-- CONTENT ACTION -->
+                                <div class="content-action" style="font-size:19px">
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE LINK -->
+                                        <a class="@(ViewBag.user != null && item.CommentReactions.Any(r => r.UserId == ViewBag.user.Id && r.CommentId == item.Id && r.Upvote == true) ? "likedc" : " ")" id="upvotec">
+                                            <i class="fab fa-fly"></i>
+                                            @if (item.User.ConectionId != null)
+                                            {
+                                                <p class="d-none" id="conn">@item.User.ConectionId</p>
+                                                <p class="d-none" >@item.Id</p>
+
+                                            }
+                                        </a>
+                                        <!-- /META LINE LINK -->
+                                    </div>
+                                    <!-- /META LINE -->
+                                    <div class="meta-line" style="margin-left:3px;">
+                                        <span style="font-size:13px" class="badge badge-info">@item.CommentReactions.Where(r => r.Upvote == true).Count()-@item.CommentReactions.Where(r => r.Upvote == false).Count()</span>
+                                    </div>
+                                    <!-- META LINE -->
+                                    <div class="meta-line" style="margin-left:3px;">
+                                        <!-- META LINE TEXT -->
+                                        <a class="@(ViewBag.user != null && item.CommentReactions.Any(r => r.UserId == ViewBag.user.Id && r.CommentId == item.Id && r.Upvote == false) ? "downvotedc" : " ")" id="downvotec">
+                                            <i class="fas fa-chevron-down"></i>
+                                            @if (item.User.ConectionId != null)
+                                            {
+                                                <p class="d-none" id="conn">@item.User.ConectionId</p>
+                                                <p class="d-none" >@item.Id</p>
+                                            }
+                                        </a>
+                                        <!-- /META LINE TEXT -->
+                                    </div>
+                                    <!-- META LINE -->
+                                    <div class="meta-line">
+                                        <!-- META LINE TEXT -->
+                                        <a><i class="fas fa-share"></i></a>
+                                        <!-- /META LINE TEXT -->
+                                    </div>
+                                    <!-- /META LINE -->
+                                </div>
+                                <!-- /CONTENT ACTION -->
+                                <!-- CONTENT ACTION -->
+                                <div class="content-action">
+                                    <div class="meta-line">
+                                        <!-- META LINE LINK -->
+                                        <a class="meta-line-text" asp-controller="profile" asp-action="index" asp-route-username="@item.User.Username">@item.User.Username</a>
+                                        <!-- /META LINE LINK -->
+                                    </div>
+                                    <!-- /META LINE -->
+                                </div>
+                                <!-- /CONTENT ACTION -->
+                            </div>
+                            <!-- /CONTENT ACTIONS -->
+                        </div>
+                        <!-- /WIDGET BOX STATUS CONTENT -->
+                    </div>
+                    <!-- /WIDGET BOX STATUS -->
+                </div>
+                <!-- /WIDGET BOX -->
+            </div>
                     <!-- /FORUM POST -->
                 }
                 @if (ViewBag.user != null)
@@ -325,7 +352,7 @@
                                             @if (Model.GroupId != null)
                                             {
                                                 <!-- BUTTON -->
-                                                <p class="button void">k/@Model.Group.Name</p>
+                                                <p class="button void">@Model.Group.Name</p>
                                                 <!-- /BUTTON -->
                                             }
                                             <!-- BUTTON -->
